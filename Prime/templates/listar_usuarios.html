@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+<title>Lista de usuários</title>
+</head>
+<body>
+    <h1>Usuários cadastrados no sistema</h1>
+    <div class="button">
+        <a href="{{ url_for('novo_usuario') }}" typeclass="button">Novo usuário</a>
+        <a href="{{ url_for('exportar_excel') }}" class="btn btn-excel">Exportar Excel</a>
+        <a href="{{ url_for('exportar_pdf') }}" class="btn btn-pdf">Exportar Pdf</a>
+        <!-- <a href="{{ url_for('gerar_usuarios') }}" class="btn btn-gerar">Gerar Usuários</a> -->
+         <form action="{{ url_for('gerar_usuarios') }}" method="post" style="margin-top: 10px; display: flex; align-items: center; gap: 10px;">
+            <input type="submit" value="Gerar Usuários">
+            <label for="qtd" style="margin: 0;"></label>
+            <input type="number" id="qtd" min="1" value="10" required class="label_add">
+         </form> 
+         <!-- NEED FIX NESSA BUDEGA DE GERAR USUARIOS 
+              PROBLEMA É QUE NEM O SINTOMAS FORAM IDENTIFICADOS -->
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Perfil</th>
+                <th>Sexo</th>
+                <th>Sangue</th>
+                <th>Idade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in usuarios %}
+            <tr>
+                <td> {{ u.id }} </td>
+                <td>{{ u.nome }}</td>
+                <td> {{ u.usuario }} </td>
+                <td> {{ u.perfil }} </td>
+                <td> {{ u.sexo }} </td>
+                <td> {{ u.sangue }} </td>
+                <td> {{ u.idade }} </td>
+                <td>
+                    <a href="{{ url_for('editar_usuario', usuario_id=u.id) }}" typeclass="button">>Editar</a>
+                    <form method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id, nome=u.nome) }}" style="display: inline; margin: 0; padding: 0;">
+                        <button type="submit" onclick="return confirm('Tem certeza?');" value="Excluir" class="botao-excluir" >Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+</body>
+</html>
+{% endblock %}

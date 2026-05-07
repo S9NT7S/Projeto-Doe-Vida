@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="imagens/x-icon" href="{{ url_for('static', filename='imagens/blood1.png') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    </head>
+    <body>
+        <h1>Critérios definitivos de impedimento:</h1>
+
+        <ul>
+            <li>Ter passado por um quadro de hepatite após os 11 anos de idade</li>
+            <li>Evidência clínica ou laboratorial das seguintes doenças transmissíveis pelo sangue: Hepatites B e C, Aids (vírus HIV), doenças associadas aos vírus HTLV I e II e doença de Chagas</li>
+            <li>Uso de drogas ilícitas injetáveis</li>
+            <li>Malária</li>
+        </ul>
+    </body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sistema{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="icon" type="imagens/x-icon" href="{{ url_for('static', filename='imagens/blood1.png') }}">
+</head>
+<body>
+
+    <!-- HTML -->
+    <div class="video">
+        <video autoplay loop muted playsinline class="video">
+            <source src="RedVideo.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+    <input type="checkbox" id="menu-toggle" hidden>
+    
+
+    <div class="wrapper">
+        <nav class="navbar">
+            <div class="container">
+                <a class="logo" href="/">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-button">Hemocentros no RS</a>
+                    <div class="dropdown-content">
+                        <a href="https://saude.rs.gov.br/hemocentro-do-estado-do-rio-grande-do-sul">HEMORGS - Hemocentro do Estado do Rio Grande do Sul</a>
+                        <a href="https://saude.rs.gov.br/hemopasso">HEMOPASSO - Hemocentro Regional de Passo Fundo</a>
+                        <a href="https://saude.rs.gov.br/hemopel">HEMOPEL - Hemocentro Regional de Pelotas</a>
+                        <a href="https://saude.rs.gov.br/hemosm">HEMOSM - Hemocentro Regional de Santa Maria</a>
+                        <a href="https://saude.rs.gov.br/hemocentro-regional-de-cruz-alta">HEMOCRUZ - Hemocentro Regional de Cruz Alta</a>
+                    </div>
+                </div>
+                {% if session.get('perfil_logado') == 'admin' %}
+                    <li><a href="{{ url_for('listar_usuarios') }}">Admin: Gerenciar usuários</a></li>
+                {% endif %}
+                <li><a href="{{ url_for('minha_area') }}">Meu Perfil</a> </li>
+                <li><a class="logout-btn" href="/logout">Sair</a></li>
+            </div>
+        </nav>
+
+        
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>
