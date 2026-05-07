@@ -27,4 +27,28 @@ class DashboardRepository:
         sql = "SELECT COUNT(*) AS total FROM usuarios WHERE perfil = 'esporadico'"
         return self.banco.query(sql)[0]["total"]
     
+    def contar_doadores_voluntarios(self):
+        # Redundante!
+        sql = "SELECT COUNT(*) AS total FROM usuarios WHERE perfil = 'voluntario'"
+        return self.banco.query(sql)[0]["total"]
     
+    def contar_doadores_direcionados(self):
+        # Doadores que doaram a uma pessoa direcionada
+        sql = "SELECT COUNT(*) AS total FROM usuarios WHERE perfil = 'direcionado'"
+        return self.banco.query(sql)[0]["total"]
+    
+    def contar_perfil(self):
+        # Contador de perfis ativos no sistema
+        sql = "SELECT COUNT(*) AS total FROM perfil"
+        return self.banco.query(sql)[0]["total"]
+    
+    def logins(self):
+        # Contador de logins realizados ao longo do dia
+        sql = """
+            SELECT DATE(data_hora) AS data, COUNT(*) AS total
+            FROM logins
+            GROUP BY DATE(data_hora)
+            ORDER BY data DESC
+            LIMIT 7
+        """
+        return self.banco.query(sql)
