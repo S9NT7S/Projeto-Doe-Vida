@@ -117,7 +117,7 @@ class AdminUsuarioController(BaseController):
             return render_template(
                 "editar_usuario.html",
                 usuario={
-                    "id": usuario_id
+                
                 },
                 erro=erro
             )
