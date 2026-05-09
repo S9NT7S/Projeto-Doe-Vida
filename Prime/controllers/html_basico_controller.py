@@ -2,7 +2,8 @@ from flask import render_template
 from controllers.base_controller import BaseController
 
 class HTMLBasicoController(BaseController):
-    def __init__(self, app):
+    def __init__(self, app, dashboard_service):
+        self.dashboard_service = dashboard_service
         self.rotas = [
             ('/', 'home', self.proteger_rota(self.pagina_inicial)),
             ('/cbasico1', 'cbasico1', self.cbasico1),

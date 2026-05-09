@@ -7,23 +7,27 @@ class DashboardService:
         total = len(usuarios)
 
         admins = len([u for u in usuarios if u["perfil"] == "admin"])
+
+        doadores = total - admins
         
-        dPrimeira = len([u for u in usuarios if u["perfil"] == "primeira"])
+        # dPrimeira = len([u for u in usuarios if u["perfil"] == "primeira"])
 
-        regulares = len([u for u in usuarios if u["perfil"] == "regular"])
+        # regulares = len([u for u in usuarios if u["perfil"] == "regular"])
 
-        esporadicos = len([u for u in usuarios if u["perfil"] == "esporadico"])
+        # esporadicos = len([u for u in usuarios if u["perfil"] == "esporadico"])
 
-        voluntarios = len([u for u in usuarios if u["perfil"] == "voluntario"])
+        # voluntarios = len([u for u in usuarios if u["perfil"] == "voluntario"])
 
-        direcionados = len([u for u in usuarios if u["perfil"] == "direcionado"])
+        # direcionados = len([u for u in usuarios if u["perfil"] == "direcionado"])
 
         return {
-            "Administradores": admins,
-            "Doadores de primeira vez": dPrimeira,
-            "Doadores regulares": regulares,
-            "Doadores esporadicos": esporadicos,
-            "Doadores voluntarios": voluntarios,
-            "Doadores direcionados": direcionados,
-            "Total de usuarios": total
+            "admins": admins,
+            "doadores": doadores,
+            "total_de_usuarios": total
         }
+    
+    # "dPrimeira": dPrimeira,
+    #         "regulares": regulares,
+    #         "esporadicos": esporadicos,
+    #         "voluntarios": voluntarios,
+    #         "direcionados": direcionados,

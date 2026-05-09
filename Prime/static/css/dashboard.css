@@ -7,7 +7,7 @@
 }
 
 .grafico-card {
-    background: #faa7a7;
+    background: #ffdbdb;
     border-radius: 12px;
     padding: 15px;
     box-shadow: 0 6px 15px rgba(114, 114, 114, 0.1);
@@ -27,7 +27,7 @@
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: rgb(58, 44, 44);
+    color: rgb(0, 0, 0);
 }
 
 .grafico-card canvas {

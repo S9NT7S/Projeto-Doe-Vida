@@ -28,21 +28,24 @@ class Dashboard {
 
     renderizarGraficos() {
         new Chart(this.graficoUsuarios, {
-            type: "bar",
+            type: "doughnut",
             data: {
-                labels: ["Admins", "Usuários"],
+                labels: ["Admins", "Doadores"],
                 datasets: [{
-                    label: "Usuários",
+                    // label: "Admin",
+                    // label: "Primeira vez",
                     data: [
+
                         this.dados.admins,
-                        this.dados.dPrimeira,
-                        this.dados.regulares,
-                        this.dados.esporadicos,
-                        this.dados.voluntarios,
-                        this.dados.direcionados,
-                        this.dados.total
+                        this.dados.doadores
+                        // this.dados.dPrimeira,
+                        // this.dados.regulares,
+                        // this.dados.esporadicos,
+                        // this.dados.voluntarios,
+                        // this.dados.direcionados,
+                        // this.dados.total
                     ],
-                    backgroundColor: ["#ff6384, #36a2eb"]
+                    backgroundColor: ["rgb(255, 99, 132)", "rgb(63, 185, 255)"]
                 }]
             },
             options: {
@@ -61,10 +64,10 @@ class Dashboard {
                     label: "Defeitos",
                     data: defeitos.map(d => d.total),
                     backgroundColor: [
-                        "#ffcd56",
-                        "#4bc0c0",
-                        "#9966ff",
-                        "#ff9f40"
+                        "rgb(195, 255, 99)",
+                        "rgb(76, 199, 248)",
+                        "rgb(150, 64, 248)",
+                        "rgb(255, 151, 33)"
                     ]
                 }]
             },
@@ -83,12 +86,12 @@ class Dashboard {
                 datasets: [{
                     data: grupos.map(g => g.total),
                     backgroundColor: [
-                        "#36a2eb",
-                        "#ff6384",
-                        "#ffcd56",
-                        "#4bc0c0",
-                        "#9966ff",
-                        "#ff9f40"
+                        "rgb(245, 255, 99)",
+                        "rgb(76, 199, 248)",
+                        "rgb(150, 64, 248)",
+                        "rgb(255, 151, 33)",
+                        "rgb(255, 33, 33)",
+                        "rgb(0, 255, 106)"
                     ]
                 }]
             },
@@ -105,7 +108,7 @@ class Dashboard {
                 datasets: [{
                     label: "Cadastros no sistema",
                     data: [5, 12, 20],
-                    borderColor: "#4bc0c0",
+                    borderColor: "rgb(37, 33, 255)",
                     backgroundColor: "rgba(54, 162, 235, 0.2)",
                     fill: true,
                     tension: 0.3
@@ -124,7 +127,7 @@ class Dashboard {
                 datasets: [{
                     label: "Uso do sistema",
                     data: [80, 60, 40, 20], 
-                    backgroundColor: "#4bc0c0"
+                    backgroundColor: "rgb(33, 166, 255)"
                 }]
             },
             options: {

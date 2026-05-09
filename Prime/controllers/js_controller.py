@@ -4,7 +4,7 @@ from banco.BancoMySQL import BancoMySQL
 from repositories.dashboard_repository import DashboardRepository
 from services.dashboard_service import DashboardService
 
-class JSBascioController(BaseController):
+class JSController(BaseController):
     def __init__(self, app):
         self.rotas = [
             ('/js/dashboard', 'js_dashboard', self.proteger_rota(self.dashboard)),
@@ -26,5 +26,5 @@ class JSBascioController(BaseController):
     
     def api_dashboard(self):
         service = self.get_service()
-        dados = service.obter_dados_dashboard()
+        dados = service.obter_dados()
         return jsonify(dados)
