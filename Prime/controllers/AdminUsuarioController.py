@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for, session, jsonify, send_file
+from flask import render_template, request, redirect, url_for, session, jsonify, send_file, flash
 from flask_login import current_user, login_required
 from controllers.base_controller import BaseController
 from banco.BancoMySQL import BancoMySQL
@@ -20,7 +20,7 @@ class AdminUsuarioController(BaseController):
             ('/listar_usuarios', 'listar_usuarios', self.proteger_rota(self.listar_usuarios)),
             ('/novo_usuario', 'novo_usuario', self.proteger_rota(self.novo_usuario), ['GET', 'POST']),
             ('/admin/usuarios/editar/<int:usuario_id>', 'editar_usuario', self.proteger_rota(self.editar_usuario), ['GET', 'POST']),
-            ('/admin/usuarios/excluir/<int:usuario_id>, <nome>', 'excluir_usuario', self.proteger_rota(self.excluir_usuario), ['GET', 'POST']),
+            ('/admin/usuarios/excluir/<int:usuario_id>', 'excluir_usuario', self.proteger_rota(self.excluir_usuario), ['GET', 'POST']),
             ('/exportar_excel', 'exportar_excel', self.proteger_rota(self.exportar_excel)),
             ('/exportar_pdf', 'exportar_pdf', self.proteger_rota(self.exportar_pdf)),
             ('/atualizar_nome', 'atualizar_nome', self.proteger_rota(self.atualizar_nome), ['GET', 'POST']),
@@ -90,12 +90,16 @@ class AdminUsuarioController(BaseController):
     def excluir_usuario(self, usuario_id, nome):
         if not self._somente_admin():
             return redirect(url_for("home"))
-        if nome == "admin":
+        
+        if session.get("usuario_id") == usuario_id:
+            flash("Você não pode excluir sua própria conta.", "erro")
             return redirect(url_for("listar_usuarios"))
+
         try:
-            self.usuario_service.excluir_usuario(usuario_id, nome)
+            self.usuario_service.excluir_usuario(usuario_id)
+            flash("Usuário excluído com sucesso.", "sucesso")
         except ValueError:
-            pass
+            flash(str(ValueError), "erro")
         
         return self.listar_usuarios()
 

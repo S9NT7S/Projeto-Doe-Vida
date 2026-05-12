@@ -20,12 +20,15 @@ class UsuarioRepository:
     def check_perfil(self, user_perfil):
         self.banco.executar("SELECT * FROM 'usuarios' WHERE perfil = 'admin';")
 
-    def excluir(self, usuario_id, nome):
+    def excluir(self, usuario_id):
         try:
-            if self.buscar_por_nome(nome) == "admin":
-                return
-            self.banco.executar("DELETE FROM usuarios WHERE id=%s", (usuario_id,))
-            self.banco.executar("DELETE FROM usuario_grupo WHERE usuario_id=%s", (usuario_id,))
+            cursor = self.banco.conexao.cursor()
+
+            cursor.execute("DELETE FROM usuarios WHERE id=%s", (usuario_id,))
+            cursor.execute("DELETE FROM usuario_grupo WHERE usuario_id=%s", (usuario_id,))
+
+            self.banco.conexao.commit()
+            
         except Exception as e:
             print("usuario_repository")
 

@@ -1,0 +1,56 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.model-content {
+    background-color: aliceblue;
+    margin: 15% auto;
+    padding: 20px;
+    width: 350px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h2 {
+    margin-bottom: 10px;
+    color: crimson;
+}
+
+.modal-content button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: none;
+    background: #3d39ff;
+    color:azure;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background: blue;
+}
+
+input.botao-excluir, button.botao-excluir {
+    background-color: tomato;
+    color: aliceblue;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    line-height: 1;
+    box-sizing: border-box;
+}
+
+input.botao-excluir:hover, button.botao-excluir:hover {
+    background-color: red;
+}

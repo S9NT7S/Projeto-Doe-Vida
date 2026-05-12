@@ -10,6 +10,23 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 <title>Lista de usuários</title>
 </head>
+<div id="modalConfirmacao" class="modal">
+    <div class="modal-content">
+        <h2>Confirmar exclusão</h2>
+
+        <p>Tem certeza que deseja excluir este usuário?</p>
+
+        <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+            <button onclick="confirmarExclusao()" class="botao-excluir">
+                Sim, excluir
+            </button>
+
+            <button onclick="fecharModalConfirmacao()" class="btn">
+                Cancelar
+            </button>
+        </div>
+    </div>
+</div>
 <body>
     <h1>Usuários cadastrados no sistema</h1>
     <div class="button">
@@ -49,9 +66,15 @@
                 <td> {{ u.idade }} </td>
                 <td>
                     <a href="{{ url_for('editar_usuario', usuario_id=u.id) }}" typeclass="button">>Editar</a>
-                    <form method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id, nome=u.nome) }}" style="display: inline; margin: 0; padding: 0;">
-                        <button type="submit" onclick="return confirm('Tem certeza?');" value="Excluir" class="botao-excluir" >Excluir</button>
+
+                    {% if session['usuario_id'] != u.id %}
+                    
+                    <form id="formExcluir{{ u.id }}" method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="display: inline; margin: 0; padding: 0;">
+                        <button type="button" onclick="abrirConfirmacao('{{ u.id }}')" value="Excluir" class="botao-excluir" >Excluir</button>
                     </form>
+
+                    {% endif %}
+
                 </td>
             </tr>
             {% endfor %}

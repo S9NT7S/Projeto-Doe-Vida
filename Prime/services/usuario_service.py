@@ -51,9 +51,14 @@ class UsuarioService:
     
         self.usuario_repository.atualizar(usuario_id=usuario_id, novo_nome=novo_nome, nova_senha=nova_senha, novo_perfil=novo_perfil, novo_sangue=novo_sangue, novo_sexo=novo_sexo, nova_idade=nova_idade)
 
-    def excluir_usuario(self, usuario_id: int, nome):
-        try:
-            self.usuario_repository.excluir(usuario_id, nome)
+    def excluir_usuario(self, usuario_id):
+        usuario = self.usuario_repository.buscar_por_id(usuario_id)
+        
+        if not usuario:
+            raise ValueError("Usuário não encontrado.")
+        
+        try:            
+            self.usuario_repository.excluir(usuario_id)
         
         except Exception as e:
             print("usuario_service")
