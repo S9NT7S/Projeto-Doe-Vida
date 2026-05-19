@@ -33,12 +33,7 @@
         <a href="{{ url_for('novo_usuario') }}" typeclass="button">Novo usuário</a>
         <a href="{{ url_for('exportar_excel') }}" class="btn btn-excel">Exportar Excel</a>
         <a href="{{ url_for('exportar_pdf') }}" class="btn btn-pdf">Exportar Pdf</a>
-        <!-- <a href="{{ url_for('gerar_usuarios') }}" class="btn btn-gerar">Gerar Usuários</a> -->
-         <form action="{{ url_for('gerar_usuarios') }}" method="post" style="margin-top: 10px; display: flex; align-items: center; gap: 10px;">
-            <input type="submit" value="Gerar Usuários">
-            <label for="qtd" style="margin: 0;"></label>
-            <input type="number" id="qtd" min="1" value="10" required class="label_add">
-         </form> 
+        <!-- <a href="{{ url_for('gerar_usuarios') }}" class="btn btn-gerar">Gerar Usuários</a> --> 
          <!-- NEED FIX NESSA BUDEGA DE GERAR USUARIOS 
               PROBLEMA É QUE NEM O SINTOMAS FORAM IDENTIFICADOS -->
     </div>

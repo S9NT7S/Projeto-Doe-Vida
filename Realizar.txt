@@ -1,9 +1,7 @@
-Continuar a implementação do dashboard <CRÍTICO>
+Continuar a implementação do dashboard <CRÍTICO> - tá feita, só arrumar e aprimorar
 
-Consertar o update de usuario <ALTO>
-
-Boa prova!
-
-Não foi tão boa assim
+Consertar o update de usuario <ALTO> - ainda não, mas dessa semana não escapa!
 
 Subir a navbar (sem espaços)
+
+'dict' object is not callable - Erro do gerar_usuarios pacote user_service, modulo app.py - FIX

@@ -4,7 +4,6 @@ from banco.BancoMySQL import BancoMySQL
 from repositories.usuario_repository import UsuarioRepository
 from services.usuario_service import UsuarioService
 import requests
-import json
 
 class LoginController(BaseController):
     def __init__(self, app):
@@ -83,7 +82,7 @@ class LoginController(BaseController):
         return render_template("minha_area.html")
     
     def gerar_usuarios_api(self):
-        if request.method == 'POST':
+        if request.method == "POST":
             qtd = int(request.form.get("qtd", 5))
 
             try:
@@ -91,7 +90,7 @@ class LoginController(BaseController):
                 "http://localhost:5001/gerar_usuarios",
                 json = {"qtd": qtd},
                 timeout=200
-            )
+                )
                 data = response.json()
                 usuarios_gerados = data.get("usuarios", [])
 
@@ -99,6 +98,7 @@ class LoginController(BaseController):
                 user_service = UsuarioService(user_repo)
 
                 for i in usuarios_gerados:
+                    print(i)
                     user_service.cadastrar_usuario(
                         nome=i['nome'],
                         email=i.get('email', i['usuario']+"@fake.com"),

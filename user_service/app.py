@@ -21,7 +21,7 @@ def gerar_usuario():
         "perfil": random.choice(['primeira', 'regular', 'esporadico', 'voluntario', 'direcionado']),
         "sexo": random.choice(['feminino', 'masculino', 'outro']),
         "sangue": random.choice(['a_positivo', 'a_negativo', 'b_positivo', 'b_negativo', 'ab_positivo', 'ab_negativo', 'o_positivo', 'o_negativo', 'nao_tenho_certeza']),
-        "idade": fake.random_int(min=16, max=69)
+        "idade": fake.random_int(min=16, max=100)
     }
 
 @app.route("/gerar_usuarios", methods=["POST"])
@@ -31,8 +31,9 @@ def gerar_usuarios():
         data = request.json() or {}
         qtd = int(data.get("qtd", 5))
         usuarios = [gerar_usuario() for _ in range(qtd)]
-        return jsonify({"usuarios": usuarios, "message":f"{qtd} usuários gerados com sucesso."}), 200
+        return jsonify({"usuarios": usuarios})
     except Exception as e:
+        print(e)
         return jsonify({"error": str(e)}), 500
     
 if __name__== "__main__":
