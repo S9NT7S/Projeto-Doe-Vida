@@ -28,7 +28,7 @@ def gerar_usuario():
 def gerar_usuarios():
     """Recebe a quantidade e retorna JSON (?) com usuários gerados"""
     try:
-        data = request.json() or {}
+        data = request.get_json() or {}
         qtd = int(data.get("qtd", 5))
         usuarios = [gerar_usuario() for _ in range(qtd)]
         return jsonify({"usuarios": usuarios})

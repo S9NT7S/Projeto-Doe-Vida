@@ -33,9 +33,6 @@
         <a href="{{ url_for('novo_usuario') }}" typeclass="button">Novo usuário</a>
         <a href="{{ url_for('exportar_excel') }}" class="btn btn-excel">Exportar Excel</a>
         <a href="{{ url_for('exportar_pdf') }}" class="btn btn-pdf">Exportar Pdf</a>
-        <!-- <a href="{{ url_for('gerar_usuarios') }}" class="btn btn-gerar">Gerar Usuários</a> --> 
-         <!-- NEED FIX NESSA BUDEGA DE GERAR USUARIOS 
-              PROBLEMA É QUE NEM O SINTOMAS FORAM IDENTIFICADOS -->
     </div>
     <table>
         <thead>
@@ -65,7 +62,7 @@
                     {% if session['usuario_id'] != u.id %}
                     
                     <form id="formExcluir{{ u.id }}" method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="display: inline; margin: 0; padding: 0;">
-                        <button type="button" onclick="abrirConfirmacao('{{ u.id }}')" value="Excluir" class="botao-excluir" >Excluir</button>
+                        <button type="button" class="botao-excluir" onclick="abrirConfirmacao('{{ u.id }}')">Excluir</button>
                     </form>
 
                     {% endif %}
@@ -76,6 +73,7 @@
         </tbody>
     </table>
 
+    <script src="{{ url_for('static', filename='js/admin_usuarios.js') }}"></script>
     
 </body>
 </html>

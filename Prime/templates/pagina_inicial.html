@@ -98,23 +98,4 @@
 
 </section>
 
-<h1 style="text-align: center; color: blue;">Dashboards</h1>
-<div class="graficos-container">
-
-    <div class="grafico-card">
-        <div class="grafico-titulo">Usuários</div>
-        <canvas id="graficoUsuarios"></canvas>
-    </div>
-
-    <div class="grafico-card">
-        <div class="grafico-titulo">Usuários por grupo</div>
-        <canva id="graficoGrupos"></canva>
-    </div>
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart/js"></script>
-
-<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
-
 {% endblock %}
