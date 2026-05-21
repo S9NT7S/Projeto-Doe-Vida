@@ -50,14 +50,14 @@
             {% for u in usuarios %}
             <tr>
                 <td> {{ u.id }} </td>
-                <td>{{ u.nome }}</td>
+                <td> {{ u.nome }} </td>
                 <td> {{ u.usuario }} </td>
                 <td> {{ u.perfil }} </td>
                 <td> {{ u.sexo }} </td>
                 <td> {{ u.sangue }} </td>
                 <td> {{ u.idade }} </td>
                 <td>
-                    <a href="{{ url_for('editar_usuario', usuario_id=u.id) }}" typeclass="button">>Editar</a>
+                    <a href="{{ url_for('editar_usuario', usuario_id=u.id) }}" typeclass="button">Editar</a>
 
                     {% if session['usuario_id'] != u.id %}
                     

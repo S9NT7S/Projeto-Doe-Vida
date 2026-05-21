@@ -32,10 +32,10 @@ class UsuarioRepository:
         except Exception as e:
             print("usuario_repository")
 
-    def update_nome(self, usuario_id, nome):
+    def update_nome(self, usuario_id, novo_nome):
         sql = "UPDATE usuarios SET nome=%s"
 
-        params = [nome]
+        params = [novo_nome]
 
         try:
             sql += " WHERE usuarios.id=%s"
@@ -86,6 +86,7 @@ class UsuarioRepository:
 
         except Exception as e:
             print("usuario_repository")
+            print(e)
 
     def update_senha(self, usuario_id, nova_senha):
         sql = "UPDATE usuarios SET senha=%s WHERE id=%s"

@@ -24,7 +24,7 @@ class AdminUsuarioController(BaseController):
             ('/admin/usuarios/excluir/<int:usuario_id>', 'excluir_usuario', self.proteger_rota(self.excluir_usuario), ['POST']),
             ('/exportar_excel', 'exportar_excel', self.proteger_rota(self.exportar_excel)),
             ('/exportar_pdf', 'exportar_pdf', self.proteger_rota(self.exportar_pdf)),
-            ('/atualizar_nome', 'atualizar_nome', self.proteger_rota(self.atualizar_nome), ['GET', 'POST']),
+            ('/admin/usuarios/atualizar_nome/<int:usuario_id>', 'atualizar_nome', self.proteger_rota(self.atualizar_nome), ['GET', 'POST']),
         ]
         super().__init__(app)
 
@@ -104,28 +104,31 @@ class AdminUsuarioController(BaseController):
         
         return self.listar_usuarios()
 
-    def atualizar_nome(self):
+    def atualizar_nome(self, usuario_id):
         if not self._somente_admin():
             return redirect(url_for("home"))
         
-        usuario = request.form.get("user_id")
+        # usuario = request.form.get("user_id")
 
-        nome = request.form.get("nome")
+        if request.method == "POST":
+            nome = request.form.get("nome")
 
-        try:
-            self.usuario_service.att_nome(usuario, nome)
+            print(usuario_id, nome)
 
-            return redirect(url_for("listar_usuarios"))
-        
-        except ValueError as e:
-            erro = str(e)
-            return render_template(
-                "editar_usuario.html",
-                usuario={
-                
-                },
-                erro=erro
-            )
+            try:
+                self.usuario_service.att_nome(usuario_id, nome)
+
+                return redirect(url_for("listar_usuarios"))
+            
+            except ValueError as e:
+                erro = str(e)
+                return render_template(
+                    "editar_usuario.html",
+                    usuario={
+                    
+                    },
+                    erro=erro
+                )
 
     def editar_usuario(self, usuario_id): #NÃO ESTÁ SALVANDO, MAS ESTÁ PASSANDO, A VER
         if not self._somente_admin():

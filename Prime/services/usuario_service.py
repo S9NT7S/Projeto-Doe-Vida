@@ -48,8 +48,11 @@ class UsuarioService:
             if not senha_valida:
                 raise ValueError(mensagem)
             senha_hash = bcrypt.hashpw(nova_senha.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
-    
-        self.usuario_repository.atualizar(usuario_id=usuario_id, novo_nome=novo_nome, nova_senha=nova_senha, novo_perfil=novo_perfil, novo_sangue=novo_sangue, novo_sexo=novo_sexo, nova_idade=nova_idade)
+
+        try:
+            self.usuario_repository.atualizar(usuario_id=usuario_id, novo_nome=novo_nome, nova_senha=senha_hash, novo_perfil=novo_perfil, novo_sangue=novo_sangue, novo_sexo=novo_sexo, nova_idade=nova_idade)
+        except Exception:
+            print(Exception)
 
     def excluir_usuario(self, usuario_id):
         usuario = self.usuario_repository.buscar_por_id(usuario_id)
