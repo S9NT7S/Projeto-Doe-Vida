@@ -3,99 +3,114 @@
 {% block title %}Página Inicial{% endblock %}
 
 {% block content %}
-<section class="mt-5 text-center">
 
-<h1>Requisitos para doar sangue</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pagina_inicial.css') }}">
+</head>
 
-<img src="static/imagens/doando.jpg" width="800" height="300">
+<body>
+    <section class="mt-5 text-center">
 
-<br>
+    <h1>Requisitos para doar sangue</h1>
 
-<div class=card>
-    <h1>Condições básicas para doar sangue</h1>
     <br>
-    <li><a href="{{ url_for('cbasico1') }}" target="_blank">Condições básicas para doar sangue</a></li>
-</div>
 
-<br>
+    <img src="static/imagens/doando.jpg" width="800" height="300">
 
-<div class="card">
-    <h1>Impedimentos temporários</h1>
     <br>
-    <li><a href="{{ url_for('impedimentos_temp') }}" target="_blank">TESTE</a></li>
-</div>
 
-<br>
+    <div class=card>
+        <a href="{{ url_for('cbasico1') }}" target="_blank" class="card-link">Condições básicas para doar sangue</a>
+    </div>
 
-<div class="card">
-    <h2>Impedimentos</h2>
-    <li><a href="{{ url_for('impedimentos_temp') }}" target="_blank">TESTE</a></li>
-</div>
+    <br>
 
-<br>
+    <div class="card">
+        <h1>Impedimentos temporários</h1>
+        <br>
+        <li><a href="{{ url_for('impedimentos_temp') }}" target="_blank">TESTE</a></li>
+    </div>
 
-<h2>Intervalos para doação</h2>
+    <br>
 
-<ul>
-    <li>Homens - 60 dias (máximo de 04 doações nos últimos 12 meses)</li>
-    <li>Mulheres - 90 dias (máximo de 03 doações nos últimos 12 meses)</li>
-</ul>
+    <div class="card">
+        <h2>Impedimentos</h2>
+        <li><a href="{{ url_for('impedimentos_temp') }}" target="_blank">TESTE</a></li>
+    </div>
 
-<br>
+    <br>
 
-<h2>Recomendações úteis após a doação de sangue:</h2>
+    <div class="card">
+        <h2>Intervalos para doação</h2>
 
-<ul>
-    <li>Permanecer sentado por 5 a 10 minutos</li>
-    <li>Manter o curativo no braço pelo menos por 4 horas</li>
-    <li>Tomar o lanche oferecido pelo Hemocentro</li>
-    <li>Evitar dobrar o braço puncionado por 30 minutos</li>
-    <li>Aumentar a ingestão de líquidos nas próximas 24 horas</li>
-    <li>Não ingerir bebidas alcoólicas por 12 horas</li>
-    <li>Não fumar por cerca de 2 horas</li>
-    <li>Evitar grandes esforços físicos por 12 horas</li>
-    <li>Não desempenhar atividade de risco (manipular máquina de corte ou torno, trabalhar em andaimes ou grandes alturas, dirigir transporte coletivo ou motocicletas)</li>
-</ul>
+        <ul>
+            <li>Homens - 60 dias (máximo de 04 doações nos últimos 12 meses)</li>
+            <li>Mulheres - 90 dias (máximo de 03 doações nos últimos 12 meses)</li>
+        </ul>
+    </div>
 
-<br>
+    <br>
 
-<h2>O que fazer se apresentar:</h2>
-<h3>Hematoma ou mancha arroxeada no local:</h3>
+    <h2>Recomendações úteis após a doação de sangue:</h2>
 
-<ul>
-    <li>Aplicar compressas de gelo no local nas primeiras 6 horas. Se permanecer procure o Departamento Médico e Serviço de Enfermagem do Hemocentro, ou posto de saúde mais próximo de sua casa</li>
-</ul>
+    <ul>
+        <li>Permanecer sentado por 5 a 10 minutos</li>
+        <li>Manter o curativo no braço pelo menos por 4 horas</li>
+        <li>Tomar o lanche oferecido pelo Hemocentro</li>
+        <li>Evitar dobrar o braço puncionado por 30 minutos</li>
+        <li>Aumentar a ingestão de líquidos nas próximas 24 horas</li>
+        <li>Não ingerir bebidas alcoólicas por 12 horas</li>
+        <li>Não fumar por cerca de 2 horas</li>
+        <li>Evitar grandes esforços físicos por 12 horas</li>
+        <li>Não desempenhar atividade de risco (manipular máquina de corte ou torno, trabalhar em andaimes ou grandes alturas, dirigir transporte coletivo ou motocicletas)</li>
+    </ul>
 
-<br>
+    <br>
 
-<h3>Flebite (vermelhidão e dor no local):</h3>
+    <h2>O que fazer se apresentar:</h2>
+    <h3>Hematoma ou mancha arroxeada no local:</h3>
 
-<ul>
-    <li>Aplicar compressas de água morna no local e procurar o Departamento Médico e Serviço de Enfermagem do Hemocentro, ou posto de saúde mais próximo de sua casa</li>
-</ul>
+    <ul>
+        <li>Aplicar compressas de gelo no local nas primeiras 6 horas. Se permanecer procure o Departamento Médico e Serviço de Enfermagem do Hemocentro, ou posto de saúde mais próximo de sua casa</li>
+    </ul>
 
-<br>
+    <br>
 
-<h3>Mal-estar ou desmaios:</h3>
+    <h3>Flebite (vermelhidão e dor no local):</h3>
 
-<ul>
-    <li>Sentar e colocar a cabeça abaixo dos joelhos ou deitar com os pés em nível acima da cabeça</li>
-</ul>
+    <ul>
+        <li>Aplicar compressas de água morna no local e procurar o Departamento Médico e Serviço de Enfermagem do Hemocentro, ou posto de saúde mais próximo de sua casa</li>
+    </ul>
 
-<br>
+    <br>
 
-<h3>Dor no braço que realizou a doação, tontura, fraqueza e aumento da frequência cardíaca:</h3>
+    <h3>Mal-estar ou desmaios:</h3>
 
-<ul>
-    <li>Comunique ao Hemocentro caso apresente qualquer sinal ou sintoma descrito acima, ou qualquer sinal de processo infeccioso, como febre ou diarréia, até 14 dias após a doação</li>
-</ul>
+    <ul>
+        <li>Sentar e colocar a cabeça abaixo dos joelhos ou deitar com os pés em nível acima da cabeça</li>
+    </ul>
 
-<br>
+    <br>
 
-<li><a href="https://www.hemocentro.org.br/principal.asp?edoc=conteudo&secaoid=422&subsecaoid=414&lstrod=0" target="_blank">Fonte: HEMOGO</a></li>
+    <h3>Dor no braço que realizou a doação, tontura, fraqueza e aumento da frequência cardíaca:</h3>
 
-</section>
+    <ul>
+        <li>Comunique ao Hemocentro caso apresente qualquer sinal ou sintoma descrito acima, ou qualquer sinal de processo infeccioso, como febre ou diarréia, até 14 dias após a doação</li>
+    </ul>
+
+    <br>
+
+    <a href="https://www.hemocentro.org.br/principal.asp?edoc=conteudo&secaoid=422&subsecaoid=414&lstrod=0" target="_blank">Fonte: HEMOGO</a>
+
+    </section>
+
+</body>
+
+</html>
 
 {% endblock %}

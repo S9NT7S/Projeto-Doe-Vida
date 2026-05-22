@@ -57,6 +57,6 @@ function fecharModalConfirmacao() {
 
 function confirmarExclusao() {
     if (usuarioParaExcluir !== null) {
-        document.getElementById("formExcluir" + usuarioParaExcluir).submit();
+        document.getElementById("formExcluir-" + usuarioParaExcluir).submit();
     }
 }

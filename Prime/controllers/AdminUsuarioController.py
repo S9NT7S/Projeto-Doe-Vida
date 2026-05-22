@@ -95,6 +95,10 @@ class AdminUsuarioController(BaseController):
         if session.get("usuario_id") == usuario_id:
             flash("Você não pode excluir sua própria conta.", "erro")
             return redirect(url_for("listar_usuarios"))
+        
+        if session.get("perfil_logado") == "admin":
+            flash("Erro")
+            return redirect(url_for("listar_usuarios"))
 
         try:
             self.usuario_service.excluir_usuario(usuario_id)

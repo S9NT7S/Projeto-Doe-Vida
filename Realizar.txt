@@ -2,6 +2,13 @@ Continuar a implementação do dashboard <CRÍTICO> - tá feita, só arrumar e a
 
 Consertar o update de usuario <ALTO> - ainda não, mas dessa semana não escapa!
 
-Subir a navbar (sem espaços)
+Boa noite campeão, então, vai escapar... Mas tenha fé, problema é passar o usuario_id para dentro da pagina editar_usuario.html e trocar o nome
+Se conseguir tal feito, hei de funcionar tais aplicações
 
-'dict' object is not callable - Erro do gerar_usuarios pacote user_service, modulo app.py - FIX
+Dashboards - Muitas ideias, lots to do - media de idade dos doadores, logs (logins realizados), cadastros realizados em X período de tempo
+
+Muitas estilizações necessárias - Dar um talento no css para manter a consistência
+
+FIX MODAL
+
+Terminar os fixes na pagian inicial, ta ficando maneiro fuçar no css

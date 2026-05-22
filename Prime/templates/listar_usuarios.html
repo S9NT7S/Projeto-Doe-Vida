@@ -5,10 +5,11 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
-<title>Lista de usuários</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="sylesheet" href="{{ url_for('static', filename='css/listar_usuarios.css') }}">
+    <title>Lista de usuários</title>
 </head>
 <div id="modalConfirmacao" class="modal">
     <div class="modal-content">
@@ -16,7 +17,7 @@
 
         <p>Tem certeza que deseja excluir este usuário?</p>
 
-        <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+        <div style="display:flex; gap:10px; justify-content:center; margin-top:15px;">
             <button onclick="confirmarExclusao()" class="botao-excluir">
                 Sim, excluir
             </button>
@@ -44,6 +45,7 @@
                 <th>Sexo</th>
                 <th>Sangue</th>
                 <th>Idade</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
