@@ -47,6 +47,10 @@ input.botao-excluir {
     cursor: pointer;
 }
 
+.modal-content button:hover {
+    background: #007bff;
+}
+
 input.botao-excluir,
 button.botao-excluir {
     background-color: red;
@@ -61,6 +65,10 @@ button.botao-excluir {
     box-sizing: border-box;   
 }
 
+input.botao-excluir:hover, button.botao-excluir:hover {
+    background-color: red
+}
+
 a.botao-acao {
     display: inline-block;
     background-color: #3498db;
@@ -70,4 +78,15 @@ a.botao-acao {
     text-decoration: none;
     font-size: 15px;
     margin-right: 5px;
+}
+
+.btn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: center;
+    cursor: pointer;
+    font-size: 16px;
 }

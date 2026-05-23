@@ -23,34 +23,28 @@
     <img src="static/imagens/doando.jpg" width="800" height="300">
 
     <br>
-
-    <div class=card>
-        <a href="{{ url_for('cbasico1') }}" target="_blank" class="card-link">Condições básicas para doar sangue</a>
-    </div>
-
-    <br>
-
-    <div class="card">
-        <h1>Impedimentos temporários</h1>
+    
+    <div class="container-cards">
+        <div class=card>
+            <a href="{{ url_for('cbasico1') }}" target="_blank" class="card-link">Condições básicas para doar sangue</a>
+        </div>
         <br>
-        <li><a href="{{ url_for('impedimentos_temp') }}" target="_blank">TESTE</a></li>
+        <div class="card">
+            <a href="{{ url_for('impedimentos_temp') }}" target="_blank" class="card-link">Impedimentos temporários</a>
+        </div>
+        <br>
+        <div class="card">
+            <a href="{{ url_for('impedimentos_temp') }}" target="_blank" class="card-link">Impedimentos</a>
+        </div>
     </div>
-
     <br>
-
-    <div class="card">
-        <h2>Impedimentos</h2>
-        <li><a href="{{ url_for('impedimentos_temp') }}" target="_blank">TESTE</a></li>
-    </div>
-
-    <br>
-
-    <div class="card">
+    <div>
         <h2>Intervalos para doação</h2>
 
         <ul>
-            <li>Homens - 60 dias (máximo de 04 doações nos últimos 12 meses)</li>
-            <li>Mulheres - 90 dias (máximo de 03 doações nos últimos 12 meses)</li>
+            Homens - 60 dias (máximo de 04 doações nos últimos 12 meses)
+            <br>
+            Mulheres - 90 dias (máximo de 03 doações nos últimos 12 meses)
         </ul>
     </div>
 

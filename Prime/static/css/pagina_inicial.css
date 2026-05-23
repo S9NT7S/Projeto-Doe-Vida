@@ -1,8 +1,14 @@
 .card {
     position: relative;
     width: 200px;
-    height: 200px;
+    height: 90px;
     background-color: crimson;
+    display: inline-flexbox;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
 }
 
 .card-link {
@@ -14,5 +20,16 @@
     color: rgb(0, 0, 0);
     font-size: 24px;
     font-weight: bold;
+    justify-content: center;
 }
 
+.container-cards {
+    display: flex;
+    gap: 16px;
+}
+
+/* * {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+} */
