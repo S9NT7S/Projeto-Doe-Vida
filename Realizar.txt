@@ -12,3 +12,5 @@ Muitas estilizações necessárias - Dar um talento no css para manter a consist
 FIX MODAL
 
 Terminar os fixes na pagian inicial, ta ficando maneiro fuçar no css
+
+FIX editar usuario - FIX FIX FIX

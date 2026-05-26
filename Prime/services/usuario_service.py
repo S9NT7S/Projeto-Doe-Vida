@@ -33,13 +33,6 @@ class UsuarioService:
     def login_usuario(self, email, senha):
         return self.usuario_repository.validar_login(email, senha)
 
-    def att_nome(self, usuario_id, novo_nome):
-        try:
-            self.usuario_repository.update_nome(usuario_id, novo_nome)
-        
-        except Exception as error:
-            print("Erro em att o nome")
-
     #NOVA SENHA, NOVO PERFIL, NOVO SANGUE, NOVO SEXO, NOVA IDADE
     def atualizar_usuario(self, usuario_id: int, novo_nome, nova_senha, novo_perfil, novo_sangue, novo_sexo, nova_idade):
         senha_hash = None
@@ -50,7 +43,7 @@ class UsuarioService:
             senha_hash = bcrypt.hashpw(nova_senha.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
         try:
-            self.usuario_repository.atualizar(usuario_id=usuario_id, novo_nome=novo_nome, nova_senha=senha_hash, novo_perfil=novo_perfil, novo_sangue=novo_sangue, novo_sexo=novo_sexo, nova_idade=nova_idade)
+            self.usuario_repository.atualizar(usuario_id, novo_nome=novo_nome, nova_senha=senha_hash, novo_perfil=novo_perfil, novo_sangue=novo_sangue, novo_sexo=novo_sexo, nova_idade=nova_idade)
         except Exception:
             print(Exception)
 

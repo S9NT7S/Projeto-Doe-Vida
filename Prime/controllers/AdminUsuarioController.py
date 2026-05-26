@@ -24,7 +24,6 @@ class AdminUsuarioController(BaseController):
             ('/admin/usuarios/excluir/<int:usuario_id>', 'excluir_usuario', self.proteger_rota(self.excluir_usuario), ['POST']),
             ('/exportar_excel', 'exportar_excel', self.proteger_rota(self.exportar_excel)),
             ('/exportar_pdf', 'exportar_pdf', self.proteger_rota(self.exportar_pdf)),
-            ('/admin/usuarios/atualizar_nome/<int:usuario_id>', 'atualizar_nome', self.proteger_rota(self.atualizar_nome), ['GET', 'POST']),
         ]
         super().__init__(app)
 
@@ -106,33 +105,7 @@ class AdminUsuarioController(BaseController):
         except ValueError:
             flash(str(ValueError), "erro")
         
-        return self.listar_usuarios()
-
-    def atualizar_nome(self, usuario_id):
-        if not self._somente_admin():
-            return redirect(url_for("home"))
-        
-        # usuario = request.form.get("user_id")
-
-        if request.method == "POST":
-            nome = request.form.get("nome")
-
-            print(usuario_id, nome)
-
-            try:
-                self.usuario_service.att_nome(usuario_id, nome)
-
-                return redirect(url_for("listar_usuarios"))
-            
-            except ValueError as e:
-                erro = str(e)
-                return render_template(
-                    "editar_usuario.html",
-                    usuario={
-                    
-                    },
-                    erro=erro
-                )
+        return redirect(url_for("listar_usuarios"))
 
     def editar_usuario(self, usuario_id): #NÃO ESTÁ SALVANDO, MAS ESTÁ PASSANDO, A VER
         if not self._somente_admin():
@@ -151,7 +124,7 @@ class AdminUsuarioController(BaseController):
 
             try:
 
-                self.usuario_service.atualizar_usuario(usuario_id=usuario_id, novo_nome=novo_nome, nova_senha=nova_senha, novo_perfil=novo_perfil, novo_sexo=novo_sexo, novo_sangue=novo_sangue, nova_idade=nova_idade)
+                self.usuario_service.atualizar_usuario(usuario_id, novo_nome=novo_nome, nova_senha=nova_senha, novo_perfil=novo_perfil, novo_sexo=novo_sexo, novo_sangue=novo_sangue, nova_idade=nova_idade)
 
                 return redirect(url_for("listar_usuarios"))
             

@@ -17,7 +17,7 @@ form {
     max-width: 600px;
     margin: 0 auto;
     box-shadow: 0 0 10px rgb(255, 100, 100);
-    z-index: 1;
+    /* z-index: 1; */
 }
 
 fieldset {
@@ -121,5 +121,5 @@ button {
 
 .content {
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
 }

@@ -38,7 +38,7 @@ function fecharModal() {
 
 window.onclick = function(event) {
     let modal = document.getElementById("modalErro");
-    if (event.target === modal) {
+    if (event.target == modal) {
         modal.style.display = "none";
     }
 }
@@ -56,7 +56,7 @@ function fecharModalConfirmacao() {
 }
 
 function confirmarExclusao() {
-    if (usuarioParaExcluir !== null) {
+    if (usuarioParaExcluir != null) {
         document.getElementById("formExcluir-" + usuarioParaExcluir).submit();
     }
 }

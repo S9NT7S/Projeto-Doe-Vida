@@ -32,64 +32,57 @@ class UsuarioRepository:
         except Exception as e:
             print("usuario_repository")
 
-    def update_nome(self, usuario_id, novo_nome):
-        sql = "UPDATE usuarios SET nome=%s"
-
-        params = [novo_nome]
-
-        try:
-            sql += " WHERE usuarios.id=%s"
-            params.append(usuario_id,)
-            self.banco.executar(sql, tuple(params))
-        
-        except Exception as error:
-            print(error)
-
     def atualizar(self, usuario_id, novo_nome, nova_senha, novo_perfil, novo_sexo, novo_sangue, nova_idade):
         
-        sql = "UPDATE usuarios SET nome=%s"
+        # sql = "UPDATE usuarios SET nome=%s"
 
-        # UPDATE `usuarios` SET `sexo` = 'outro' WHERE `usuarios`.`id` = 3;
+        # params = [novo_nome, nova_senha, novo_perfil, novo_sexo, novo_sangue, nova_idade]
 
-        # UPDATE `usuarios` SET `nome` = 'Nikita1', `sexo` = 'masculino', `idade` = '55' WHERE `usuarios`.`id` = 3;
-
-        params = [novo_nome, nova_senha, novo_perfil, novo_sexo, novo_sangue, nova_idade]
+        if novo_nome:
+            try:
+                self.update_nome(usuario_id, novo_nome)
+            except Exception:
+                print("Update nome")
 
         if nova_senha:
-            sql += ", 'senha' = %s"
-            params.append(nova_senha)
+            try:
+                self.update_senha(usuario_id, nova_senha)
+            except Exception:
+                print("Update senha")
+            # sql += ", 'senha' = %s"
+            # params.append(nova_senha)
 
-        if novo_perfil:
-            sql += ", 'perfil' = %s"
-            params.append(novo_perfil)
+        # if novo_perfil:
+        #     sql += ", 'perfil' = %s"
+        #     params.append(novo_perfil)
 
-        if novo_sexo:
-            sql += ", 'sexo' = %s"
-            params.append(novo_sexo)
+        # if novo_sexo:
+        #     sql += ", 'sexo' = %s"
+        #     params.append(novo_sexo)
 
-        if novo_sangue:
-            sql += ", 'sangue' = %s"
-            params.append(novo_sangue)
+        # if novo_sangue:
+        #     sql += ", 'sangue' = %s"
+        #     params.append(novo_sangue)
 
-        if nova_idade:
-            sql += ", 'idade' = %s"
-            params.append(nova_idade)
+        # if nova_idade:
+        #     sql += ", 'idade' = %s"
+        #     params.append(nova_idade)
 
-        try:
-            #FIX, TALVEZ TENHA QUE REVER PQ ESSA VIRGULA VAI DAR PROBLEMA 100%
-            #NÃO SALVA DE JEITO NENHUM NO BANCO, CREIO QUE ESSA STREAM DE NOVOS DADOS NÃO IRÃO FUNCIONAR
-            #LOGO, FAZER ATUALIZAR UM A UM NA TELA DE EDITAR USUARIOS
+        # try:
+        #     sql += " WHERE usuarios.id = %s"
+        #     params.append(usuario_id,)
+        #     self.banco.executar(sql, tuple(params))
 
-            sql += " WHERE usuarios.id = %s"
-            params.append(usuario_id,)
-            self.banco.executar(sql, tuple(params))
-
-        except Exception as e:
-            print("usuario_repository")
-            print(e)
+        # except Exception as e:
+        #     print("usuario_repository")
+        #     print(e)
 
     def update_senha(self, usuario_id, nova_senha):
         sql = "UPDATE usuarios SET senha=%s WHERE id=%s"
+        self.banco.executar(sql)
+
+    def update_nome(self, usuario_id, nome):
+        sql = "UPDATE usuarios SET nome=%s WHERE id=%s"
         self.banco.executar(sql)
 
     def listar_todos(self):
