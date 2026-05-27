@@ -1,7 +1,7 @@
 .modal {
     display: none;
     position: fixed;
-    z-index: 9999;
+    z-index: -1;
     left: 0;
     top: 0;
     width: 100%;
@@ -9,7 +9,7 @@
     background-color: black;
 }
 
-.model-content {
+.modelContent {
     background-color: aliceblue;
     margin: 15% auto;
     padding: 20px;
@@ -19,12 +19,12 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.modal-content h2 {
+.modalContent h2 {
     margin-bottom: 10px;
     color: crimson;
 }
 
-.modal-content button {
+.modalContent button {
     margin-top: 15px;
     padding: 8px 15px;
     border: none;
@@ -34,11 +34,11 @@
     cursor: pointer;
 }
 
-.modal-content button:hover {
+.modalContent button:hover {
     background: blue;
 }
 
-input.botao-excluir, button.botao-excluir {
+input.botaoAbrirConfirmacao, button.botaoFecharConfirmacao {
     background-color: tomato;
     color: aliceblue;
     padding: 10px 20px;
@@ -51,6 +51,6 @@ input.botao-excluir, button.botao-excluir {
     box-sizing: border-box;
 }
 
-input.botao-excluir:hover, button.botao-excluir:hover {
+input.botaoAbrirConfirmacao:hover, button.botaoFecharConfirmacao:hover {
     background-color: red;
 }

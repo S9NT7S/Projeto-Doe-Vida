@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}Condições para doar sangue{% endblock %}
+
 {% block content %}
 
 <!DOCTYPE html>
@@ -10,6 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="imagens/x-icon" href="{{ url_for('static', filename='imagens/blood1.png') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+        <title>Condições para doar sangue</title>
     </head>
 
     <body>
@@ -17,10 +20,15 @@
 
         <ul>
             <li>Estar em boas condições de saúde</li>
+            <br>
             <li>Ter entre 16 e 69 anos de idade (menores de 18 anos precisam de autorização, <a href="https://www.hemocentro.org.br/uploads//8039autorizacaoparamenoresdeidade2022.pdf" target="_blank">baixe o formulário clicando aqui</a> </a></li>
+            <br>
             <li>Pesar no mínimo 50kg</li>
+            <br>
             <li>Estar descansado (ter dormido pelo menos 6h nas últimas 24h)</li>
+            <br>
             <li>Estar alimentado (evitar alimentação gordurosa nas 4h que antecedem a doação)</li>
+            <br>
             <li>Apresentar documento com foto emitido por órgão oficial</li>
         </ul>
     </body>

@@ -113,6 +113,8 @@ class AdminUsuarioController(BaseController):
 
         usuario = self.usuario_service.obter_usuario_por_id(usuario_id)
 
+        print(usuario)
+
         if request.method == 'POST':
             
             novo_nome = request.form.get("nome")
