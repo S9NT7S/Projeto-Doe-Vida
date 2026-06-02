@@ -95,19 +95,20 @@ class AdminUsuarioController(BaseController):
             flash("Você não pode excluir sua própria conta.", "erro")
             return redirect(url_for("listar_usuarios"))
         
-        if session.get("perfil_logado") == "admin":
-            flash("Erro")
-            return redirect(url_for("listar_usuarios"))
+        
 
         try:
-            self.usuario_service.excluir_usuario(usuario_id)
-            flash("Usuário excluído com sucesso.", "sucesso")
+            if self.usuario_service.excluir_usuario(usuario_id) == session.get("usuario_id") == usuario_id:
+                print("Você não pode excluir o admin")
+                raise ValueError
+            else:
+                flash("Usuário excluído com sucesso.", "sucesso")
         except ValueError:
             flash(str(ValueError), "erro")
         
         return redirect(url_for("listar_usuarios"))
 
-    def editar_usuario(self, usuario_id): #NÃO ESTÁ SALVANDO, MAS ESTÁ PASSANDO, A VER
+    def editar_usuario(self, usuario_id): 
         if not self._somente_admin():
             return redirect(url_for("home"))
 
@@ -126,7 +127,7 @@ class AdminUsuarioController(BaseController):
 
             try:
 
-                self.usuario_service.atualizar_usuario(usuario_id, novo_nome=novo_nome, nova_senha=nova_senha, novo_perfil=novo_perfil, novo_sexo=novo_sexo, novo_sangue=novo_sangue, nova_idade=nova_idade)
+                self.usuario_service.att_user(usuario_id, novo_nome, nova_senha, novo_perfil, novo_sexo, novo_sangue, nova_idade)
 
                 return redirect(url_for("listar_usuarios"))
             

@@ -9,6 +9,7 @@ class HTMLBasicoController(BaseController):
             ('/cbasico1', 'cbasico1', self.cbasico1),
             ('/impedimentos_temp', 'impedimentos_temp', self.impedimentos_temp),
             ('/impedimentos_def', 'impedimentos_def', self.impedimentos_def),
+            ('/testeModal', 'testeModal', self.testeModal)
         ]
         super().__init__(app)
 
@@ -23,3 +24,6 @@ class HTMLBasicoController(BaseController):
     
     def impedimentos_def(self):
         return render_template("impedimentos_def.html")
+    
+    def testeModal(self):
+        return render_template("testeModal.html")

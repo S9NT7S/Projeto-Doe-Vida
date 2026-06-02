@@ -33,7 +33,6 @@ class UsuarioService:
     def login_usuario(self, email, senha):
         return self.usuario_repository.validar_login(email, senha)
 
-    #NOVA SENHA, NOVO PERFIL, NOVO SANGUE, NOVO SEXO, NOVA IDADE
     def atualizar_usuario(self, usuario_id: int, novo_nome, nova_senha, novo_perfil, novo_sangue, novo_sexo, nova_idade):
         senha_hash = None
         if nova_senha:
@@ -43,16 +42,37 @@ class UsuarioService:
             senha_hash = bcrypt.hashpw(nova_senha.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
         try:
-            self.usuario_repository.atualizar(usuario_id, novo_nome=novo_nome, nova_senha=senha_hash, novo_perfil=novo_perfil, novo_sangue=novo_sangue, novo_sexo=novo_sexo, nova_idade=nova_idade)
+            self.usuario_repository.update_nome(novo_nome)
+            self.usuario_repository.update_senha(nova_senha)
+            
+            #self.usuario_repository.atualizar(usuario_id, novo_nome=novo_nome, nova_senha=senha_hash, novo_perfil=novo_perfil, novo_sangue=novo_sangue, novo_sexo=novo_sexo, nova_idade=nova_idade)
         except Exception:
-            print(Exception)
+            print("Erro no usuario_service")
+
+    def att_user(self, usuario_id, nome, senha, perfil, sexo, sangue, idade):
+        senha_hash = None
+        senha_valida = self.validar_senha(senha)
+        if not senha_valida:
+            raise ValueError
+        senha_hash = bcrypt.hashpw(senha.encode('UTF-8'), bcrypt.gensalt()).decode("UTF-8")
+        
+        try:
+            self.usuario_repository.update_nome(usuario_id, nome)
+            self.usuario_repository.update_senha(usuario_id, senha_hash)
+            self.usuario_repository.update_perfil(usuario_id, perfil)
+            self.usuario_repository.update_sexo(usuario_id, sexo)
+            self.usuario_repository.update_sangue(usuario_id, sangue)
+            self.usuario_repository.update_idade(usuario_id, idade)
+
+        except Exception:
+            print("usuario service")
 
     def excluir_usuario(self, usuario_id):
         usuario = self.usuario_repository.buscar_por_id(usuario_id)
         
         if not usuario:
             raise ValueError("Usuário não encontrado.")
-        
+
         try:            
             self.usuario_repository.excluir(usuario_id)
         

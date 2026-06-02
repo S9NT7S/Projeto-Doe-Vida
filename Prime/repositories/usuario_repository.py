@@ -17,7 +17,7 @@ class UsuarioRepository:
     def check_admin(self, user):
         self.banco.executar("SELECT CURRENT_USER", (user,))
 
-    def check_perfil(self, user_perfil):
+    def check_perfil(self):
         self.banco.executar("SELECT * FROM 'usuarios' WHERE perfil = 'admin';")
 
     def excluir(self, usuario_id):
@@ -49,6 +49,7 @@ class UsuarioRepository:
                 self.update_senha(usuario_id, nova_senha)
             except Exception:
                 print("Update senha")
+                print(Exception)
             # sql += ", 'senha' = %s"
             # params.append(nova_senha)
 
@@ -79,11 +80,27 @@ class UsuarioRepository:
 
     def update_senha(self, usuario_id, nova_senha):
         sql = "UPDATE usuarios SET senha=%s WHERE id=%s"
-        self.banco.executar(sql)
+        self.banco.executar(sql, (nova_senha, usuario_id))
 
     def update_nome(self, usuario_id, nome):
         sql = "UPDATE usuarios SET nome=%s WHERE id=%s"
-        self.banco.executar(sql)
+        self.banco.executar(sql, (nome, usuario_id))
+
+    def update_perfil(self, usuario_id, perfil):
+        sql = "UPDATE usuarios SET perfil=%s WHERE id=%s"
+        self.banco.executar(sql, (perfil, usuario_id))
+
+    def update_sexo(self, usuario_id, sexo):
+        sql = "UPDATE usuarios SET sexo=%s WHERE id=%s"
+        self.banco.executar(sql, (sexo, usuario_id))
+
+    def update_sangue(self, usuario_id, sangue):
+        sql = "UPDATE usuarios SET sexo=%s WHERE id=%s"
+        self.banco.executar(sql, (sangue, usuario_id))
+
+    def update_idade(self, usuario_id, idade):
+        sql = "UPDATE usuarios SET idade=%s WHERE id=%s"
+        self.banco.executar(sql, (idade, usuario_id))
 
     def listar_todos(self):
         sql = "SELECT id, nome, usuario, perfil, sexo, sangue, idade FROM usuarios"

@@ -123,11 +123,11 @@ class Dashboard {
         new Chart(this.graficoRanking, {
             type: "bar",
             data: {
-                labels: ["Login", "Cadastro", "Relatórios", "Erros"],
+                labels: ["Jan", "Fev", "Mar", "Abr"],
                 datasets: [{
-                    label: "Uso do sistema",
-                    data: [80, 60, 40, 20], 
-                    backgroundColor: "rgb(33, 166, 255)"
+                    label: "Sangue",
+                    data: [40, 60, 80, 20], 
+                    backgroundColor: "rgb(255, 33, 33)"
                 }]
             },
             options: {

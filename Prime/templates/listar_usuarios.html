@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
     <link rel="sylesheet" href="{{ url_for('static', filename='css/listar_usuarios.css') }}">
-    <link rel="sylesheet" href="{{ url_for('static', filename='css/modal.css') }}">
+    <link rel="sylesheet" href="{{ url_for('static', filename='css/teste.css') }}">
     <title>Lista de usuários</title>
 </head>
-<!-- <div id="modalConfirmacao" class="modal">
+
+<div id="modalConfirmacao" class="modal">
     <div class="modalContent">
         <h2>Confirmar exclusão</h2>
 
@@ -28,20 +29,7 @@
             </button>
         </div>
     </div>
-</div> -->
-
-<!-- <button id="abrirModal">Abrir Modal</button>
-
-<div id="meuModal" class="modal1">
-
-    <div class="conteudoModal">
-
-        <span class="close1">&times;</span>
-        <p>Teste</p>
-
-    </div>
-
-</div> -->
+</div>
 
 <body>
     <h1>Usuários cadastrados no sistema</h1>
@@ -77,13 +65,13 @@
                 <td>
                     <a href="{{ url_for('editar_usuario', usuario_id=u.id) }}" typeclass="button">Editar</a>
 
-                    {% if session['usuario_id'] != u.id %}
+                    <!-- {% if session['usuario_id'] != u.id %} -->
 
-                    <form id="formExcluir{{ u.id }}" method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="display: inline; margin: 0; padding: 0;">
+                    <form id="formExcluir-{{ u.id }}" method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="display: inline; margin: 0; padding: 0;">
                         <button type="button" class="botao-excluir" onclick="abrirConfirmacao('{{ u.id }}')">Excluir</button>
                     </form>
                     
-                    {% endif %}
+                    <!-- {% endif %} -->
 
                 </td>
             </tr>
@@ -91,9 +79,7 @@
         </tbody>
     </table>
 
-    <script src="{{ url_for('static', filename='js/admin_usuarios.js') }}"></script>
-    
-    <!-- <script src="{{ url_for('static', filename='js/teste.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='js/teste.js') }}"></script>
     
 </body>
 </html>
