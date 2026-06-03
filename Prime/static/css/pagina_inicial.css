@@ -2,7 +2,7 @@
     position: relative;
     width: 200px;
     height: 90px;
-    background-color: crimson;
+    background-color: red;
     display: inline-flexbox;
     border-radius: 15px;
     justify-content: center;

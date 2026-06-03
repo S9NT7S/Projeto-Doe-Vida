@@ -6,7 +6,6 @@ Histórico de doações
 Carteirinha virtual de doador
 Alerta de urgência/notificação
 Apagar botão de login (tornar cinza) enquanto não há email e senha preenchidas
-nova linha
 
 agendamento e controle de doações de sangue
 dashboard com L de sangue que foram doados em x mês 
@@ -15,8 +14,8 @@ ok, boa noite, escrevendo aqui como um log para não se perder
 então, nesta sexta-feira o código foi tão modificado que ele brickou e será  mais custoso desfazer todas as mudanças do que pegar o último push no github
 enfim, subirei esse txt para git hub, bom feriado jovem Wagner xoxo
 
-Gerar usuários
-Menu dropdown
-Dashboard
-Logs
-Testes
+Gerar usuários - done
+Menu dropdown - done
+Dashboard - done
+Logs - 
+Testes - 
