@@ -1,12 +1,12 @@
 body {
     background-color: #f2f2f2;
     font-family: 'Times New Roman', Times, serif;
-    /* padding: 20px; */
+    text-align: center;
 }
 
 h1 {
     text-align: center;
-    color: crimson;
+    color: red;
     margin-bottom: 30px;
 }
 
@@ -56,7 +56,7 @@ input[type="text"], input[type="password"], input[list], input[type="email"] {
 } */
 
 input[type="submit"] {
-    background-color: crimson;
+    background-color: red;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -67,7 +67,7 @@ input[type="submit"] {
 }
 
 a {
-    background-color: crimson;
+    background-color: red;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -90,7 +90,7 @@ a {
 } */
 
 button {
-    background-color: crimson;
+    background-color: red;
     color: white;
     padding: 10px 20px;
     border: none;

@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 {% if session.get('perfil_logado') == 'admin' %}
-                    <a href="{{ url_for('listar_usuarios') }}">Admin: Gerenciar usuários</a>
+                    <a href="{{ url_for('listar_usuarios') }}">Gerenciar usuários</a>
                     <br>
                     <a href="{{ url_for('js_dashboard')}}">Dashboards</a>
                 {% endif %}

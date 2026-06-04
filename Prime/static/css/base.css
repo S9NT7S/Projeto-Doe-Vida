@@ -24,7 +24,7 @@ body{
 }
 
 .navbar a{
-    color: rgb(0, 0, 0);
+    color: white;
     text-decoration: none;
     margin-right: 20px;
     font-weight: bold;
@@ -32,7 +32,7 @@ body{
 }
 
 .navbar a:hover{
-    color: darkorange;
+    color: black;
     text-decoration: underline;
 }
 
@@ -58,7 +58,7 @@ body{
     z-index: 1001;
 }
 
-.side-menu{
+/* .side-menu{
     height: 100%;
     width: 0;
     position: fixed;
@@ -70,13 +70,13 @@ body{
     padding-top: 60px;
     border-radius: 0 10px 10px 0;
     z-index: 1000;
-}
+} */
 
-.side-menu ul{
+/* .side-menu ul{
     list-style: none;
-}
+} */
 
-.side-menu a{
+/* .side-menu a{
     display: block;
     padding: 10px 30px;
     color: white;
@@ -95,7 +95,7 @@ body{
     right: 25px;
     font-size: 36px;
     cursor: pointer;
-}
+} */
 
 #menu-toggle:checked + .menu-btn + .side-menu{
     width: 220px;
@@ -163,7 +163,7 @@ body{
 .dropdown {
     position:relative;
     /* display: inline-block; */
-    display:list-item;
+    /* display:list-item; */
 }
 
 .dropdown-button {
@@ -196,7 +196,7 @@ body{
 }
 
 .dropdown-content a {
-    color: rgb(0, 0, 0);
+    color: white(255, 240, 240);
     padding: 12px 16px;
     display: block;
     font-size: 16px;
