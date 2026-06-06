@@ -14,14 +14,30 @@
     <title>Pagina inicial</title>
 </head>
 
+<div class="carousel">
+    <button class="prev">‹</button>
+
+    <div class="carousel-track">
+        <div class="slide"><img src="/static/imagens/doando.jpg"></div>
+        <div class="slide"><img src="/static/imagens/AgendamentoOnline.png"></div>
+    </div>
+
+    <button class="next">›</button>
+
+    <div class="dots"></div>
+</div>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/carousel.css') }}">
+<script src="{{ url_for('static', filename='js/carrossel.js') }}"></script>
+
 <body>
+
     <section class="mt-5 text-center">
 
     <h1>Requisitos para doar sangue</h1>
 
     <br>
 
-    <img src="static/imagens/doando.jpg" width="800" height="300">
+    <!-- <img src="static/imagens/doando.jpg" width="800" height="300"> -->
 
     <br>
     

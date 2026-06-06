@@ -1,7 +1,10 @@
 body {
-    background-color: #f2f2f2;
+    background-color: #ff7878;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
+    font-size: 16px;
+    line-height: 2.0;
+    align-items: center;
 }
 
 h1 {
@@ -14,9 +17,12 @@ form {
     background-color: transparent;
     padding: 20px;
     border-radius: 10px;
-    max-width: 600px;
+    width: 600px;
     margin: 0 auto;
     box-shadow: 0 0 10px rgb(255, 100, 100);
+    text-align: center;
+    align-items: center;
+    
     /* z-index: 1; */
 }
 
@@ -39,15 +45,18 @@ label {
     margin-bottom: 10px;
     width: 150px;
     text-align: center;
+    align-items: center;
+    place-items: center;
 }
 
 input[type="text"], input[type="password"], input[list], input[type="email"] {
     width: 60%;
     padding: 10px 20px;
     margin-bottom: 5px;
-    border: 1px solid #ffffff;
+    border: 1px solid #000000;
     border-radius: 4px;
     text-align: center;
+    align-items: center;
 }
 
 /* input[type="radio"] {
@@ -64,11 +73,12 @@ input[type="submit"] {
     cursor: pointer;
     font-size: 16px;
     text-align: center;
+    align-items: center;
 }
 
 a {
     background-color: red;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -91,7 +101,7 @@ a {
 
 button {
     background-color: red;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -117,8 +127,9 @@ button {
     min-height: 100%;
     z-index: -1; 
 }
+*/
 
 .content {
-    position: relative;
-    z-index: 1;
-} */
+    align-items: center;
+} 
+
