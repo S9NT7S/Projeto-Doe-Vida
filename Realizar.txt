@@ -9,8 +9,10 @@ Dashboards - Muitas ideias, lots to do - media de idade dos doadores, logs (logi
 
 Muitas estilizações necessárias - Dar um talento no css para manter a consistência
 
-FIX MODAL
+FIX MODAL - Ainda não
 
 Terminar os fixes na pagian inicial, ta ficando maneiro fuçar no css
 
-FIX editar usuario - FIX FIX FIX
+FIX editar usuario - FIX FIX FIX - FIXED
+
+08/06/2026 - 

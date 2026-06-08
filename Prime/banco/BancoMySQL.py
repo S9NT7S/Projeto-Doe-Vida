@@ -226,7 +226,7 @@ class BancoMySQL:
             senha_hash = bcrypt.hashpw("4444".encode(), bcrypt.gensalt()).decode()
             sexo = "Outro"
             sangue = "Não tenho certeza"
-            idade = 99
+            idade = 40
 
             self.cursor.execute(
                 "INSERT INTO usuarios (nome, usuario, senha, perfil, sexo, sangue, idade) VALUES (%s, %s, %s, %s, %s, %s, %s)",
@@ -248,37 +248,6 @@ class BancoMySQL:
         
         self.cursor.execute(query, (usuario,))
         return [row[0] for row in self.cursor.fetchall()]
-    
-    #FIX
-    # def atualizar_usuario(self, usuario_antigo, novo_usuario, nova_senha=None, novo_perfil="usuário", grupos=None):
-    #     if usuario_antigo != novo_usuario:
-    #         self.cursor.execute("SELECT * FROM usuarios WHERE usuario = %s", (novo_usuario,))
-    #         if self.cursor.fetchone():
-    #             raise ValueError("O usuário já existe.")
-            
-    #     if nova_senha:
-    #         senha_hash = bcrypt.hashpw(nova_senha.encode(), bcrypt.gensalt()).decode()
-    #         self.cursor.execute(
-    #             "UPDATE usuarios SET usuario = %s, senha = %s, perfil = %s WHERE usuario = %s",
-    #             (novo_usuario, senha_hash, novo_perfil, usuario_antigo)
-    #         )
-    #     else:
-    #         self.cursor.execute(
-    #             "UPDATE usuarios SET usuario = %s, perfil = %s WHERE usuario = %s", 
-    #             (novo_usuario, novo_perfil, usuario_antigo)
-    #         )
-    #     self.conexao.commit()
-
-    #     self.cursor.execute("SELECT id FROM usuarios WHERE usuario = %s", (novo_usuario,))
-    #     usuario_id = self.cursor.fetchone()[0]
-
-    #     self.cursor.execute("DELETE FROM usuario_grupo WHERE usuario_id = %s", (usuario_id,))
-
-    #     if grupos:
-    #         for grupo_nome in grupos:
-    #             self.associar_usuario_grupo(usuario_id, grupo_nome)
-
-    #     self.conexao.commit()
 
     def criar_indices(self):
         self.cursor.execute("CREATE INDEX IF NOT EXISTS idx_usuarios_perfil ON usuarios (perfil)")

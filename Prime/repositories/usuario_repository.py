@@ -33,10 +33,6 @@ class UsuarioRepository:
             print("usuario_repository")
 
     def atualizar(self, usuario_id, novo_nome, nova_senha, novo_perfil, novo_sexo, novo_sangue, nova_idade):
-        
-        # sql = "UPDATE usuarios SET nome=%s"
-
-        # params = [novo_nome, nova_senha, novo_perfil, novo_sexo, novo_sangue, nova_idade]
 
         if novo_nome:
             try:
@@ -50,33 +46,6 @@ class UsuarioRepository:
             except Exception:
                 print("Update senha")
                 print(Exception)
-            # sql += ", 'senha' = %s"
-            # params.append(nova_senha)
-
-        # if novo_perfil:
-        #     sql += ", 'perfil' = %s"
-        #     params.append(novo_perfil)
-
-        # if novo_sexo:
-        #     sql += ", 'sexo' = %s"
-        #     params.append(novo_sexo)
-
-        # if novo_sangue:
-        #     sql += ", 'sangue' = %s"
-        #     params.append(novo_sangue)
-
-        # if nova_idade:
-        #     sql += ", 'idade' = %s"
-        #     params.append(nova_idade)
-
-        # try:
-        #     sql += " WHERE usuarios.id = %s"
-        #     params.append(usuario_id,)
-        #     self.banco.executar(sql, tuple(params))
-
-        # except Exception as e:
-        #     print("usuario_repository")
-        #     print(e)
 
     def update_senha(self, usuario_id, nova_senha):
         sql = "UPDATE usuarios SET senha=%s WHERE id=%s"

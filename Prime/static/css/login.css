@@ -1,5 +1,5 @@
 body {
-    background-color: #ff7878;
+    background-color: #ffffff;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
     font-size: 16px;
@@ -78,7 +78,7 @@ input[type="submit"] {
 
 a {
     background-color: red;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -101,7 +101,7 @@ a {
 
 button {
     background-color: red;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     padding: 10px 20px;
     border: none;
     border-radius: 4px;

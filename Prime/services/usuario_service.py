@@ -54,7 +54,7 @@ class UsuarioService:
         senha_valida = self.validar_senha(senha)
         if not senha_valida:
             raise ValueError
-        senha_hash = bcrypt.hashpw(senha.encode('UTF-8'), bcrypt.gensalt()).decode("UTF-8")
+        senha_hash = bcrypt.hashpw(senha.encode('utf-8'), bcrypt.gensalt()).decode("utf-8")
         
         try:
             self.usuario_repository.update_nome(usuario_id, nome)
