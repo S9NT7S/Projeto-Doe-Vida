@@ -31,3 +31,12 @@
     cursor: pointer;
 }
 
+.modal-content button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: none;
+    background: #007bff;
+    color: rgb(69, 148, 108);
+    border-radius: 5px;
+    cursor: pointer;
+}

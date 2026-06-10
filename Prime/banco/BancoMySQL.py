@@ -74,8 +74,6 @@ class BancoMySQL:
         """)
         self.conexao.commit()
 
-        #COLOCAR SANGUE, SEXO, IDADE
-
     def criar_tabela_grupos(self):
         self.cursor.execute("""
             CREATE TABLE IF NOT EXISTS grupos (

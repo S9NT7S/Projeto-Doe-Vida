@@ -24,11 +24,12 @@ banco = BancoMySQL()
 
 usuario_repo = UsuarioRepository(banco)
 grupo_repo = GrupoRepository(banco)
+dashboard_repo = DashboardRepository(banco)
 
 usuario_service = UsuarioService(usuario_repo)
 grupo_service = GrupoService(grupo_repo)
 
-dashboard_service = DashboardService(usuario_repo)
+dashboard_service = DashboardService(usuario_repo, dashboard_repo)
 
 LoginController(app)
 HTMLBasicoController(app, dashboard_service)

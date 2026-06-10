@@ -1,5 +1,6 @@
 class DashboardService:
-    def __init__(self, usuario_repo):
+    def __init__(self, usuario_repo, dashboard_repo):
+        self.dashboard_repo = dashboard_repo
         self.usuario_repo = usuario_repo
 
     def obter_dados(self):

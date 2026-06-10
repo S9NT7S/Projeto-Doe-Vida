@@ -2,7 +2,9 @@ from flask import render_template, request, redirect, url_for, session, flash
 from controllers.base_controller import BaseController
 from banco.BancoMySQL import BancoMySQL
 from repositories.usuario_repository import UsuarioRepository
+from repositories.login_repositories import LoginRepository
 from services.usuario_service import UsuarioService
+from services.login_service import LoginService
 import requests
 
 class LoginController(BaseController):
@@ -38,8 +40,17 @@ class LoginController(BaseController):
 
             query = "SELECT perfil FROM usuarios WHERE usuario = %s"
             self.db.cursor.execute(query, (usuario,))
-            perfil = self.db.cursor.fetchone()[0]
-            session["perfil_logado"] = perfil
+            resultado = self.db.cursor.fetchone()
+
+            session["usuario_id"] = resultado[0]
+            session["perfil_logado"] = resultado[1]
+
+            try:
+                login_repo = LoginRepository(self.db)
+                login_service = LoginService(login_repo)
+                login_service.registrar_login(resultado[0])
+            except Exception as erro:
+                print(f"Erro ao registrar login login_controller: {erro}")
 
             return redirect(url_for("home"))
         else:

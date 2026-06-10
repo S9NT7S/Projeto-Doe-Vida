@@ -11,7 +11,6 @@ import pandas
 from pandas import *
 from openpyxl import *
 import requests
-import javascript
 
 class AdminUsuarioController(BaseController):
     def __init__(self, app, usuario_service, grupo_service):
@@ -95,8 +94,6 @@ class AdminUsuarioController(BaseController):
             flash("Você não pode excluir sua própria conta.", "erro")
             return redirect(url_for("listar_usuarios"))
         
-        
-
         try:
             if self.usuario_service.excluir_usuario(usuario_id) == session.get("usuario_id") == usuario_id:
                 print("Você não pode excluir o admin")
@@ -171,10 +168,10 @@ class AdminUsuarioController(BaseController):
             dataframe.to_excel(writer, index=False, sheet_name='Usuários')
 
             workbook = writer.book
-            worksheet = writer.sheets['Usuarios']
+            worksheet = writer.sheets['Usuários']
 
             total_usuarios = len(dataframe)
-            worksheet.cell(row=1, column=3, value=f"Total de usuários = {total_usuarios}")
+            worksheet.cell(row=1, column=7, value=f"Total de usuários = {total_usuarios}")
 
             medium_border = Border(
                 
