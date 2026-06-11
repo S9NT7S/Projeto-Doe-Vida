@@ -38,7 +38,7 @@ class LoginController(BaseController):
         if self.db.validar_credenciais(usuario, senha):
             session["usuario_logado"] = usuario
 
-            query = "SELECT perfil FROM usuarios WHERE usuario = %s"
+            query = "SELECT id, perfil FROM usuarios WHERE usuario = %s"
             self.db.cursor.execute(query, (usuario,))
             resultado = self.db.cursor.fetchone()
 

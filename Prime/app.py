@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 from flask import Flask, session
 from controllers.html_basico_controller import HTMLBasicoController
 from controllers.login_controller import LoginController
@@ -17,8 +18,10 @@ from services.dashboard_service import DashboardService
 
 import os
 
+load_dotenv()
+
 app = Flask(__name__)
-app.secret_key = os.urandom(100)
+app.secret_key = os.getenv("SECRET_KEY")
 
 banco = BancoMySQL()
 

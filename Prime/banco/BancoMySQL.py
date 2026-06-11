@@ -3,12 +3,16 @@ from mysql.connector import Error
 import bcrypt
 import re
 
+from dotenv import load_dotenv
+load_dotenv()
+import os
+
 class BancoMySQL:
     def __init__(self):
         cnx = mysql.connector.connect(
-            host = '127.0.0.1',
-            user = 'root',
-            password = ''
+            host = os.getenv("DB_HOST"),
+            user = os.getenv("DB_USER"),
+            password = os.getenv("DB_PASSWORD")
         )
         cursor = cnx.cursor()
         cursor.execute("SELECT COUNT(*) FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = 'santos_application';")
@@ -17,9 +21,9 @@ class BancoMySQL:
 
         if num_results == 0:
             cnx = mysql.connector.connect(
-                host = '127.0.0.1',
-                user = 'root',
-                password = ''
+                host = os.getenv("DB_HOST"),
+                user = os.getenv("DB_USER"),
+                password = os.getenv("DB_PASSWORD")
             )
             cursor = cnx.cursor()
             cursor.execute("CREATE DATABASE santos_application;")
@@ -28,10 +32,10 @@ class BancoMySQL:
 
         try:
             self.conexao = mysql.connector.connect(
-                host = 'localhost',
-                user = 'root',
-                password = '',
-                database = 'santos_application'
+                host = os.getenv("DB_HOST"),
+                user = os.getenv("DB_USER"),
+                password = os.getenv("DB_PASSWORD"),
+                database = os.getenv("DB_NAME")
             )
             self.cursor = self.conexao.cursor()
 
@@ -68,9 +72,9 @@ class BancoMySQL:
             CREATE TABLE IF NOT EXISTS logins (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 usuario_id INT NOT NULL,
-                data_hora DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
-            );
+            )
         """)
         self.conexao.commit()
 
