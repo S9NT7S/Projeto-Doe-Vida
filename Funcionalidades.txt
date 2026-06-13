@@ -19,3 +19,7 @@ Menu dropdown - done
 Dashboard - done
 Logs - 
 Testes - 
+Gamificação do sistema
+Ranking de doadores
+Dar brindes
+Indicação

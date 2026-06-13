@@ -32,7 +32,7 @@ class UsuarioRepository:
         except Exception as e:
             print("usuario_repository")
 
-    def atualizar(self, usuario_id, novo_nome, nova_senha, novo_perfil, novo_sexo, novo_sangue, nova_idade):
+    def atualizar(self, usuario_id, novo_nome, nova_senha, novo_perfil, novo_sexo, novo_sangue, nova_idade): #Esta função não está sendo utilizada
 
         if novo_nome:
             try:
@@ -47,6 +47,9 @@ class UsuarioRepository:
                 print("Update senha")
                 print(Exception)
 
+
+    """" Aqui é onde o update acontece, como podem ver, um a um    """
+    
     def update_senha(self, usuario_id, nova_senha):
         sql = "UPDATE usuarios SET senha=%s WHERE id=%s"
         self.banco.executar(sql, (nova_senha, usuario_id))

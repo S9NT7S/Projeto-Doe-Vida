@@ -9,6 +9,7 @@ Usuario:
 
 Perfil:
     Doadores:
+        admin
         Doador de primeira vez - autoexplicativo
         Doador regular - duas ou mais vezes em um período de 12 meses
         Doador esporádico - em um período superior a 12 meses
