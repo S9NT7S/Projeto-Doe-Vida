@@ -35,7 +35,7 @@ instance/
 
 flask_session/
 
-.env
+# .env
 .env.local
 .env.*.local
 
