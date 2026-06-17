@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="imagens/x-icon" href="{{ url_for('static', filename='imagens/blood1.png') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Perfil</th>
+                    <th>Sexo</th>
+                    <th>Sangue</th>
+                    <th>Idade</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in usuarios %}
+                <tr>
+                    <td> {{ u.nome }} </td>
+                    <td> {{ u.usuario }} </td>
+                    <td> {{ u.sexo }} </td>
+                    <td> {{ u.sangue }} </td>
+                    <td> {{ u.idade }} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>        
+    </body>
+
+</html>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+Usuario:
+    nome
+    usuario
+    senha
+    perfil
+    sexo
+    sangue
+    idade
+
+Perfil:
+    Doadores:
+        admin
+        Doador de primeira vez - autoexplicativo
+        Doador regular - duas ou mais vezes em um período de 12 meses
+        Doador esporádico - em um período superior a 12 meses
+        Doador voluntário - altruísmo
+        Doador direcionado - paciente específico
+
+Sexo:
+    Feminino
+    Masculino
+    Outro
+
+Sangue:
+    A positivo
+    A negativo
+    B positivo
+    B negativo
+    AB positivo
+    AB negativo
+    O positivo
+    O negativo
+    Não tenho certeza
+
+Idade:
+    1 a 120
+
+Nova linha 

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="imagens/x-icon" href="{{ url_for('static', filename='imagens/blood1.png') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+        <title>Impedimentos temporários</title>
+    </head>
+
+    <body>
+        <h1>Impedimentos temporários:</h1>
+
+        <ul>
+            <li>Gripe, resfriado e febre: aguardar 15 dias após o desaparecimento dos sintomas</li>
+            <br>
+            <li>Período gestacional</li>
+            <br>
+            <li>Período pós-gravidez: 90 dias para parto normal e 180 dias para cesariana</li>
+            <br>
+            <li>Amamentação (até 12 meses após o parto)</li>
+            <br>
+            <li>Ingestão de bebida alcóolica nas 12h que antecedem a doação</li>
+            <br>
+            <li>Tatuagem e/ou piercing nos últimos 12 meses (piercing em cavidade oral ou região genital impedem a doação)</li>
+            <br>
+            <li>Exames/procedimentos com utilização de endoscópio nos últimos 6 meses</li>
+            <br>
+            <li>Ter estado exposto a situações de risco acrescido para doenças sexualmente transmissíveis (aguardar 12 meses após a exposição)</li>
+            <br>
+            <li>Pessoas que tiveram contato com pacientes infectados ou com suspeita de covid-19 ficam impedidas de doar sangue pelo prazo de 7 dias</li>
+            <br>
+            <li>Pessoas que foram consideradas caso suspeito ou confirmado de covid-19, devem aguardar o prazo de 10 dias após a remissão dos sintomas</li>
+            <br>
+            <li>Vacinas têm um período de inaptidão que varia entre 48 horas e 12 meses, <a href="https://www.hemocentro.org.br/uploads//8039principaisvacinaesuacorrelacaocomdoacaodesangue2022.pdf" target="_blank">Saiba o período de cada uma clicando aqui</a> </a></li>
+        </ul>
+
+    </body>
+
+</html>
+
+
+{% endblock %}

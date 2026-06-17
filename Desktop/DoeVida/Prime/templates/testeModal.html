@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Teste Modal</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/teste.css') }}">
+
+    </head>
+
+    <div id="modalConfirmacao" class="modal">
+        <div class="modalContent">
+            
+            <h2>Confirmar exclusao</h2>
+            
+            <p>Tem certeza que deseja excluir este usuário?</p>
+
+            <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+
+                <button onclick="confirmarExclusao()" class="botaoExcluir">
+                    Sim, excluir
+                </button>
+
+                <button onclick="fecharModalConfirmacao()" class="Btn">
+                    Cancelar
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <body>
+
+        <script src="{{ url_for('static', filename='js/teste.js') }}"></script>
+
+    </body>
+
+</html>
