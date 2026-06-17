@@ -42,7 +42,7 @@ flask_session/
 *.log
 logs/
 log/
-banco/
+# banco/
 
 
 .vscode/
