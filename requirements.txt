@@ -1,3 +1,24 @@
-flask==3.0.0
-requests>=2.31.0
-numpy
+# pip install -r requirements.txt
+Flask==3.1.1
+python-dotenv==1.1.1
+mysql-connector-python==9.4.0
+bcrypt==4.3.0
+pandas==2.3.1
+openpyxl==3.1.5
+fpdf2==2.8.4
+requests==2.32.4
+Flask-Cors==6.0.1
+Faker==37.5.3
+gunicorn
+psycopg2-binary==2.9.9
+
+# pip install flask
+# pip install python-dotenv
+# pip install mysql-connector-python
+# pip install bcrypt
+# pip install pandas
+# pip install openpyxl
+# pip install fpdf2
+# pip install requests
+# pip install flask-cors
+# pip install faker
