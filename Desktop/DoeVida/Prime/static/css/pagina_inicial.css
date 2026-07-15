@@ -3,12 +3,13 @@
     width: 200px;
     height: 90px;
     background-color: red;
-    display: inline-flexbox;
+    display:inline-flex;
     border-radius: 15px;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .card-link {
@@ -21,11 +22,15 @@
     font-size: 24px;
     font-weight: bold;
     justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .container-cards {
     display: flex;
     gap: 16px;
+    font-display: auto;
+    flex-wrap: wrap;
 }
 
 .body {

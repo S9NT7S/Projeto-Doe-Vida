@@ -30,9 +30,9 @@ app.secret_key = os.getenv("SECRET_KEY")
 
 banco = BancoMySQL()
 
-@app.teardown_appcontext
-def fechar_conexao_banco(exception):
-    banco.fechar_conexao(exception)
+# @app.teardown_appcontext
+# def fechar_conexao_banco(exception):
+#     banco.fechar_conexao(exception)
 
 conexao = mysql.connector.connect(
     host = os.getenv("DB_HOST"),
