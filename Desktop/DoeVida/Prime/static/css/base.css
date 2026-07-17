@@ -1,3 +1,18 @@
+/* Padrão celulares */
+.container {
+    width: 100%;
+}
+
+/* Tablet */
+@media (min-width:768px) {
+
+}
+
+/* Notebook */
+@media (min-width:1024px) {
+
+}
+
 * {
     margin: 0;
     padding: 0;
