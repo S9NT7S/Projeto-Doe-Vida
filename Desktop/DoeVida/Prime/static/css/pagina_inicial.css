@@ -31,12 +31,29 @@
     gap: 16px;
     font-display: auto;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-.body {
+body {
     text-align: center;
     justify-content: center;
     align-items: center;
     display: flex;
     width: 100%;
+    font-size: 15px;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    body {
+        /* background-color: aquamarine; */
+        font-size: 25px;
+    }
+}
+
+/* Notebook */
+@media (min-width: 1024px) {
+    body {
+        font-size: 35px;
+    }
 }
