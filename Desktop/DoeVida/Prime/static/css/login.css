@@ -4,6 +4,7 @@ body {
     font-size: 16px;
     line-height: 2.0;
     display: block;
+    width: 100%;
 }
 
 h1 {
@@ -11,15 +12,11 @@ h1 {
     margin-bottom: 1%;
     display: flex;
     justify-content: center;
-
 }
 
 form {
     background-color: transparent;
-    padding: 20px;
-    /* border-radius: 10px; */
     width: 100%;
-    /* margin: 0 auto; */
     box-shadow: 0 0 10px rgb(255, 100, 100);
     text-align: center;
     /* align-items: center; */
@@ -38,7 +35,6 @@ legend {
     font-size: 1.2em;
     font-weight: bold;
     color: #ff8800;
-    padding: 0 10px;
 }
 
 label {
@@ -50,8 +46,6 @@ label {
 
 .input[name="usuario"], .input[name="senha"] {
     width: 40%;
-    margin-bottom: 5px;
-    border-radius: 4px;
     align-items: center;
     justify-content: right;
     display: flex;
@@ -63,7 +57,6 @@ input[type="submit"] {
     color: white;
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
     text-align: center;
@@ -76,8 +69,6 @@ a {
     background-color: red;
     color: rgb(255, 255, 255);
     padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
     text-align: center;
@@ -87,8 +78,6 @@ button {
     background-color: red;
     color: rgb(255, 255, 255);
     padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
     text-align: center;
@@ -96,7 +85,6 @@ button {
 
 .content {
     align-items: center;
-    /* flex-wrap: wrap; */
     display: flex;
     justify-content: center;
     width: 100%;
@@ -106,7 +94,6 @@ pre {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .divUser {
@@ -133,3 +120,16 @@ pre {
     align-items: center;
 }
 
+/* Tablet */
+@media (min-width: 768px) {
+    body {
+        font-size: 25px;
+    }
+}
+
+/* Notebook */
+@media (min-width: 1024px) {
+    body {
+        font-size: 35px;
+    }
+}

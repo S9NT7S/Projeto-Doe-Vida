@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pagina_inicial.css') }}">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Pagina inicial</title>
 </head>
 
@@ -38,93 +38,102 @@
 
     <br>
 
-    <!-- <img src="static/imagens/doando.jpg" width="800" height="300"> -->
-
     <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="columns">
+                <div class="col-12 col-md-6 col-lg-3">
+            
+                    <div class="container-cards d-flex">
+                        <div class="card bg-danger text-white">
+                            <a href="{{ url_for('cbasico1') }}" class="card-link">Condições básicas para doar sangue</a>
+                        </div>
+                        <br>
+                        <div class="card bg-danger text-white">
+                            <a href="{{ url_for('impedimentos_temp') }}" class="card-link">Impedimentos temporários</a>
+                        </div>
+                        <br>
+                        <div class="card bg-danger text-white">
+                            <a href="{{ url_for('impedimentos_def') }}" class="card-link">Impedimentos definitivos</a>
+                        </div>
+                        <br>
+                    </div>
+                    <br>
+                    <div>
+                        <h2>Intervalos para doação</h2>
+
+                        <ul>
+                            Homens - 60 dias (máximo de 04 doações nos últimos 12 meses)
+                            <br>
+                            Mulheres - 90 dias (máximo de 03 doações nos últimos 12 meses)
+                        </ul>
+                    </div>
+
+                    <br>
+
+                    <h2>Recomendações úteis após a doação de sangue:</h2>
+
+                    <ul>
+                        <li>Permanecer sentado por 5 a 10 minutos</li>
+                        <li>Manter o curativo no braço pelo menos por 4 horas</li>
+                        <li>Tomar o lanche oferecido pelo Hemocentro</li>
+                        <li>Evitar dobrar o braço puncionado por 30 minutos</li>
+                        <li>Aumentar a ingestão de líquidos nas próximas 24 horas</li>
+                        <li>Não ingerir bebidas alcoólicas por 12 horas</li>
+                        <li>Não fumar por cerca de 2 horas</li>
+                        <li>Evitar grandes esforços físicos por 12 horas</li>
+                        <li>Não desempenhar atividade de risco (manipular máquina de corte ou torno, trabalhar em andaimes ou grandes alturas, dirigir transporte coletivo ou motocicletas)</li>
+                    </ul>
+
+                    <br>
+
+                    <h2>O que fazer se apresentar:</h2>
+                    <h3>Hematoma ou mancha arroxeada no local:</h3>
+
+                    <ul>
+                        <li>Aplicar compressas de gelo no local nas primeiras 6 horas. Se permanecer procure o Departamento Médico e Serviço de Enfermagem do Hemocentro, ou posto de saúde mais próximo de sua casa</li>
+                    </ul>
+
+                    <br>
+
+                    <h3>Flebite (vermelhidão e dor no local):</h3>
+
+                    <ul>
+                        <li>Aplicar compressas de água morna no local e procurar o Departamento Médico e Serviço de Enfermagem do Hemocentro, ou posto de saúde mais próximo de sua casa</li>
+                    </ul>
+
+                    <br>
+
+                    <h3>Mal-estar ou desmaios:</h3>
+
+                    <ul>
+                        <li>Sentar e colocar a cabeça abaixo dos joelhos ou deitar com os pés em nível acima da cabeça</li>
+                    </ul>
+
+                    <br>
+
+                    <h3>Dor no braço que realizou a doação, tontura, fraqueza e aumento da frequência cardíaca:</h3>
+
+                    <ul>
+                        <li>Comunique ao Hemocentro caso apresente qualquer sinal ou sintoma descrito acima, ou qualquer sinal de processo infeccioso, como febre ou diarréia, até 14 dias após a doação</li>
+                    </ul>
+
+                    <br>
+
+                    <a href="https://www.hemocentro.org.br/principal.asp?edoc=conteudo&secaoid=422&subsecaoid=414&lstrod=0" target="_blank">Fonte: HEMOGO</a>
+
+                    </section>
+                
+                </div>
+            </div>
+        </div>
     
-    <div class="container-cards">
-        <div class=card>
-            <a href="{{ url_for('cbasico1') }}" class="card-link">Condições básicas para doar sangue</a>
-        </div>
-        <br>
-        <div class="card">
-            <a href="{{ url_for('impedimentos_temp') }}" class="card-link">Impedimentos temporários</a>
-        </div>
-        <br>
-        <div class="card">
-            <a href="{{ url_for('impedimentos_def') }}" class="card-link">Impedimentos definitivos</a>
-        </div>
-        <br>
-    </div>
-    <br>
-    <div>
-        <h2>Intervalos para doação</h2>
-
-        <ul>
-            Homens - 60 dias (máximo de 04 doações nos últimos 12 meses)
-            <br>
-            Mulheres - 90 dias (máximo de 03 doações nos últimos 12 meses)
-        </ul>
     </div>
 
-    <br>
-
-    <h2>Recomendações úteis após a doação de sangue:</h2>
-
-    <ul>
-        <li>Permanecer sentado por 5 a 10 minutos</li>
-        <li>Manter o curativo no braço pelo menos por 4 horas</li>
-        <li>Tomar o lanche oferecido pelo Hemocentro</li>
-        <li>Evitar dobrar o braço puncionado por 30 minutos</li>
-        <li>Aumentar a ingestão de líquidos nas próximas 24 horas</li>
-        <li>Não ingerir bebidas alcoólicas por 12 horas</li>
-        <li>Não fumar por cerca de 2 horas</li>
-        <li>Evitar grandes esforços físicos por 12 horas</li>
-        <li>Não desempenhar atividade de risco (manipular máquina de corte ou torno, trabalhar em andaimes ou grandes alturas, dirigir transporte coletivo ou motocicletas)</li>
-    </ul>
-
-    <br>
-
-    <h2>O que fazer se apresentar:</h2>
-    <h3>Hematoma ou mancha arroxeada no local:</h3>
-
-    <ul>
-        <li>Aplicar compressas de gelo no local nas primeiras 6 horas. Se permanecer procure o Departamento Médico e Serviço de Enfermagem do Hemocentro, ou posto de saúde mais próximo de sua casa</li>
-    </ul>
-
-    <br>
-
-    <h3>Flebite (vermelhidão e dor no local):</h3>
-
-    <ul>
-        <li>Aplicar compressas de água morna no local e procurar o Departamento Médico e Serviço de Enfermagem do Hemocentro, ou posto de saúde mais próximo de sua casa</li>
-    </ul>
-
-    <br>
-
-    <h3>Mal-estar ou desmaios:</h3>
-
-    <ul>
-        <li>Sentar e colocar a cabeça abaixo dos joelhos ou deitar com os pés em nível acima da cabeça</li>
-    </ul>
-
-    <br>
-
-    <h3>Dor no braço que realizou a doação, tontura, fraqueza e aumento da frequência cardíaca:</h3>
-
-    <ul>
-        <li>Comunique ao Hemocentro caso apresente qualquer sinal ou sintoma descrito acima, ou qualquer sinal de processo infeccioso, como febre ou diarréia, até 14 dias após a doação</li>
-    </ul>
-
-    <br>
-
-    <a href="https://www.hemocentro.org.br/principal.asp?edoc=conteudo&secaoid=422&subsecaoid=414&lstrod=0" target="_blank">Fonte: HEMOGO</a>
-
-    </section>
-
-    <!-- <script
+    <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
-    </script> -->
+    </script>
 
 </body>
 

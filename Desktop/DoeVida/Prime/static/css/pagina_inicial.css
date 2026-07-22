@@ -12,9 +12,12 @@
     flex-wrap: wrap;
 }
 
+/* .container {
+    display:flex;
+} */
+
 .card-link {
     position: fill-div;
-    display: block;
     width: 100%;
     height: 100%;
     text-decoration: none;
@@ -42,6 +45,7 @@ body {
     width: 100%;
     font-size: 15px;
 }
+
 
 /* Tablet */
 @media (min-width: 768px) {

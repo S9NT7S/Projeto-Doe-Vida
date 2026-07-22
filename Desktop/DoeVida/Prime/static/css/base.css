@@ -53,7 +53,7 @@ body{
 
 .logo{
     font-size: 20px;
-    margin-right: 30px;
+    
 }
 
 .wrapper{
@@ -85,9 +85,11 @@ body{
     width: 90%;
     margin: auto;
     padding: 20px 0;
+    gap: 10px;
 }
 
 .logout-btn {
+    padding: 10px;
     margin-left: auto; /* Empurra apenas o botão para a direita */
   }
 
@@ -133,13 +135,10 @@ body{
 .dropdown-button {
     cursor: pointer;
     display: inline-block;
-    padding: 10px 20px;
     background-color: red;
     font-size: larger;
     font-weight: bold;
     text-align: left;
-    border-radius: 4px;
-    margin: 0 10px;
     transition: background-color 0.3s ease;
 }
 
@@ -151,17 +150,12 @@ body{
 .dropdown-content {
     display: none;
     position: absolute;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    border-radius: 4px;
-    border: 1px yellow;
     background-color: red;
 }
 
 .dropdown-content a {
     color: white(255, 240, 240);
-    padding: 12px 16px;
     display: block;
     font-size: 16px;
 }

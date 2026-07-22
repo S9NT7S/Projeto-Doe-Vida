@@ -8,20 +8,24 @@
 </head>
 <body>
 
-    <!-- HTML -->
-    <!-- <div class="video">
-        <video autoplay loop muted playsinline class="video">
-            <source src="RedVideo.mp4" type="video/mp4">
-        </video>
-    </div> -->
-
-
     <input type="checkbox" id="menu-toggle" hidden>
     
 
     <div class="wrapper">
         <nav class="navbar">
             <div class="container">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-button">Teste</a>
+                    <div class="dropdown-content">
+                        
+                        {% if session.get('perfil_logado') == 'admin' %}
+                            <a href="{{ url_for('listar_usuarios') }}">Gerenciar usuários</a>
+                            <br>
+                            <a href="{{ url_for('js_dashboard')}}">Dashboards</a>
+                        {% endif %}
+                    </div>
+
+                </div>
                 <a class="logo" href="/">Home</a>
                 <div class="dropdown">
                     <a href="#" class="dropdown-button">Hemocentros no RS</a>
@@ -32,13 +36,6 @@
                         <a href="https://saude.rs.gov.br/hemosm" target="_blank">HEMOSM - Hemocentro Regional de Santa Maria</a>
                         <a href="https://saude.rs.gov.br/hemocentro-regional-de-cruz-alta" target="_blank">HEMOCRUZ - Hemocentro Regional de Cruz Alta</a>
                     </div>
-                </div>
-                {% if session.get('perfil_logado') == 'admin' %}
-                    <a href="{{ url_for('listar_usuarios') }}">Gerenciar usuários</a>
-                    <br>
-                    <a href="{{ url_for('js_dashboard')}}">Dashboards</a>
-                {% endif %}
-                <!-- <li><a href="{{ url_for('minha_area') }}">Meu Perfil</a> </li> -->
                 <a class="logout-btn" href="/logout">Sair</a>
             </div>
         </nav>
