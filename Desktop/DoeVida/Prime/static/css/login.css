@@ -4,7 +4,6 @@ body {
     font-size: 16px;
     line-height: 2.0;
     display: block;
-    width: 100%;
 }
 
 h1 {
@@ -14,27 +13,29 @@ h1 {
     justify-content: center;
 }
 
+/* .divGif {
+    
+} */
+
 form {
     background-color: transparent;
-    width: 100%;
     box-shadow: 0 0 10px rgb(255, 100, 100);
     text-align: center;
-    /* align-items: center; */
+    align-items: center; 
     display: block;
     justify-content: center;
-}
-
-fieldset {
-    border: 2px solid crimson;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    padding: 15px;
 }
 
 legend {
     font-size: 1.2em;
     font-weight: bold;
     color: #ff8800;
+}
+
+.divLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 label {
@@ -45,55 +46,38 @@ label {
 }
 
 .input[name="usuario"], .input[name="senha"] {
-    width: 40%;
     align-items: center;
     justify-content: right;
     display: flex;
+}
 
+.btn-entrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botao-entrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
 }
 
 input[type="submit"] {
-    background-color: red;
+    background-color: transparent;
     color: white;
-    padding: 10px 20px;
     border: none;
     cursor: pointer;
     font-size: 16px;
-    text-align: center;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-
-a {
-    background-color: red;
-    color: rgb(255, 255, 255);
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: center;
-}
-
-button {
-    background-color: red;
-    color: rgb(255, 255, 255);
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: center;
+    display: block;
+    padding: 10px 15px;
 }
 
 .content {
     align-items: center;
     display: flex;
     justify-content: center;
-    width: 100%;
-}
-
-pre {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .divUser {
@@ -118,6 +102,14 @@ pre {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+a {
+    background-color: red;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 10px;
 }
 
 /* Tablet */
