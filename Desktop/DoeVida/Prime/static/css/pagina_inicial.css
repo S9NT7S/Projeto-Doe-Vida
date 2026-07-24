@@ -12,10 +12,6 @@
     flex-wrap: wrap;
 }
 
-/* .container {
-    display:flex;
-} */
-
 .card-link {
     position: fill-div;
     width: 100%;
@@ -35,17 +31,20 @@
     font-display: auto;
     flex-wrap: wrap;
     justify-content: center;
+    margin: auto;
 }
 
 body {
     text-align: center;
     justify-content: center;
     align-items: center;
-    display: flex;
     width: 100%;
     font-size: 15px;
 }
 
+.navbar-nav {
+    background-color: red;
+}
 
 /* Tablet */
 @media (min-width: 768px) {
