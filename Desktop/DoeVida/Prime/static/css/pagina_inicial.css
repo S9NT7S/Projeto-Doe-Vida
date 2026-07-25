@@ -42,14 +42,51 @@ body {
     font-size: 15px;
 }
 
+/* NAVBAR INICIA AQUI */
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .navbar-nav {
     background-color: red;
+    width: 100%;
+    margin: auto;
+    padding: 30px 20px;
+    justify-content: center;
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+.navbar-nav a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.icone {
+    margin: auto;
+    display: flex;
+}
+
+/* NAVBAR TERMINA AQUI */
+
+.hemogo {
+    background-color: red;
+    color: white;
+    font-size: 20px;
+}
+
+a {
+    background-color: red;
+    color: white;
+    padding: 10px;
 }
 
 /* Tablet */
 @media (min-width: 768px) {
     body {
-        /* background-color: aquamarine; */
         font-size: 25px;
     }
 }

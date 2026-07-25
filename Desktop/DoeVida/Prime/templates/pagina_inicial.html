@@ -15,27 +15,38 @@
     <nav class="navbar navbar-expand-sm">
         <div class="container-fluid">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                {% if session.get('perfil_logado') == 'admin' %}
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <div class="icone">
+                        <span class="navbar-toggler-icon"></span>
+                    </div>
+                    </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">   
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('listar_usuarios') }}">Gerenciar usuários</a>
+                        <a class="nav-link text-white" href="/">Home</a>
+                    </li>
+                    {% if session.get('perfil_logado') == 'admin' %}
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ url_for('listar_usuarios') }}">Gerenciar usuários</a>
+                        </li>
+                        <li class="nav-item text-white">
+                            <a class="nav-link text-white" href="{{ url_for('js_dashboard')}}">Dashboards</a>
+                        </li>
+                    {% endif %}
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#"  data-bs-toggle="dropdown">Hemocentros no RS</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemocentro-do-estado-do-rio-grande-do-sul">HEMORGS - Hemocentro do Estado do Rio Grande do Sul</a></li>
+                            <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemopasso">HEMOPASSO - Hemocentro Regional de Passo Fundo</a></li>
+                            <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemopel">HEMOPEL - Hemocentro Regional de Pelotas</a></li>
+                            <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemosm">HEMOSM - Hemocentro Regional de Santa Maria</a></li>
+                            <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemocentro-regional-de-cruz-alta">HEMOCRUZ - Hemocentro Regional de Cruz Alta</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('js_dashboard')}}">Dashboards</a>
+                        <a class="nav-link text-white" href="/logout">Sair</a>
                     </li>
-                {% endif %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#"  data-bs-toggle="dropdown">Hemocentros no RS</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemocentro-do-estado-do-rio-grande-do-sul">HEMORGS - Hemocentro do Estado do Rio Grande do Sul</a></li>
-                        <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemopasso">HEMOPASSO - Hemocentro Regional de Passo Fundo</a></li>
-                        <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemopel">HEMOPEL - Hemocentro Regional de Pelotas</a></li>
-                        <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemosm">HEMOSM - Hemocentro Regional de Santa Maria</a></li>
-                        <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemocentro-regional-de-cruz-alta">HEMOCRUZ - Hemocentro Regional de Cruz Alta</a></li>
-                    </ul>
-                </li>
+                </div>                
             </ul>
         </div>
     </nav>
@@ -64,15 +75,15 @@
         <div class="row">
             <div class="col">
                 <div class="container-cards">
-                    <button class="btn btn-danger text-white align-items-start">
+                    <button class="btn align-items-start">
                         <a href="{{ url_for('cbasico1') }}" class="card-link">Condições básicas para doar sangue</a>
                     </button>
                     <br>
-                    <button class="btn btn-danger text-white align-items-center">
+                    <button class="btn align-items-center">
                         <a href="{{ url_for('impedimentos_temp') }}" class="card-link">Impedimentos temporários</a>
                     </button>
                     <br>
-                    <button class="btn btn-danger text-white align-items-end">
+                    <button class="btn align-items-end">
                         <a href="{{ url_for('impedimentos_def') }}" class="card-link">Impedimentos definitivos</a>
                     </button>
                     <br>
@@ -139,7 +150,7 @@
 
                 <br>
 
-                <a href="https://www.hemocentro.org.br/principal.asp?edoc=conteudo&secaoid=422&subsecaoid=414&lstrod=0" target="_blank">Fonte: HEMOGO</a>
+                <a class="hemogo" href="https://www.hemocentro.org.br/principal.asp?edoc=conteudo&secaoid=422&subsecaoid=414&lstrod=0" target="_blank">Fonte: HEMOGO</a>
 
                 </section>
             
