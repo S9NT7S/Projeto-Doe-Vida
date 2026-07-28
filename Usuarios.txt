@@ -1,11 +1,14 @@
 Usuario:
     nome
-    usuario
+    usuario (email) - removido
     senha
     perfil
     sexo
     sangue
     idade
+    CPF
+    CEP
+    Telefone
 
 Perfil:
     Doadores:
@@ -36,3 +39,5 @@ Idade:
     1 a 120
 
 Nova linha 
+
+Ajeitar banco

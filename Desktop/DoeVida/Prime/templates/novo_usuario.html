@@ -23,14 +23,23 @@
                 <label></label>Nome:<label></label>
                 <input type="text" id="nome" name="nome" required>
                 <br>
+                <label>Cpf:</label>
+                <input id="CPFInput" maxlength="11" oninput="criarMascara('CPF')" required>
+                <br>
                 <label for="email"></label>Email:<label></label>
                 <input type="email" id="email" name="email" required>
                 <br>
                 <label for="senha"></label>Senha:<label></label>
                 <input type="password" id="senha" name="senha" required>
                 <br>
+                <label for="telefone">Telefone:</label>
+                <input id="TelefoneInput" maxlength="11" oninput="criarMascara('Telefone')" required>
+                <br>
+                <label>CEP:</label>
+                <input id="CEPInput" maxlength="8" oninput="criarMascara('CEP')" required>
+                <br>
                 <label>Perfil:</label>
-                <select id="perfil" name="perfil">
+                <select id="perfil" name="perfil" required>
                     <option value="primeira">Doador de primeira vez</option>
                     <option value="regular">Doador regular</option>
                     <option value="esporadico">Doador esporádico</option>
@@ -39,14 +48,14 @@
                 </select>
                 <br>
                 <label>Sexo:</label>
-                <select id="sexo" name="sexo">
+                <select id="sexo" name="sexo" required>
                     <option value="feminino">Feminino</option>
                     <option value="masculino">Masculino</option>
                     <option value="outro">Outro</option>
                 </select>
                 <br>
                 <label>Tipo sanguíneo:</label>
-                <select id="sangue" name="sangue">
+                <select id="sangue" name="sangue" required>
                     <option value="a_positivo">A positivo</option>
                     <option value="a_negativo">A negativo</option>
                     <option value="b_positivo">B positivo</option>
@@ -59,7 +68,7 @@
                 </select>
                 <br>
                 <label>Idade:</label>
-                <input type="number" min="1" max="120" id="idade" name="idade">
+                <input type="number" min="16" max="69" maxlength="2" id="idadeInput" oninput="criarMascara('Idade')" name="idade"  required>
                 <br>
                 <button type="submit" onclick="return confirm('Tem certeza?');" value="Cadastrar" class="btn btn-danger">Salvar</button>
                 <br>
@@ -72,4 +81,19 @@
              </form>
         </pre>
     </body>
+    <script>
+        function criarMascara(mascaraInput){
+            const maximoInput = document.getElementById(`${mascaraInput}Input`).maxLength;
+            let valorInput = document.getElementById(`${mascaraInput}Input`).value;
+            let valorSemPonto = document.getElementById(`${mascaraInput}Input`).value.replace(/([^0-9])+/g, "");
+            const mascaras = {
+                CPF: valorInput.replace(/[^\d]/g, "").replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4"),
+                Telefone: valorInput.replace(/[^\d]/g, "").replace(/(\d{2})(\d{5})(\d{4})/, "($1)$2-$3"),
+                CEP: valorInput.replace(/[^\d]/g, "").replace(/(\d{5})(\d{3})/, "$1-$2"),
+                Idade: valorInput.replace(/[^\d]/g, "")
+            };
+            
+            valorInput.length === maximoInput ? document.getElementById(`${mascaraInput}Input`).value = mascaras[mascaraInput] : document.getElementById(`${mascaraInput}Input`).value = valorSemPonto;
+        };
+    </script>
 </html>

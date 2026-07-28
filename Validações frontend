@@ -1,0 +1,6 @@
+Campos obrigatórios vazios - avisar
+Formatação básica de dados - checar se os dados seguem os padrões
+Comparações simples de campos - checar senhas e confirmações 
+Restringir tamanhos e tipos - limitar a quantidade máxima ou mínima de caracteres 
+
+As máscaras utilizadas na criação de usuários foram tiradas de: <https://dev.to/laurolyra/adicionando-mascaras-nos-inputs-html-js-vanilla-5f1l>

@@ -3,7 +3,6 @@ body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 16px;
     line-height: 2.0;
-    display: block;
 }
 
 h1 {
@@ -27,7 +26,6 @@ form {
     box-shadow: 0 0 10px rgb(255, 100, 100);
     text-align: center;
     align-items: center; 
-    display: block;
     justify-content: center;
 }
 
@@ -41,13 +39,6 @@ legend {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-label {
-    display: block;
-    text-align: center;
-    align-items: center;
-    place-items: center;
 }
 
 .input[name="usuario"], .input[name="senha"] {

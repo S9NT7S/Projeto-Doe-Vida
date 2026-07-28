@@ -1,0 +1,4 @@
+Colocar eventos nas páginas
+
+Login
+    Na página de login, cada campo preenchido ir habilitando o botão de login, como são apenas dois campos (usuario e senha), setar o botao em fifty quando preencher o usuário e mais fifty quando preencher a senha, habilitar o botão
