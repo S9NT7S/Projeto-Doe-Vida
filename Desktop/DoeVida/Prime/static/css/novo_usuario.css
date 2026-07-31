@@ -1,0 +1,61 @@
+.labelName, .labelCpf, .labelEmail, .labelPassword, .labelPhone, .labelCep, .labelProfile, .labelSex, .labelBlood, .labelAge {
+    background-color: red;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.inputName, .inputCpf, .inputEmail, .inputPassword, .inputPhone, .inputCep, .selectProfile, .selectSex, .selectBlood, .inputAge {
+    background-color: rgb(255, 0, 0, 0.2);
+}
+
+.divH1 {
+    font-size: large;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    box-shadow: yellow;
+}
+
+h2 {
+    background: violet;
+    margin: 0;
+}
+
+button {
+    background-color: red;
+}
+
+.divLabel {
+    justify-content: center;
+}
+
+.divInput, .divButton, .divSpan {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.spanName {
+    background-color: red;
+}
+
+
+/* 
+
+Name
+Cpf
+Email
+Password
+Phone
+Cep
+Profile
+Sex
+Blood
+Age
+
+*/

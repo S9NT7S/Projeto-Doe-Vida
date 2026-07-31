@@ -20,17 +20,21 @@
             {% endif %}
             <pre>
                 <form action="{{url_for('entrar')}}" method="POST">
-                    <div class="divLabel">
-                        <label class="usuario" for="usuario">Email:</label>
+                    <div class="divLabelUser">
+                        <div class="divLabel">
+                            <label class="usuario" for="usuario">Email:</label>
+                        </div>
+                        <div class="divUser">
+                            <input type="text" id="usuario" name="usuario" required>
+                        </div>
                     </div>
-                    <div class="divUser">
-                        <input type="text" id="usuario" name="usuario" required>
-                    </div>
-                    <div class="divLabel">
-                        <label for="senha">Senha:</label>
-                    </div>
-                    <div class="divPassword">
-                        <input type="password" id="senha" name="senha" required>
+                    <div class="divLabelPassword">
+                        <div class="divLabel">
+                            <label for="senha">Senha:</label>
+                        </div>
+                        <div class="divPassword">
+                            <input type="password" id="senha" name="senha" required>
+                        </div>
                     </div>
                     <div class="btn-entrar">
                         <button class="botao-entrar">

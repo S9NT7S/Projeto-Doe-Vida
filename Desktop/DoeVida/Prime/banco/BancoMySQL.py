@@ -57,15 +57,12 @@ class BancoMySQL:
             CREATE TABLE IF NOT EXISTS usuarios (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 nome VARCHAR(100) NOT NULL,
-                sobrenome varchar(255),
-                cpf INT(11) UNIQUE NOT NULL,
+                usuario VARCHAR(100) UNIQUE NOT NULL,
                 senha VARCHAR(100) NOT NULL,
-                idade INT NOT NULL,
-                cep INT(8),
-                telefone INT(11) NOT NULL,
                 perfil VARCHAR(50) NOT NULL DEFAULT 'Doador de primeira vez',
                 sexo VARCHAR(50) NOT NULL,
                 sangue VARCHAR(50) NOT NULL DEFAULT 'Não tenho certeza',
+                idade VARCHAR(50) NOT NULL
             )
         """)
         self.conexao.commit()

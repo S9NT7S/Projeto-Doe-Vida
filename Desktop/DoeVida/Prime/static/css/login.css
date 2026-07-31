@@ -22,11 +22,13 @@ h1 {
 }
 
 form {
-    background-color: transparent;
-    box-shadow: 0 0 10px rgb(255, 100, 100);
+    background-color:rgb(255, 0, 0, 0.5);
+    box-shadow: red;
     text-align: center;
     align-items: center; 
     justify-content: center;
+    margin: 0;
+    padding: 50px;
 }
 
 legend {
@@ -74,6 +76,12 @@ input[type="submit"] {
     align-items: center;
     display: flex;
     justify-content: center;
+    margin: 0;
+}
+
+pre {
+    margin: 0;
+    
 }
 
 .divUser {
@@ -112,6 +120,25 @@ a {
 @media (min-width: 768px) {
     body {
         font-size: 25px;
+    }
+
+    .divLabelUser {
+        display: flex;
+        margin: 0;
+    }
+
+    .divLabelPassword {
+        display: flex;
+    }
+
+    form {
+        background-color: rgb(255, 0, 0, 0.5);
+        box-shadow: blue;
+        text-align: center;
+        align-items: center; 
+        justify-content: center;
+        margin: 0;
+        padding: 50px;
     }
 }
 
