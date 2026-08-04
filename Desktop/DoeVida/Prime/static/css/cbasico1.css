@@ -1,0 +1,23 @@
+.h2title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.liContent {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+li {
+    font-size: 16px;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.formulario {
+    color: black;
+    background-color: transparent;
+}
