@@ -1,1 +1,0 @@
-Software com diversas funcionalidades!!!!

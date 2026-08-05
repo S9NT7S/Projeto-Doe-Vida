@@ -1,20 +1,14 @@
-.botoes {
-    display: flex;
-}
-
-.botao-newuser {
-    padding: 10px;
-}
-
-.botao-excel {
-    padding: 10px;
-}
-
-.botao-pdf {
-    padding: 10px;
-}
-
 /* NAVBAR INICIA AQUI */
+
+.divNav {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .navbar-nav {
     background-color: red;
     width: 100%;
@@ -24,6 +18,7 @@
     font-size: 24px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bolder;
+    align-items: center;
 }
 
 .navbar-nav a:hover {
@@ -32,9 +27,3 @@
 }
 
 /* NAVBAR TERMINA AQUI */
-
-@media (max-width: 300px) {
-    body {
-        background-color: blue;
-    }
-}

@@ -3,66 +3,159 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/editar_usuario.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css')}}">
     <link rel="icon" type="imagens/x-icon" href="{{ url_for('static', filename='imagens/blood1.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"> </script>
     <title>Editar usuário</title>
     </head>
+
     <body>
-        <h1>Editar Usuário</h1>
+
+        <div class="divNav">
+            <nav class="navbar navbar-expand-sm">
+                <div class="container-fluid">
+                    <ul class="navbar-nav">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                            <div class="icone">
+                                <span class="navbar-toggler-icon"></span>
+                            </div>
+                            </button>
+                        <div class="collapse navbar-collapse" id="collapsibleNavbar">   
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/">Home</a>
+                            </li>
+                            {% if session.get('perfil_logado') == 'admin' %}
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="{{ url_for('listar_usuarios') }}">Gerenciar usuários</a>
+                                </li>
+                                <li class="nav-item text-white">
+                                    <a class="nav-link text-white" href="{{ url_for('js_dashboard')}}">Dashboards</a>
+                                </li>
+                            {% endif %}
+                        
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#"  data-bs-toggle="dropdown">Hemocentros no RS</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemocentro-do-estado-do-rio-grande-do-sul">HEMORGS - Hemocentro do Estado do Rio Grande do Sul</a></li>
+                                    <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemopasso">HEMOPASSO - Hemocentro Regional de Passo Fundo</a></li>
+                                    <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemopel">HEMOPEL - Hemocentro Regional de Pelotas</a></li>
+                                    <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemosm">HEMOSM - Hemocentro Regional de Santa Maria</a></li>
+                                    <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemocentro-regional-de-cruz-alta">HEMOCRUZ - Hemocentro Regional de Cruz Alta</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/logout">Sair</a>
+                            </li>
+                        </div>                
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="title">
+            <h1>Editar Usuário</h1>
+        </div>
 
         {% if erro %}
             <p style="color:red;">{{erro}}</p>
         {% endif %}
         
         <form method="POST">
+            
             <br>
-            <label for="nome">Novo nome:</label>
-            <input type="text" id="nome" name="nome">
+            
+            <div class="divLabel">
+                <label for="nome">Novo nome:</label>
+            </div>
+
+            <div class="divInput">
+                <input type="text" id="nome" name="nome">
+            </div>
+            
             <br>
-            <label for="senha">Nova senha:</label>
-            <input type="password" id="senha" name="senha">
+
+            <div class="divLabel">
+                <label for="senha">Nova senha:</label>
+            </div>
+
+            <div class="divInput">
+                <input type="password" id="senha" name="senha">
+            </div>
+            
             <br>
-            <label>Perfil:</label>
-            <select id="perfil" name="perfil">
-                <option value="primeira" {% if usuario.perfil == 'primeira' %}selected{% endif %}>Doador de primeira vez</option>
-                <option value="regular" {% if usuario.perfil == 'regular' %}selected{% endif %}>Doador regular</option>
-                <option value="esporadico" {% if usuario.perfil == 'esporadico' %}selected{% endif %}>Doador esporádico</option>
-                <option value="voluntario" {% if usuario.perfil == 'voluntario' %}selected{% endif %}>Doador voluntário</option>
-                <option value="direcionado" {% if usuario.perfil == 'direcionado' %}selected{% endif %}>Doador direcionado</option>
-            </select>
+            
+            <div class="divLabel">
+                <label>Perfil:</label>
+            </div>
+
+            <div class="divInput">
+                <select id="perfil" name="perfil">
+                    <option value="primeira" {% if usuario.perfil == 'primeira' %}selected{% endif %}>Doador de primeira vez</option>
+                    <option value="regular" {% if usuario.perfil == 'regular' %}selected{% endif %}>Doador regular</option>
+                    <option value="esporadico" {% if usuario.perfil == 'esporadico' %}selected{% endif %}>Doador esporádico</option>
+                    <option value="voluntario" {% if usuario.perfil == 'voluntario' %}selected{% endif %}>Doador voluntário</option>
+                    <option value="direcionado" {% if usuario.perfil == 'direcionado' %}selected{% endif %}>Doador direcionado</option>
+                </select>
+            </div>
+            
             <br>
-            <label>Sexo:</label>
-            <select id="sexo" name="sexo">
-                <option value="feminino" {% if usuario.sexo == 'feminino' %}selected{% endif %}>Feminino</option>
-                <option value="masculino" {% if usuario.sexo == 'masculino' %}selected{% endif %}>Masculino</option>
-                <option value="outro" {% if usuario.sexo == 'outro' %}selected{% endif %}>Outro</option>
-            </select>
+            
+            <div class="divLabel">
+                <label>Sexo:</label>
+            </div>
+            
+            <div class="divInput">
+                <select id="sexo" name="sexo">
+                    <option value="feminino" {% if usuario.sexo == 'feminino' %}selected{% endif %}>Feminino</option>
+                    <option value="masculino" {% if usuario.sexo == 'masculino' %}selected{% endif %}>Masculino</option>
+                    <option value="outro" {% if usuario.sexo == 'outro' %}selected{% endif %}>Outro</option>
+                </select>
+            </div>
+            
             <br>
-            <label>Tipo sanguíneo:</label>
-            <select id="sangue" name="sangue">
-                <option value="a_positivo" {% if usuario.sangue == 'a_positivo' %}selected{% endif %}>A positivo</option>
-                <option value="a_negativo" {% if usuario.sangue == 'a_negativo' %}selected{% endif %}>A negativo</option>
-                <option value="b_positivo" {% if usuario.sangue == 'b_positivo' %}selected{% endif %}>B positivo</option>
-                <option value="b_negativo" {% if usuario.sangue == 'b_negativo' %}selected{% endif %}>B negativo</option>
-                <option value="ab_positivo" {% if usuario.sangue == 'ab_positivo' %}selected{% endif %}>AB positivo</option>
-                <option value="ab_negativo" {% if usuario.sangue == 'ab_negativo' %}selected{% endif %}>AB negativo</option>
-                <option value="o_positivo" {% if usuario.sangue == 'o_positivo' %}selected{% endif %}>O positivo</option>
-                <option value="o_negativo" {% if usuario.sangue == 'o_negativo' %}selected{% endif %}>O negativo</option>
-                <option value="nao_tenho_certeza" {% if usuario.sangue == 'nao_tenho_certeza' %}selected{% endif %}>Não tenho certeza</option>
-            </select>
+            
+            <div class="divLabel">
+                <label>Tipo sanguíneo:</label>
+            </div>
+
+            <div class="divInput">
+                <select id="sangue" name="sangue">
+                    <option value="a_positivo" {% if usuario.sangue == 'a_positivo' %}selected{% endif %}>A positivo</option>
+                    <option value="a_negativo" {% if usuario.sangue == 'a_negativo' %}selected{% endif %}>A negativo</option>
+                    <option value="b_positivo" {% if usuario.sangue == 'b_positivo' %}selected{% endif %}>B positivo</option>
+                    <option value="b_negativo" {% if usuario.sangue == 'b_negativo' %}selected{% endif %}>B negativo</option>
+                    <option value="ab_positivo" {% if usuario.sangue == 'ab_positivo' %}selected{% endif %}>AB positivo</option>
+                    <option value="ab_negativo" {% if usuario.sangue == 'ab_negativo' %}selected{% endif %}>AB negativo</option>
+                    <option value="o_positivo" {% if usuario.sangue == 'o_positivo' %}selected{% endif %}>O positivo</option>
+                    <option value="o_negativo" {% if usuario.sangue == 'o_negativo' %}selected{% endif %}>O negativo</option>
+                    <option value="nao_tenho_certeza" {% if usuario.sangue == 'nao_tenho_certeza' %}selected{% endif %}>Não tenho certeza</option>
+                </select>
+            </div>
+
             <br>
-            <label for="idade">Idade:</label>
-            <input type="number" min="1" max="120" id="idade" name="idade">
+            
+            <div class="divLabel">
+                <label for="idade">Idade:</label>
+            </div>
+            
+            <div class="divInput">
+                <input type="number" min="1" max="120" id="idade" name="idade">
+            </div>
+
             <br>
-            <label></label><button type="submit" value="Salvar alterações">Salvar</button>
+            
+            <div class="divLabel">
+                <label><button type="submit" value="Salvar alterações">Salvar</button></label>
+            </div>
+
             <br>
-            <br>
-            <label></label><a href="{{ url_for('listar_usuarios') }}" typeclass="button">Voltar</a>
-            <br>
+            
+            <div class="divBotao">
+                <button><a href="{{ url_for('listar_usuarios') }}" style="text-decoration: none; color: black;">Voltar</a></button>
+            </div>
+
         </form>
     </body>
 </html>

@@ -1,0 +1,9 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.divLabel, .divInput, .title, .divBotao {
+    display: flex;
+    justify-content: center;
+}
+

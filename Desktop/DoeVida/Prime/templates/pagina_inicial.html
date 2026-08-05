@@ -74,6 +74,35 @@
 
     <br>
 
+    
+    <br>
+
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <div class="container-cards">
+                    <button class="btn queroDoar">
+                        <a href="{{ url_for('cbasico1') }}" class="card-link">Quero Doar Sangue</a>
+                    </button>
+                    <br>
+                    <button class="btn align-items-center">
+                        <a href="{{ url_for('impedimentos_temp') }}" class="card-link">Impedimentos temporários</a>
+                    </button>
+                    <br>
+                    <button class="btn align-items-end">
+                        <a href="{{ url_for('impedimentos_def') }}" class="card-link">Impedimentos definitivos</a>
+                    </button>
+                    <br>
+                </div>
+                
+                <br>
+                
+                </section>
+            
+            </div>
+        </div>    
+    </div>
+
     <canvas id="estoqueSangue" style="width: 100%"></canvas>
 
     <div class="divGrafico">
@@ -107,33 +136,7 @@
         </script>
     </div>
 
-    <br>
 
-    <div class="container text-center">
-        <div class="row">
-            <div class="col">
-                <div class="container-cards">
-                    <button class="btn queroDoar">
-                        <a href="{{ url_for('cbasico1') }}" class="card-link">Quero Doar Sangue</a>
-                    </button>
-                    <br>
-                    <button class="btn align-items-center">
-                        <a href="{{ url_for('impedimentos_temp') }}" class="card-link">Impedimentos temporários</a>
-                    </button>
-                    <br>
-                    <button class="btn align-items-end">
-                        <a href="{{ url_for('impedimentos_def') }}" class="card-link">Impedimentos definitivos</a>
-                    </button>
-                    <br>
-                </div>
-                
-                <br>
-                
-                </section>
-            
-            </div>
-        </div>    
-    </div>
 </body>
 
 </html>
