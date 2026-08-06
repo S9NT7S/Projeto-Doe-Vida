@@ -1,5 +1,6 @@
 Usuario:
     nome
+    sobrenome
     usuario (email) - removido
     senha
     perfil

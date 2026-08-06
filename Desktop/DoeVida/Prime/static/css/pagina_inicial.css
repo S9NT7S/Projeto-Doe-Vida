@@ -1,3 +1,7 @@
+ul.lista {
+    list-style-type: none;
+}
+
 .card {
     position: relative;
     width: 200px;

@@ -21,7 +21,7 @@ def gerar_usuario():
         "perfil": random.choice(['primeira', 'regular', 'esporadico', 'voluntario', 'direcionado']),
         "sexo": random.choice(['feminino', 'masculino', 'outro']),
         "sangue": random.choice(['a_positivo', 'a_negativo', 'b_positivo', 'b_negativo', 'ab_positivo', 'ab_negativo', 'o_positivo', 'o_negativo', 'nao_tenho_certeza']),
-        "idade": fake.random_int(min=16, max=100)
+        "idade": fake.random_int(min=16, max=69)
     }
 
 @app.route("/gerar_usuarios", methods=["POST"])

@@ -87,40 +87,43 @@
         </div>
     </div>
     <br>
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Perfil</th>
-                <th>Sexo</th>
-                <th>Sangue</th>
-                <th>Idade</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for u in usuarios %}
-            <tr>
-                <td> {{ u.id }} </td>
-                <td> {{ u.nome }} </td>
-                <td> {{ u.usuario }} </td>
-                <td> {{ u.perfil }} </td>
-                <td> {{ u.sexo }} </td>
-                <td> {{ u.sangue }} </td>
-                <td> {{ u.idade }} </td>
-                <td>
-                    <a href="{{ url_for('editar_usuario', usuario_id=u.id) }}" class="btn btn-success text-white" typeclass="button">Editar</a>
+    <div class="divTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Perfil</th>
+                    <th>Sexo</th>
+                    <th>Sangue</th>
+                    <th>Idade</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in usuarios %}
+                <tr>
+                    <td> {{ u.id }} </td>
+                    <td> {{ u.nome }} </td>
+                    <td> {{ u.usuario }} </td>
+                    <td> {{ u.perfil }} </td>
+                    <td> {{ u.sexo }} </td>
+                    <td> {{ u.sangue }} </td>
+                    <td> {{ u.idade }} </td>
+                    <td>
                     
-                    <form id="formExcluir-{{ u.id }}" method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="display: inline; margin: 0; padding: 0;">
-                        <button type="button" class="btn btn-danger" onclick="abrirConfirmacao('{{ u.id }}')">Excluir</button>
-                    </form>
+                        <a href="{{ url_for('editar_usuario', usuario_id=u.id) }}" class="btn btn-success text-white" typeclass="button" id="editar">Editar</a>
+                        
+                        <form id="formExcluir-{{ u.id }}" method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="display: inline; margin: 0; padding: 0;">
+                            <button type="button" class="btn btn-danger" onclick="abrirConfirmacao('{{ u.id }}')">Excluir</button>
+                        </form>
 
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>    
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>    
 </body>
 </html>

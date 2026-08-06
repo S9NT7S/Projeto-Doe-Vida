@@ -13,46 +13,44 @@
 
     <body>
 
-        <div class="divNav">
-            <nav class="navbar navbar-expand-sm">
-                <div class="container-fluid">
-                    <ul class="navbar-nav">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                            <div class="icone">
-                                <span class="navbar-toggler-icon"></span>
-                            </div>
-                            </button>
-                        <div class="collapse navbar-collapse" id="collapsibleNavbar">   
+        <nav class="navbar navbar-expand-sm">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                        <div class="icone">
+                            <span class="navbar-toggler-icon"></span>
+                        </div>
+                        </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">   
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/">Home</a>
+                        </li>
+                        {% if session.get('perfil_logado') == 'admin' %}
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="/">Home</a>
+                                <a class="nav-link text-white" href="{{ url_for('listar_usuarios') }}">Gerenciar usuários</a>
                             </li>
-                            {% if session.get('perfil_logado') == 'admin' %}
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ url_for('listar_usuarios') }}">Gerenciar usuários</a>
-                                </li>
-                                <li class="nav-item text-white">
-                                    <a class="nav-link text-white" href="{{ url_for('js_dashboard')}}">Dashboards</a>
-                                </li>
-                            {% endif %}
-                        
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-white" href="#"  data-bs-toggle="dropdown">Hemocentros no RS</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemocentro-do-estado-do-rio-grande-do-sul">HEMORGS - Hemocentro do Estado do Rio Grande do Sul</a></li>
-                                    <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemopasso">HEMOPASSO - Hemocentro Regional de Passo Fundo</a></li>
-                                    <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemopel">HEMOPEL - Hemocentro Regional de Pelotas</a></li>
-                                    <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemosm">HEMOSM - Hemocentro Regional de Santa Maria</a></li>
-                                    <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemocentro-regional-de-cruz-alta">HEMOCRUZ - Hemocentro Regional de Cruz Alta</a></li>
-                                </ul>
+                            <li class="nav-item text-white">
+                                <a class="nav-link text-white" href="{{ url_for('js_dashboard')}}">Dashboards</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="/logout">Sair</a>
-                            </li>
-                        </div>                
-                    </ul>
-                </div>
-            </nav>
-        </div>
+                        {% endif %}
+                    
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#"  data-bs-toggle="dropdown">Hemocentros no RS</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemocentro-do-estado-do-rio-grande-do-sul">HEMORGS - Hemocentro do Estado do Rio Grande do Sul</a></li>
+                                <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemopasso">HEMOPASSO - Hemocentro Regional de Passo Fundo</a></li>
+                                <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemopel">HEMOPEL - Hemocentro Regional de Pelotas</a></li>
+                                <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemosm">HEMOSM - Hemocentro Regional de Santa Maria</a></li>
+                                <li><a class="dropdown-item" href="https://saude.rs.gov.br/hemocentro-regional-de-cruz-alta">HEMOCRUZ - Hemocentro Regional de Cruz Alta</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/logout">Sair</a>
+                        </li>
+                    </div>                
+                </ul>
+            </div>
+        </nav>
 
         <div class="title">
             <h1>Editar Usuário</h1>

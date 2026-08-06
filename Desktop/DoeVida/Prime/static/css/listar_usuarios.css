@@ -14,6 +14,11 @@
     padding: 10px;
 }
 
+.divTable {
+    overflow-x: auto;
+    width: 100%;
+}
+
 /* NAVBAR INICIA AQUI */
 .navbar-nav {
     background-color: red;
@@ -33,7 +38,7 @@
 
 /* NAVBAR TERMINA AQUI */
 
-@media (max-width: 300px) {
+@media (min-width: 300px) {
     body {
         background-color: blue;
     }
