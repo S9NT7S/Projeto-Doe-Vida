@@ -15,9 +15,24 @@
 li {
     font-size: 16px;
     font-family:'Times New Roman', Times, serif;
+    list-style-type: none;
 }
 
 .formulario {
     color: black;
     background-color: transparent;
+}
+
+ul.ulText {
+    border: dashed red;
+    margin: 10px;
+}
+
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.divInput {
+    display: flex;
+    justify-content: center;
 }
