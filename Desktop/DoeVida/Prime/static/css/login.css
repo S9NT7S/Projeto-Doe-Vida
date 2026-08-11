@@ -15,20 +15,10 @@ h1 {
 .divGif {
     display: flex;
     margin: auto;
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     justify-content: center;
     align-items: center;
-}
-
-form {
-    background-color:rgb(255, 0, 0, 0.5);
-    box-shadow: red;
-    text-align: center;
-    align-items: center; 
-    justify-content: center;
-    margin: 0;
-    padding: 50px;
 }
 
 legend {
@@ -77,11 +67,6 @@ input[type="submit"] {
     display: flex;
     justify-content: center;
     margin: 0;
-}
-
-pre {
-    margin: 0;
-    
 }
 
 .divUser {

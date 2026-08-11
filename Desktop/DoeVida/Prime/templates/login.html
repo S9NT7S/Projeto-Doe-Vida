@@ -9,17 +9,17 @@
     </head>
     <body>
         
-        <h1>DoeVida</h1>
-        <div class="divGif">
-            <div class="tenor-gif-embed" data-postid="8052644951978720878" data-share-method="host" data-aspect-ratio="1.04032" data-width="100%"><a href="https://tenor.com/view/heart-spinning-red-pink-metal-gif-8052644951978720878">Heart Spinning Sticker</a>from <a href="https://tenor.com/search/heart-stickers">Heart Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-        </div>
-        
         <div class="content">
             {% if erro %}
                 <p style="color:red;">{{erro}}</p>
             {% endif %}
-            <pre>
+
+            <pre>                
                 <form action="{{url_for('entrar')}}" method="POST">
+                    <!-- <div class="divGif">
+                        <div class="tenor-gif-embed" data-postid="8052644951978720878" data-share-method="host" data-aspect-ratio="1.04032" data-width="100%"><a href="https://tenor.com/view/heart-spinning-red-pink-metal-gif-8052644951978720878">Heart Spinning Sticker</a>from <a href="https://tenor.com/search/heart-stickers">Heart Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+                    </div> -->
+                    <h1 style="color: black;">Doe Vida</h1>
                     <div class="divLabelUser">
                         <div class="divLabel">
                             <label class="usuario" for="usuario">Email:</label>
@@ -42,7 +42,7 @@
                         </button>
                     </div>
                     <div class="divCadastrar">
-                        <a href="{{ url_for('cadastro') }}">Registra-te já!</a>
+                        <a href="{{ url_for('cadastro') }}" style="text-decoration: none;">Registra-te já!</a>
                     </div>
                 </form>
             </pre>
