@@ -1,10 +1,32 @@
+h1 {
+    border-bottom: 3px solid red;
+}
+
 /* Telefone */
-@media (max-width: 767) {
+@media (min-width: 300px) {
     
     .divLabelInput {
         display: block;
         justify-content: center;
     }
+
+    .botaoSalvar {
+        background-color: red;
+        display: flex;
+        justify-content: center;
+    }
+
+    .divBotao {
+        display: flex;
+        justify-content: center;   
+    }
+
+    .divCancelar {
+        text-decoration: none;
+        justify-content: center;
+        display: flex;
+    }
+
 
 }
 
@@ -23,6 +45,17 @@
         display: flex;
         justify-content: center;
     }    
+
+    .divBotao {
+        display: flex;
+        justify-content: center;   
+    }
+
+    .cancelar {
+        text-decoration: none;
+        justify-content: center;
+        display: flex;
+    }
 }
 
 /* Notebook */
@@ -34,5 +67,26 @@
     .divLabelInput {
         display: flex;
         justify-content: center;
+    }
+
+    .botaoSalvar {
+        background-color: red;
+        display: flex;
+        justify-content: center;
+    }
+
+    .cancelar {
+        text-decoration: none;
+        justify-content: center;
+        display: flex;
+    }
+
+    .divBotao {
+        display: flex;
+        justify-content: center;   
+    }
+
+    input:hover {
+        background-color: black;   
     }
 }

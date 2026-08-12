@@ -10,7 +10,7 @@
         <title>Cadastrar</title>
     </head>
     <body>
-        <h1 style=" display: flex;justify-content: center;">Cadastrar novo usuário</h1>
+        <h1 style=" display: flex;justify-content: center; border-bottom-color: red; border-width: 10px; border-radius: 10px;">Cadastrar novo usuário</h1>
 
         {% if erro %}
         <p style="color:red; text-align:center;">{{ erro }}</p>
@@ -19,7 +19,7 @@
         <pre>
             <form method="post" action="{{ url_for('registrar') }}">
                 <div class="divLabelInput">
-                    <label>Nome:</label>
+                    <label class="labelName">Nome:</label>
                     <input type="text" id="nome" name="nome" required>
                 </div>
                 
@@ -88,9 +88,14 @@
                     <input type="number" min="16" max="69" maxlength="2" id="idadeInput" oninput="criarMascara('Idade')" name="idade"  required>
                 </div>
                 
-                <button class="botaoSalvar" type="submit" onclick="return confirm('Tem certeza?');" value="Cadastrar" class="btn btn-danger">Salvar</button>
-                
-                <a href="{{ url_for('listar_usuarios') }}">Cancelar</a>
+                <div class="divBotao">
+                    <button class="botaoSalvar" type="submit" onclick="return confirm('Tem certeza?');" value="Cadastrar"><h5 style="width: 100%;">Salvar</h5></button>
+                </div>
+
+                <div class="divCancelar">
+                    <a class="cancelar" href="{{ url_for('listar_usuarios') }}" style="color: red; text-decoration: none; font-size: 30px;">Cancelar</a>
+                </div>
+
             </form>
             <form action="{{ url_for('gerar_usuarios') }}" method="POST" style="margin-top: 10px; display: flex; align-items: center; gap: 10px;">
                 <button class="btn btn-danger" type="submit" value="Gerar Usuários">Gerar Usuários</button>
