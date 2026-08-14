@@ -24,7 +24,7 @@ li {
 }
 
 ul.ulText {
-    border: dashed red;
+    border: solid red;
     margin: 10px;
 }
 

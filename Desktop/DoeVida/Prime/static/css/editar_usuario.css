@@ -7,3 +7,14 @@ body {
     justify-content: center;
 }
 
+form {
+    border-radius: 10px;
+    border: solid red;
+    height: 600px;
+    width: 500px;
+}
+
+.divForm {
+    display: flex;
+    justify-content: center;
+}

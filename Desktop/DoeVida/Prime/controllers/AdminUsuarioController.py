@@ -90,18 +90,20 @@ class AdminUsuarioController(BaseController):
         if not self._somente_admin():
             return redirect(url_for("home"))
 
-        if session.get("usuario_id") == usuario_id:
-            flash("Você não pode excluir sua própria conta.", "erro")
-            return redirect(url_for("listar_usuarios"))
+        # if session.get("usuario_id") == usuario_id:
+        #     flash("Você não pode excluir sua própria conta.", "erro")
+        #     return redirect(url_for("listar_usuarios"))
         
-        try:
-            if self.usuario_service.excluir_usuario(usuario_id) == session.get("usuario_id") == usuario_id:
-                print("Você não pode excluir o admin")
-                raise ValueError
-            else:
+        # if self.usuario_service.excluir_usuario(usuario_id) == session.get("usuario_id") == usuario_id:
+        #         print("Você não pode excluir o admin")
+        #         raise ValueError
+        #     else:
+        if request.method == 'POST':
+            try:
+                self.usuario_service.excluir_usuario(usuario_id)
                 flash("Usuário excluído com sucesso.", "sucesso")
-        except ValueError:
-            flash(str(ValueError), "erro")
+            except ValueError:
+                flash(str(ValueError), "erro")
         
         return redirect(url_for("listar_usuarios"))
 

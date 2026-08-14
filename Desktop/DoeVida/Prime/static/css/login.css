@@ -67,6 +67,7 @@ input[type="submit"] {
     display: flex;
     justify-content: center;
     margin: 0;
+    border-radius: 8px;
 }
 
 .divUser {
@@ -101,6 +102,12 @@ a {
     padding: 10px 10px;
 }
 
+form {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    border: solid red;
+}
+
 /* Tablet */
 @media (min-width: 768px) {
     body {
@@ -117,7 +124,7 @@ a {
     }
 
     form {
-        background-color: rgb(255, 0, 0, 0.5);
+        border: solid red;
         box-shadow: blue;
         text-align: center;
         align-items: center; 
