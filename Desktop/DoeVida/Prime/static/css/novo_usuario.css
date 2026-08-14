@@ -1,5 +1,5 @@
 .labelName, .labelCpf, .labelEmail, .labelPassword, .labelPhone, .labelCep, .labelProfile, .labelSex, .labelBlood, .labelAge {
-    background-color: blue;
+    background-color: red;
     font-size: 20px;
     display: flex;
     justify-content: center;
@@ -17,11 +17,11 @@
 h1 {
     display: flex;
     justify-content: center;
-    box-shadow: yellow;
+    box-shadow: red;
 }
 
 h2 {
-    background: violet;
+    background: red;
     margin: 0;
 }
 
@@ -33,12 +33,16 @@ button {
     justify-content: center;
 }
 
-.divInput, .divButton, .divSpan {
+.divInput {
     display: flex;
     justify-content: center;
     background-color: red;
 }
 
+.divButton, .divSpan {
+    display: flex;
+    justify-content: center;
+}
 
 
 .spanName {

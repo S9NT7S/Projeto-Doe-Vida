@@ -1,0 +1,57 @@
+/* NAVBAR INICIA AQUI */
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-nav {
+    background-color: red;
+    width: 100%;
+    margin: auto;
+    padding: 30px 20px;
+    justify-content: center;
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+.navbar-nav a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.icone {
+    margin: auto;
+    display: flex;
+}
+
+/* NAVBAR TERMINA AQUI */
+
+li {
+    list-style: none;
+}
+
+.divHemo {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    border-radius: 8px;
+    height: 120px;
+    width: 500px;
+    transition: transform 0.3s ease;
+}
+
+.divHemo:hover {
+    background-color: red;
+    transform: translateY(-10px);
+}
+
+.container-hemo {
+    display:flex;
+    justify-content: center;
+}
+
+p {
+    text-align: center;
+}

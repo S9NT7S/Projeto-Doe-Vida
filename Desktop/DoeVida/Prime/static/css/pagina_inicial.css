@@ -112,6 +112,6 @@ a {
 }
 
 /* Celular */
-@media (max-width: 600px) {
+@media (min-width: 300px) {
 
 }

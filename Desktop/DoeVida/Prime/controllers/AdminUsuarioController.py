@@ -229,7 +229,7 @@ class AdminUsuarioController(BaseController):
         pdf.set_font("Courier", "B", 10)
         pdf.cell(0, 10, f"Total de usuários: {total}", ln=True)
         output = BytesIO()
-        pdf_bytes = pdf.output(dest="S").encode('latin1')
+        pdf_bytes = pdf.output(dest="S").encode('latin1', errors='replace')
         output.write(pdf_bytes)
         output.seek(0)
 

@@ -32,7 +32,26 @@ ul.ulText {
     font-family: 'Times New Roman', Times, serif;
 }
 
-.divInput {
+.divInput, .divButton {
     display: flex;
     justify-content: center;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    body {
+        font-size: 25px;
+    }
+}
+
+/* Notebook */
+@media (min-width: 1024px) {
+    body {
+        font-size: 35px;
+    }
+}
+
+/* Celular */
+@media (min-width: 300px) {
+
 }
