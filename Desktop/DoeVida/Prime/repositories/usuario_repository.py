@@ -21,16 +21,19 @@ class UsuarioRepository:
         self.banco.executar("SELECT * FROM 'usuarios' WHERE perfil = 'admin';")
 
     def excluir(self, usuario_id):
-        try:
-            cursor = self.banco.conexao.cursor()
+        sql = "DELETE FROM usuarios WHERE id=%s"
+        self.banco.executar(sql, (usuario_id))
+        
+        # try:
+        #     cursor = self.banco.conexao.cursor()
 
-            cursor.execute("DELETE FROM usuarios WHERE id=%s", (usuario_id,))
-            cursor.execute("DELETE FROM usuario_grupo WHERE usuario_id=%s", (usuario_id,))
+        #     cursor.execute("DELETE FROM usuarios WHERE id=%s", (usuario_id,))
+        #     cursor.execute("DELETE FROM usuario_grupo WHERE usuario_id=%s", (usuario_id,))
 
-            self.banco.conexao.commit()
+        #     self.banco.conexao.commit()
             
-        except Exception as e:
-            print("usuario_repository")
+        # except Exception as e:
+        #     print("usuario_repository")
 
     def atualizar(self, usuario_id, novo_nome, nova_senha, novo_perfil, novo_sexo, novo_sangue, nova_idade): #Esta função não está sendo utilizada
 

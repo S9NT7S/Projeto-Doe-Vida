@@ -10,7 +10,6 @@ from io import BytesIO
 import pandas
 from pandas import *
 from openpyxl import *
-import requests
 
 class AdminUsuarioController(BaseController):
     def __init__(self, app, usuario_service, grupo_service):
@@ -87,23 +86,22 @@ class AdminUsuarioController(BaseController):
         return render_template("novo_usuario.html")
 
     def excluir_usuario(self, usuario_id):
-        if not self._somente_admin():
-            return redirect(url_for("home"))
+        # if not self._somente_admin():
+        #     return redirect(url_for("home"))
 
-        # if session.get("usuario_id") == usuario_id:
-        #     flash("Você não pode excluir sua própria conta.", "erro")
-        #     return redirect(url_for("listar_usuarios"))
+        if session.get("usuario_id") == usuario_id:
+            flash("Você não pode excluir sua própria conta.", "erro")
+            return redirect(url_for("listar_usuarios"))
         
-        # if self.usuario_service.excluir_usuario(usuario_id) == session.get("usuario_id") == usuario_id:
-        #         print("Você não pode excluir o admin")
-        #         raise ValueError
-        #     else:
-        if request.method == 'POST':
-            try:
+        try:
+            if self.usuario_service.excluir_usuario(usuario_id) == session.get("usuario_id") == usuario_id:
+                print("Você não pode excluir o admin")
+                raise ValueError
+            else:
                 self.usuario_service.excluir_usuario(usuario_id)
                 flash("Usuário excluído com sucesso.", "sucesso")
-            except ValueError:
-                flash(str(ValueError), "erro")
+        except ValueError:
+            flash(str(ValueError), "erro")
         
         return redirect(url_for("listar_usuarios"))
 

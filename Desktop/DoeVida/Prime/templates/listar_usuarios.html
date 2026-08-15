@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-bs-theme="white">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,26 +10,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
+    <script src="{{ url_for('static', filename='js/admin_usuarios.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/teste.js') }}"></script>
     <title>Lista de usuários</title>
 </head>
 
-<!-- <div id="modalConfirmacao" class="modal">
-    <div class="modalContent">
-        <h2>Confirmar exclusão</h2>
-
-        <p>Tem certeza que deseja excluir este usuário?</p>
-
-        <div style="display:flex; gap:10px; justify-content:center; margin-top:15px;">
-            <button onclick="confirmarExclusao()" class="botaoAbrirConfirmacao">
-                Sim, excluir
-            </button>
-
-            <button onclick="fecharModalConfirmacao()" class="botaoFecharConfirmacao">
-                Cancelar
-            </button>
-        </div>
-    </div>
-</div> -->
 
 <body>
 
@@ -125,19 +110,63 @@
                     <td>
                     
                         <a href="{{ url_for('editar_usuario', usuario_id=u.id) }}" class="btn btn-success text-white" typeclass="button" id="editar">Editar</a>
-<!--                         
-                        <form id="formExcluir-{{ u.id }}" method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="display: inline; padding: 0;">
-                            <button type="button" style="background-color: red; color: white; border-radius: 8px;" class="btn">Excluir</button>
-                        </form> -->
-                        <!-- id="formExcluir-{{ u.id }}" -->
 
-                        <button method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="color: white; background-color: red;" class="btn">Excluir</button>
+                        <button type="button" class="btn" style="background-color: red; color: white;" data-bs-toggle="modal" data-bs-target="#myModal">Excluir</button>
+
+                        <!-- <form id="formExcluir-{{ u.id }}" method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="display: inline; padding: 0;">
+                            <button type="button" style="background-color: red; color: white; border-radius: 8px;" class="btn">Excluir</button>
+                        </form>  -->
 
                     </td>
                 </tr>
+
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+        
+                            <div class="modal-header">
+                                <h4 class="modal-title">Excluir Usuário</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button> 
+                            </div>
+        
+                            <div class="modal-body">
+                                <p>Confirmar Exclusão?</p>
+                                <br>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" style="color: white; background-color: blue;">Cancelar</button>
+                                <br>
+                                <button type="button" class="btn" data-bs-target="excluir_usuario" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="color: white; background-color: red;">Confirmar</button>
+                            </div>
+        
+                            
+        
+                        </div>
+                    </div>
+                </div>
+
                 {% endfor %}
             </tbody>
         </table>
+
+        <!-- <div id="modalConfirmacao" class="modal">
+            <div class="modalContent">
+                <h2>Confirmar exclusão</h2>
+        
+                <p>Tem certeza que deseja excluir este usuário?</p>
+        
+                <div style="display:flex; gap:10px; justify-content:center; margin-top:15px;">
+                    <button onclick="confirmarExclusao()" class="botaoAbrirConfirmacao">
+                        Sim, excluir
+                    </button>
+        
+                    <button onclick="fecharModalConfirmacao()" class="botaoFecharConfirmacao">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div> -->
+        
+        
+        <script src="{{ url_for('static', filename='js/teste.js') }}"></script>
     </div>    
 </body>
 </html>
