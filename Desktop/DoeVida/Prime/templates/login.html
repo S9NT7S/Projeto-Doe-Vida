@@ -14,38 +14,39 @@
                 <p style="color:red;">{{erro}}</p>
             {% endif %}
 
-            <pre>                
-                <form action="{{url_for('entrar')}}" method="POST">
-                    <!-- <div class="divGif">
-                        <div class="tenor-gif-embed" data-postid="8052644951978720878" data-share-method="host" data-aspect-ratio="1.04032" data-width="100%"><a href="https://tenor.com/view/heart-spinning-red-pink-metal-gif-8052644951978720878">Heart Spinning Sticker</a>from <a href="https://tenor.com/search/heart-stickers">Heart Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-                    </div> -->
-                    <h1 style="color: black;">Doe Vida</h1>
-                    <div class="divLabelUser">
-                        <div class="divLabel">
-                            <label class="usuario" for="usuario">Email:</label>
-                        </div>
-                        <div class="divUser">
-                            <input type="text" id="usuario" name="usuario" required>
-                        </div>
+            <form action="{{url_for('entrar')}}" method="POST">
+                <div class="divGif">
+                    <div class="tenor-gif-embed" data-postid="8052644951978720878" data-share-method="host" data-aspect-ratio="1.04032" data-width="100%"><a href="https://tenor.com/view/heart-spinning-red-pink-metal-gif-8052644951978720878">Heart Spinning Sticker</a>from <a href="https://tenor.com/search/heart-stickers">Heart Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+                </div>
+                <h1 style="color: black;">Doe Vida</h1>
+                <div class="divLabelUser">
+                    <div class="divLabel">
+                        <label class="usuario" for="usuario">Email:</label>
                     </div>
-                    <div class="divLabelPassword">
-                        <div class="divLabel">
-                            <label for="senha">Senha:</label>
-                        </div>
-                        <div class="divPassword">
-                            <input type="password" id="senha" name="senha" required>
-                        </div>
+                    <div class="divUser">
+                        <input type="text" id="usuario" name="usuario" required>
                     </div>
-                    <div class="btn-entrar">
-                        <button class="botao-entrar">
-                            <input type="submit" value="Entrar">
-                        </button>
+                </div>
+                <div class="divLabelPassword">
+                    <div class="divLabel">
+                        <label for="senha">Senha:</label>
                     </div>
-                    <div class="divCadastrar">
-                        <a href="{{ url_for('cadastro') }}" style="text-decoration: none;">Registra-te já!</a>
+                    <div class="divPassword">
+                        <input type="password" id="senha" name="senha" required>
                     </div>
-                </form>
-            </pre>
+                </div>
+                <br>
+                <div class="btn-entrar">
+                    <button class="botao-entrar" style="width: 100%;">
+                        <input type="submit" value="Entrar">
+                    </button>
+                </div>
+                <br>
+                <div class="divCadastrar">
+                    <a href="{{ url_for('cadastro') }}" style="text-decoration: none; background-color: red; width: 100%; text-align: center;">Registra-te já!</a>
+                </div>
+                <br>
+            </form>
         </div>
     </body>
 </html>
