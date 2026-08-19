@@ -45,11 +45,11 @@ th {
     font-family: 'Times New Roman', Times, serif;
 }
 
+/* NAVBAR INICIA AQUI */
 li {
     list-style: none;
 }
 
-/* NAVBAR INICIA AQUI */
 .navbar-nav {
     background-color: red;
     width: 100%;

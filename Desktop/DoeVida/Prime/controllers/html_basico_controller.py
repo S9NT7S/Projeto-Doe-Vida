@@ -10,7 +10,12 @@ class HTMLBasicoController(BaseController):
             ('/impedimentos_temp', 'impedimentos_temp', self.impedimentos_temp),
             ('/impedimentos_def', 'impedimentos_def', self.impedimentos_def),
             ('/testeModal', 'testeModal', self.testeModal),
-            ('/agendamento', 'agendamento', self.agendamento)
+            ('/agendamento', 'agendamento', self.agendamento),
+            ('/agendaHemorgs', 'agendaHemorgs', self.hemorgs),
+            ('/agendaHemopasso', 'agendaHemopasso', self.hemopasso),
+            ('/agendaHemopel', 'agendaHemopel', self.hemopel),
+            ('/agendaHemosm', 'agendaHemosm', self.hemosm),
+            ('/agendaHemocruz', 'agendaHemocruz', self.hemocruz)
         ]
         super().__init__(app)
 
@@ -31,3 +36,18 @@ class HTMLBasicoController(BaseController):
     
     def agendamento(self):
         return render_template("agendamento.html")
+    
+    def hemorgs(self):
+        return render_template("agendaHemorgs.html")
+    
+    def hemopasso(self):
+        return render_template("agendaHemopasso.html")
+    
+    def hemopel(self):
+        return render_template("agendaHemopel.html")
+    
+    def hemosm(self):
+        return render_template("agendaHemosm.html")
+    
+    def hemocruz(self):
+        return render_template("agendaHemocruz.html")

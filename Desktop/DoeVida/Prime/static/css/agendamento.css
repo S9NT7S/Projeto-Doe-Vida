@@ -55,3 +55,12 @@ li {
 p {
     text-align: center;
 }
+
+.botaoVoltar {
+    display: inline-block;
+    justify-content: center;
+}
+
+.botaoVoltar:hover {
+    background-color: black;
+}
