@@ -51,7 +51,7 @@ class AdminUsuarioController(BaseController):
 
             try:
            
-                self.usuario_service.cadastrar_usuario(
+                self.usuario_service.att_user(
                     nome=nome,
                     email=email,
                     senha=senha,

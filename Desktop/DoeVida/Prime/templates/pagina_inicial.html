@@ -66,9 +66,15 @@
     <button class="prev">‹</button>
 
     <div class="carousel-track">
-        <!-- <div class="slide"><img alt="Escrito: Doe Sangue !!!" src="/static/imagens/DoeSangue.png"></div> -->
-        <div class="slide"><img alt="Homem doando sangue" src="/static/imagens/doando.jpg"></div>
-        <div class="slide"><img alt="Pessoa mexendo no celular" src="/static/imagens/AgendamentoOnline.png"></div>
+        <a class="slide" href="{{ url_for('cbasico1') }}">
+            <img title="Profissional da saúde orientando um doador de sangue" alt="Homem doando sangue" src="/static/imagens/doando.jpg">
+        </a>
+        <a class="slide" href="{{ url_for('agendamento') }}">
+            <img title="Pessoa utilizando seu telefone" alt="Pessoa mexendo no celular" src="/static/imagens/AgendamentoOnline.png">
+        </a>
+        <a class="slide" href="{{ url_for('news') }}">
+            <img class="imgNews" title="Pessoa checando notícias em seu telefone" alt="Homem cartunesco segurando celular com várias notícias sem nada escrito atrás dele" src="/static/imagens/BloodyNews.png">
+        </a>
     </div>
 
     <button class="next">›</button>

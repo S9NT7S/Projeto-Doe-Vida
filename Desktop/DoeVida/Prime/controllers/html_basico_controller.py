@@ -15,7 +15,8 @@ class HTMLBasicoController(BaseController):
             ('/agendaHemopasso', 'agendaHemopasso', self.hemopasso),
             ('/agendaHemopel', 'agendaHemopel', self.hemopel),
             ('/agendaHemosm', 'agendaHemosm', self.hemosm),
-            ('/agendaHemocruz', 'agendaHemocruz', self.hemocruz)
+            ('/agendaHemocruz', 'agendaHemocruz', self.hemocruz),
+            ('/news', 'news', self.news)
         ]
         super().__init__(app)
 
@@ -51,3 +52,6 @@ class HTMLBasicoController(BaseController):
     
     def hemocruz(self):
         return render_template("agendaHemocruz.html")
+    
+    def news(self):
+        return render_template("news.html")

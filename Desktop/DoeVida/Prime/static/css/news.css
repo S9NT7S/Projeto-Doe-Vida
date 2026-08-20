@@ -1,0 +1,22 @@
+/* NAVBAR INICIA AQUI */
+li {
+    list-style: none;
+}
+
+.navbar-nav {
+    background-color: red;
+    width: 100%;
+    margin: auto;
+    padding: 30px 20px;
+    justify-content: center;
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+.navbar-nav a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+/* NAVBAR TERMINA AQUI */
