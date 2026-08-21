@@ -15,10 +15,12 @@ from banco.integridade import IntegridadeBanco
 from repositories.usuario_repository import UsuarioRepository
 from repositories.grupo_repository import GrupoRepository
 from repositories.dashboard_repository import DashboardRepository
+from repositories.login_repositories import LoginRepository
 
 from services.usuario_service import UsuarioService
 from services.grupo_service import GrupoService
 from services.dashboard_service import DashboardService
+from services.login_service import LoginService
 
 import os
 import mysql.connector
@@ -57,13 +59,16 @@ conexao.close()
 usuario_repo = UsuarioRepository(banco)
 grupo_repo = GrupoRepository(banco)
 dashboard_repo = DashboardRepository(banco)
+login_repo = LoginRepository(banco)
 
 usuario_service = UsuarioService(usuario_repo)
 grupo_service = GrupoService(grupo_repo)
 
 dashboard_service = DashboardService(usuario_repo, dashboard_repo)
 
-LoginController(app)
+login_service = LoginService(login_repo)
+
+LoginController(app, login_service)
 
 HTMLBasicoController(app, dashboard_service)
 

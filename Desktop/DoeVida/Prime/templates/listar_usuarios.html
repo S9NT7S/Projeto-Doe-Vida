@@ -115,11 +115,11 @@
 
                     
 
-                        <button type="button" class="btn" style="background-color: red; color: white;" data-bs-toggle="modal" data-bs-target="#myModal">Excluir</button>
+                        <!-- <button type="button" class="btn" style="background-color: red; color: white;" data-bs-toggle="modal" data-bs-target="#myModal">Excluir</button> -->
 
-                        <!-- <form id="formExcluir-{{ u.id }}" method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="display: inline; padding: 0;">
-                            <button type="button" style="background-color: red; color: white; border-radius: 8px;" class="btn">Excluir</button>
-                        </form>  -->
+                        <form id="formExcluir-{{ u.id }}" method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="display: inline; padding: 0;">
+                            <button type="submit" style="background-color: red; color: white; border-radius: 8px;" class="btn">Excluir</button>
+                        </form> 
 
                     </td>
                 </tr>
@@ -136,9 +136,12 @@
                             <div class="modal-body">
                                 <p>Confirmar Exclusão?</p>
                                 <br>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" style="color: white; background-color: blue;">Cancelar</button>
+                                <button type="button" class="btn" data-bs-dismiss="modal" style="color: white; background-color: blue;">Cancelar</button>
                                 <br>
-                                <button type="button" class="btn" data-bs-target="excluir_usuario" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="color: white; background-color: red;">Confirmar</button>
+                                <br>
+                                <form action="POST">
+                                    <button type="submit" class="btn" data-bs-target="excluir_usuario" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="color: white; background-color: red;">Confirmar</button>
+                                </form>
                             </div>
         
                             

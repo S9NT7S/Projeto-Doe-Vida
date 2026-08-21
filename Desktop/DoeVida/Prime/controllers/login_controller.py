@@ -8,7 +8,7 @@ from services.login_service import LoginService
 import requests
 
 class LoginController(BaseController):
-    def __init__(self, app):
+    def __init__(self, app, login_service):
         self.rotas = [
             ('/login', 'login', self.login),
             ('/entrar', 'entrar', self.entrar, ['POST']),
@@ -17,9 +17,11 @@ class LoginController(BaseController):
             ('/registrar', 'registrar', self.registrar, ['GET', 'POST']),
             ('/minha_area', 'minha_area', self.minha_area, ['GET', 'POST']),
             ('/gerar_usuarios', 'gerar_usuarios', self.gerar_usuarios_api, ['GET', 'POST']),
+            ('/salvar_data', 'salvar_data', self.salvar_data, ['GET', 'POST']),
         ]
         super().__init__(app)
 
+        self.login_service = login_service
         self.db = BancoMySQL()
 
     def login(self):

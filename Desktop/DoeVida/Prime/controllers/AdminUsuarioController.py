@@ -19,7 +19,7 @@ class AdminUsuarioController(BaseController):
             ('/listar_usuarios', 'listar_usuarios', self.proteger_rota(self.listar_usuarios)),
             ('/novo_usuario', 'novo_usuario', self.proteger_rota(self.novo_usuario), ['GET', 'POST']),
             ('/admin/usuarios/editar/<int:usuario_id>', 'editar_usuario', self.proteger_rota(self.editar_usuario), ['GET', 'POST']),
-            ('/admin/usuarios/excluir/<int:usuario_id>', 'excluir_usuario', self.proteger_rota(self.excluir_usuario), ['POST']),
+            ('/admin/usuarios/excluir/<int:usuario_id>', 'excluir_usuario', self.proteger_rota(self.excluir_usuario), ['GET', 'POST']),
             ('/exportar_excel', 'exportar_excel', self.proteger_rota(self.exportar_excel)),
             ('/exportar_pdf', 'exportar_pdf', self.proteger_rota(self.exportar_pdf)),
         ]
@@ -93,17 +93,18 @@ class AdminUsuarioController(BaseController):
             flash("Você não pode excluir sua própria conta.", "erro")
             return redirect(url_for("listar_usuarios"))
         
-        try:
-            if self.usuario_service.excluir_usuario(usuario_id) == session.get("usuario_id") == usuario_id:
-                print("Você não pode excluir o admin")
-                raise ValueError
-            else:
-                self.usuario_service.excluir_usuario(usuario_id)
-                flash("Usuário excluído com sucesso.", "sucesso")
-        except ValueError:
-            flash(str(ValueError), "erro")
-        
-        return redirect(url_for("listar_usuarios"))
+        if request.method == 'POST':
+            try:
+                if self.usuario_service.excluir_usuario(usuario_id) == session.get("usuario_id") == usuario_id:
+                    print("Você não pode excluir o admin")
+                    raise ValueError
+                else:
+                    self.usuario_service.excluir_usuario(usuario_id)
+                    flash("Usuário excluído com sucesso.", "sucesso")
+            except ValueError:
+                flash(str(ValueError), "erro")
+        else:
+            return redirect(url_for("listar_usuarios"))
 
     def editar_usuario(self, usuario_id): 
         if not self._somente_admin():

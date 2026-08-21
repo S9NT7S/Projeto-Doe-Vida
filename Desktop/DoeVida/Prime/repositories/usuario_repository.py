@@ -22,7 +22,7 @@ class UsuarioRepository:
 
     def excluir(self, usuario_id):
         sql = "DELETE FROM usuarios WHERE id=%s"
-        self.banco.executar(sql, (usuario_id))
+        return self.banco.executar(sql, (usuario_id))
         
         # try:
         #     cursor = self.banco.conexao.cursor()
@@ -30,7 +30,7 @@ class UsuarioRepository:
         #     cursor.execute("DELETE FROM usuarios WHERE id=%s", (usuario_id,))
         #     cursor.execute("DELETE FROM usuario_grupo WHERE usuario_id=%s", (usuario_id,))
 
-        #     self.banco.conexao.commit()
+        #     return self.banco.conexao.commit()
             
         # except Exception as e:
         #     print("usuario_repository")
