@@ -23,3 +23,11 @@ class LoginRepository:
             ORDER BY l.data_hora DESC
             """
         return self.banco.consultar(sql)
+    
+    def saveDate(self, hemocentro, usuario_id, dia, hora):
+        sql = "INSERT INTO horarios (hemocentro, usuario_id, dia, hora) VALUES (%s, %s, %s, %s)"
+
+        try:
+            self.banco.executar(sql, (hemocentro, usuario_id, dia, hora))
+        except Exception as erro:
+            print(f"Não foi possível registar horário: {erro}")

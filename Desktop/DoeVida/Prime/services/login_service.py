@@ -9,3 +9,6 @@ class LoginService:
 
     def obter_logins(self):
         return self.login_repo.listar_logins()
+    
+    def registrar_horario(self, hemocentro, usuario_id, data, hora):
+        return self.login_repo.saveDate(hemocentro, usuario_id, data, hora)

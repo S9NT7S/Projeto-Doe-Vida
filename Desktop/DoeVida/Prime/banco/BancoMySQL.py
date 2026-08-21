@@ -47,6 +47,8 @@ class BancoMySQL:
             self.criar_indices()
             self.criar_tabela_testes()
             self.criar_tabela_defeitos()
+            self.criar_tabela_horarios()
+            self.criar_hemocentros()
 
         except Error as e:
             print(f"Erro ao conectar ao MySQL: {e}")
@@ -101,7 +103,7 @@ class BancoMySQL:
         self.cursor.execute("""
             CREATE TABLE IF NOT EXISTS grupos (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                nome VARCHAR(100) NOT NULL UNIQUE NOT NULL
+                nome VARCHAR(100) NOT NULL UNIQUE
             );
         """)
         self.cursor.execute("""
@@ -114,6 +116,31 @@ class BancoMySQL:
             )
         """)
         self.conexao.commit()
+
+    def criar_tabela_horarios(self):
+        self.cursor.execute("""
+            CREATE TABLE IF NOT EXISTS horarios (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                hemocentro VARCHAR(50) NOT NULL,
+                usuario_id INT NOT NULL,
+                data DATE,
+                hora TIME,
+                FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+            );
+        """)
+
+    def criar_hemocentros(self):
+        hemocentros = ['Hemorgs', 'Hemopel', 'Hemopasso', 'Hemosm', 'Hemocruz']
+        for i in hemocentros:
+            self.adcionar_hemo(i)
+        self.conexao.commit()
+
+    def adcionar_hemo(self, nome):
+        try:
+            self.cursor.execute("INSERT INTO horarios (hemocentro) VALUES (%s)", (nome,))
+            self.conexao.commit()
+        except mysql.connector.IntegrityError:
+            pass    
 
     def criar_grupos_padrao(self):
         grupos = ['admin', 'Doador de primeira vez', 'Doador regular', 'Doador esporádico', 'Doador voluntário', 'Doador direcionado']

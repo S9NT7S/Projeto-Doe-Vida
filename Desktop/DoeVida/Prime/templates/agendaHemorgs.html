@@ -107,12 +107,12 @@
             <div class="dayF">21</div>
             <div class="dayF">22</div>
             <div class="dayF">23</div>
-            <div class="day">24</div>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal">24</button>
             <div class="day">25</div>
             <div class="day">26</div>
             <div class="day">27</div>
             <div class="day">28</div>
-            <div class="dayf">29</div>
+            <div class="dayF">29</div>
             <div class="dayF">30</div>
             <div class="day">31</div>
             <div class="day">01</div>
@@ -121,6 +121,32 @@
             <div class="day">04</div>
             <div class="dayF">05</div>
             <div class="dayF">06</div>
+        </div>
+
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Escolha um horário: </h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <form method="POST" action="{{ url_for('salvar_data') }}">
+                            <select id="horarios" name="horarios">
+                                <option value="8h">8h</option>
+                                <option value="9h">9h</option>
+                                <option value="10h">10h</option>
+                                <option value="11h">11h</option>
+                                <option value="12h">12h</option>
+                                <option value="13h">13h</option>
+                                <option value="14h">14h</option>
+                                <option value="15h">15h</option>
+                                <option value="16h">16h</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
         
     </body>

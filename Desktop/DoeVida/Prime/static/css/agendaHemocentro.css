@@ -44,6 +44,13 @@ li {
     border-radius: 4px;
 }
 
+.mes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+}
+
 .day {
     background-color: green;
     padding: 15px;
@@ -65,11 +72,17 @@ li {
         grid-template-columns: repeat(4, 1fr);
     }
 
-    
+    .mes {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 @media (min-width: 768px) {
     .calendario {
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    .mes {
         grid-template-columns: repeat(7, 1fr);
     }
 }
