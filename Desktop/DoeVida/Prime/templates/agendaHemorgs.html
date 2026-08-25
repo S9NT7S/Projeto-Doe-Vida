@@ -127,12 +127,31 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Escolha um horário: </h4>
+                        <h4 class="modal-title">Escolha um dia e um horário: </h4>
                     </div>
 
                     <div class="modal-body">
                         <form method="POST" action="{{ url_for('salvar_data') }}">
-                            <select id="horarios" name="horarios">
+                            <select id="hemocentro" name="hemocentro">
+                                <option value="hemorgs">HEMORGS</option>
+                            </select>
+
+                            <select id="data" name="data">
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                            </select>
+                            
+                            <select id="horario" name="horario">
                                 <option value="8h">8h</option>
                                 <option value="9h">9h</option>
                                 <option value="10h">10h</option>
@@ -143,6 +162,8 @@
                                 <option value="15h">15h</option>
                                 <option value="16h">16h</option>
                             </select>
+                            
+
                             <button class="botaoEnviar" type="submit">Salvar</button>
                         </form>
                     </div>

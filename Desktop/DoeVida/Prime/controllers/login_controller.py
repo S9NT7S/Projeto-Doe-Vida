@@ -6,6 +6,7 @@ from repositories.login_repositories import LoginRepository
 from services.usuario_service import UsuarioService
 from services.login_service import LoginService
 import requests
+from flask_login import current_user
 
 class LoginController(BaseController):
     def __init__(self, app, login_service):
@@ -18,11 +19,13 @@ class LoginController(BaseController):
             ('/minha_area', 'minha_area', self.minha_area, ['GET', 'POST']),
             ('/gerar_usuarios', 'gerar_usuarios', self.gerar_usuarios_api, ['GET', 'POST']),
             ('/salvar_data', 'salvar_data', self.salvar_data, ['GET', 'POST']),
+            # /admin/usuarios/editar/<int:usuario_id>
         ]
         super().__init__(app)
 
         self.login_service = login_service
         self.db = BancoMySQL()
+        # self.usuario = current_user()
 
     def login(self):
         if session.get("usuario_logado"):
@@ -43,7 +46,7 @@ class LoginController(BaseController):
             query = "SELECT id, perfil FROM usuarios WHERE usuario = %s"
             self.db.cursor.execute(query, (usuario,))
             resultado = self.db.cursor.fetchone()
-
+            # query = "SELECT id FROM usuarios WHERE usuario = %s"
             session["usuario_id"] = resultado[0]
             session["perfil_logado"] = resultado[1]
 
@@ -89,17 +92,17 @@ class LoginController(BaseController):
         except Exception as e:
             return render_template("cadastro.html", erro=f"Erro ao cadastrar usuário: {str(e)}")
         
-    def salvar_data(self):
-        if request.method == 'POST':
-            hemocentro = request.form.get("hemocentro")
-            usuario_id = request.form.get("usuario_id")
-            data = request.form.get("data")
-            horario = request.form.get("horario")
+    def salvar_data(self): #FIX
+        hemocentro = request.form.get("hemocentro")
+        sql = "REQUEST.user.id;"
+        usuario_id = self.db.executar(sql,)
+        data = request.form.get("data")
+        horario = request.form.get("horario")
 
         try:
             self.login_service.registrar_horario(hemocentro, usuario_id, data, horario)
         except ValueError as e:
-            return render_template("agendamento.html", erro=str(e))
+            render_template("agendamento.html", erro=str(e))
     
     def minha_area(self):
         # tipoSangue = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-', 'Não tenho certeza']

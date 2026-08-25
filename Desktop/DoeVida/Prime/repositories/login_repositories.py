@@ -24,10 +24,10 @@ class LoginRepository:
             """
         return self.banco.consultar(sql)
     
-    def saveDate(self, hemocentro, usuario_id, dia, hora):
-        sql = "INSERT INTO horarios (hemocentro, usuario_id, dia, hora) VALUES (%s, %s, %s, %s)"
+    def saveDate(self, hemocentro, usuario_id, data, hora):
+        sql = "INSERT INTO horarios (hemocentro, usuario_id, data, hora) VALUES (%s, %s, %s, %s)"
 
         try:
-            self.banco.executar(sql, (hemocentro, usuario_id, dia, hora))
+            self.banco.executar(sql, (hemocentro, usuario_id, data, hora,))
         except Exception as erro:
             print(f"Não foi possível registar horário: {erro}")
