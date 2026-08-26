@@ -11,6 +11,7 @@ Flask-Cors==6.0.1
 Faker==37.5.3
 gunicorn
 psycopg2-binary==2.9.9
+flask-login
 
 # pip install flask
 # pip install python-dotenv
