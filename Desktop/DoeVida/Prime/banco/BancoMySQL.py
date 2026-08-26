@@ -13,7 +13,7 @@ class BancoMySQL:
             host = os.getenv("DB_HOST"),
             user = os.getenv("DB_USER"),
             password = os.getenv("DB_PASSWORD"),
-            name = os.getenv("DB_NAME")
+            name = os.getenv("DB_DATABASE")
         )
         cursor = cnx.cursor()
         cursor.execute("SELECT COUNT(*) FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = 'santos_application';")
