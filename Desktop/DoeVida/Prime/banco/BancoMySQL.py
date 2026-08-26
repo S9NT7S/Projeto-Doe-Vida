@@ -24,7 +24,8 @@ class BancoMySQL:
             cnx = mysql.connector.connect(
                 host = os.getenv("DB_HOST"),
                 user = os.getenv("DB_USER"),
-                password = os.getenv("DB_PASSWORD")
+                password = os.getenv("DB_PASSWORD"),
+                name = os.getenv("DB_DATABASE")
             )
             cursor = cnx.cursor()
             cursor.execute("CREATE DATABASE santos_application;")
@@ -36,7 +37,7 @@ class BancoMySQL:
                 host = os.getenv("DB_HOST"),
                 user = os.getenv("DB_USER"),
                 password = os.getenv("DB_PASSWORD"),
-                database = os.getenv("DB_NAME")
+                name = os.getenv("DB_DATABASE")
             )
             self.cursor = self.conexao.cursor()
 
