@@ -28,7 +28,7 @@ class CriadorTabelas:
             CREATE TABLE IF NOT EXISTS logins (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 usuario_id INT NOT NULL,
-                data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
+                data_hora TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
             )
         """)
