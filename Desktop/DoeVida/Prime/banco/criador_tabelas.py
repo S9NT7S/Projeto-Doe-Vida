@@ -46,7 +46,7 @@ class CriadorTabelas:
             CREATE TABLE IF NOT EXISTS usuario_grupo (
                 usuario_id INT NOT NULL,
                 grupo_id INT NOT NULL,
-                PRIMARY KEY (usuario, grupo_id),
+                PRIMARY KEY (usuario_id, grupo_id),
                 FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE,
                 FOREIGN KEY (grupo_id) REFERENCES grupos(id) ON DELETE CASCADE
             )
