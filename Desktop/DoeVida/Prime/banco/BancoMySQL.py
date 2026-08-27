@@ -56,25 +56,6 @@ class BancoMySQL:
             print(f"Erro ao conectar ao MySQL: {e}")
             raise
 
-    # def criar_tabela_usuarios(self):
-    #     self.cursor.execute("""
-    #         CREATE TABLE IF NOT EXISTS usuarios (
-    #             id INT AUTO_INCREMENT PRIMARY KEY,
-    #             nome VARCHAR(100) NOT NULL,
-    #             sobrenome VARCHAR(100),
-    #             cpf INT(11) UNIQUE NOT NULL,
-    #             idade VARCHAR(50) NOT NULL,
-    #             usuario VARCHAR(100) UNIQUE NOT NULL,
-    #             senha VARCHAR(100) NOT NULL,
-    #             perfil VARCHAR(50) NOT NULL DEFAULT 'Doador de primeira vez',
-    #             sexo VARCHAR(50) NOT NULL,
-    #             sangue VARCHAR(50) NOT NULL DEFAULT 'Não tenho certeza',
-    #             telefone INT(11),
-    #             cep INT(8),
-    #         )
-    #     """)
-    #     self.conexao.commit()
-
     def criar_tabela_usuarios(self):
         self.cursor.execute("""
             CREATE TABLE IF NOT EXISTS usuarios (
@@ -179,80 +160,6 @@ class BancoMySQL:
             (usuario_id, grupo_id)
         )
         self.conexao.commit()
-
-    # def salvar_usuario(self, nome, sobrenome, cpf, idade, usuario, senha, perfil, sexo, sangue, telefone, cep):
-        
-    #     if not re.match(r"[^@]+@[^@]+\.[^@]+", usuario):
-    #         raise ValueError("Email inválido")
-        
-    #     try:
-    #         self.cursor.execute(
-    #             "SELECT * FROM cpfs WHERE cpf = %s",
-    #             (cpf,)
-    #         )
-    #         if self.cursor.fetchone():
-    #             self.registrar_teste(
-    #                 funcao="salvar_usuario",
-    #                 tipo="Dinâmico",
-    #                 caso="Tentativa de cadastro com usuário existente",
-    #                 entrada={"usuario": usuario},
-    #                 esperado="Erro de usuário duplicado",
-    #                 obtido="Usuário já existe",
-    #                 status="Falha",
-    #                 observacoes="Validação de unicidade falhou - usuário duplicado"
-    #             )
-    #             self.registrar_defeito("BancoMySQL.salvar_usuario", f"Tentativa de criar usuário duplicado: {usuario}")
-    #             raise ValueError("O usuário já existe.")
-            
-    #         senha_hash = bcrypt.hashpw(senha.encode(), bcrypt.gensalt()).decode()
-
-    #         self.cursor.execute(
-    #             "INSERT INTO usuarios (nome, sobrenome, cpf, usuario, senha, perfil, sexo, sangue, idade) VALUES (%s, %s, %s, %s, %s, %s, %s)",
-    #             (nome, usuario, senha_hash, perfil, sexo, sangue, idade)
-    #         )
-    #         self.conexao.commit()
-
-    #         self.cursor.execute("SELECT id FROM usuarios WHERE usuario = %s", (usuario,))
-    #         usuario_id = self.cursor.fetchone()[0]
-
-    #         self.registrar_teste(
-    #             funcao="salvar_usuario",
-    #             tipo="Dinâmico",
-    #             caso="Cadastro de novo usuário",
-    #             entrada={"usuario": usuario, "perfil": perfil},
-    #             esperado="Usuário criado com sucesso",
-    #             obtido="Usuário criado com sucesso",
-    #             status="Sucesso"
-    #         )
-
-    #     except mysql.connector.IntegrityError as e:
-            
-    #         self.registrar_defeito("BancoMySQL.salvar_usuario", f"Erro de integridade ao salvar usuário: {e}")
-    #         self.registrar_teste(
-    #             funcao="salvar_usuario",
-    #             tipo="Dinâmico",
-    #             caso="Erro de integridade ao salvar usuário",
-    #             entrada={"usuario": usuario},
-    #             esperado="Cadastro bem-sucedido",
-    #             obtido=str(e),
-    #             status="Falha",
-    #             observacoes="Erro de integridade ao tentar salvar usuário"
-    #         )
-    #         raise
-
-    #     except Exception as e:
-    #         self.registrar_defeito("BancoMySQL.salvar_usuario", f"Erro inesperado ao salvar usuário: {e}")
-    #         self.registrar_teste(
-    #             funcao="salvar_usuario",
-    #             tipo="Dinâmico",
-    #             caso="Erro inesperado ao salvar usuário",
-    #             entrada={"usuario": usuario},
-    #             esperado="Usuário criado com sucesso",
-    #             obtido=str(e),
-    #             status="Falha",
-    #             observacoes="Erro inesperado ao tentar salvar usuário"
-    #         )
-    #         raise
         
     def salvar_usuario(self, nome, usuario, senha, perfil, sexo, sangue, idade):
         
@@ -433,7 +340,7 @@ class BancoMySQL:
         self.cursor.execute("""
             CREATE TABLE IF NOT EXISTS testes_sistema (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                data_hora DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                data_hora TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                 funcao_testada VARCHAR(255) NOT NULL,
                 tipo_teste VARCHAR(50) NOT NULL,
                 caso_teste VARCHAR(255) NOT NULL,
@@ -471,7 +378,7 @@ class BancoMySQL:
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 modulo VARCHAR(100),
                 descricao VARCHAR(255),
-                data_ocorrencia DATETIME DEFAULT CURRENT_TIMESTAMP
+                data_ocorrencia TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         """)
         self.conexao.commit()
