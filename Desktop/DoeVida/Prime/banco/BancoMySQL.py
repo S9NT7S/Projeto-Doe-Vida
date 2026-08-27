@@ -28,7 +28,7 @@ class BancoMySQL:
                 database = os.getenv("DB_NAME")
             )
             cursor = cnx.cursor()
-            cursor.execute("CREATE DATABASE santos_application;")
+            #cursor.execute("CREATE DATABASE santos_application;")
             cnx.commit()
             cnx.close()
 
