@@ -373,12 +373,15 @@ class BancoMySQL:
         self.cursor.execute(query, (usuario,))
         return [row[0] for row in self.cursor.fetchall()]
 
-    def criar_indices(self):
-        self.cursor.execute("CREATE INDEX IF NOT EXISTS idx_usuarios_perfil ON usuarios (perfil)")
-        self.cursor.execute("CREATE INDEX IF NOT EXISTS idx_logins_data_hora ON logins (data_hora)")
-        self.cursor.execute("CREATE INDEX IF NOT EXISTS idx_usuario_grupo_usuario_id ON usuario_grupo (usuario_id)")
-        self.cursor.execute("CREATE INDEX IF NOT EXISTS idx_usuario_grupo_grupo_id ON usuario_grupo (grupo_id)")
-        self.conexao.commit()
+    # def criar_indices(self):
+    #     try: 
+    #         self.cursor.execute("CREATE INDEX IF NOT EXISTS idx_usuarios_perfil ON usuarios (perfil)")
+    #         self.cursor.execute("CREATE INDEX IF NOT EXISTS idx_logins_data_hora ON logins (data_hora)")
+    #         self.cursor.execute("CREATE INDEX IF NOT EXISTS idx_usuario_grupo_usuario_id ON usuario_grupo (usuario_id)")
+    #         self.cursor.execute("CREATE INDEX IF NOT EXISTS idx_usuario_grupo_grupo_id ON usuario_grupo (grupo_id)")
+    #     except mysql.connector.Error as e:  
+    #         e
+    #     self.conexao.commit()
 
     def obter_usuarios_com_grupos_inner_join(self):
         query = """
