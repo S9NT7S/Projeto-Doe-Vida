@@ -46,7 +46,7 @@ class BancoMySQL:
             self.criar_tabela_grupos()
             self.criar_grupos_padrao()
             self.usuario_admin()
-            self.criar_indices()
+            # self.criar_indices()
             self.criar_tabela_testes()
             self.criar_tabela_defeitos()
             self.criar_tabela_horarios()
