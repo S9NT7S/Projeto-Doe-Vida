@@ -94,13 +94,16 @@ class LoginController(BaseController):
         
     def salvar_data(self): #FIX
         hemocentro = request.form.get("hemocentro")
-        sql = "REQUEST.user.id;"
-        usuario_id = self.db.executar(sql,)
+        usuario_id = session.get("user_id")
         data = request.form.get("data")
         horario = request.form.get("horario")
 
+        if not all([hemocentro, data, horario, usuario_id]):
+            return render_template("agendamento.html", erro="Todos os campos devem ser preenchidos.")
+
         try:
             self.login_service.registrar_horario(hemocentro, usuario_id, data, horario)
+            return render_template("agendamento.html", sucesso="Agendamento realizado com sucesso.")
         except ValueError as e:
             render_template("agendamento.html", erro=str(e))
     
