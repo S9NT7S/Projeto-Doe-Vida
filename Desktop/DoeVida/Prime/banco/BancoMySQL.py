@@ -118,9 +118,9 @@ class BancoMySQL:
             self.adcionar_hemo(i)
         self.conexao.commit()
 
-    def adcionar_hemo(self, nome):
+    def adcionar_hemo(self, nome, usuario_id):
         try:
-            self.cursor.execute("INSERT INTO horarios (hemocentro) VALUES (%s)", (nome,))
+            self.cursor.execute("INSERT INTO horarios (hemocentro, usuario_id) VALUES (%s, %s)", (nome, usuario_id))
             self.conexao.commit()
         except mysql.connector.IntegrityError:
             pass    
