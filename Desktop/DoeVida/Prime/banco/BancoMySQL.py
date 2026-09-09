@@ -105,7 +105,7 @@ class BancoMySQL:
             CREATE TABLE IF NOT EXISTS horarios (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 hemocentro VARCHAR(50) NOT NULL,
-                usuario_id INT NOT NULL,
+                usuario_id INT NULL,
                 data DATE,
                 hora TIME,
                 FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
@@ -118,11 +118,11 @@ class BancoMySQL:
             self.adcionar_hemo(i)
         self.conexao.commit()
 
-    def adcionar_hemo(self, nome, usuario_id):
+    def adcionar_hemo(self, nome):
         try:
-            self.cursor.execute("INSERT INTO horarios (hemocentro, usuario_id) VALUES (%s, %s)", (nome, usuario_id))
+            self.cursor.execute("INSERT INTO horarios (hemocentro) VALUES (%s)", (nome,))
             self.conexao.commit()
-        except mysql.connector.IntegrityError:
+        except mysql.connector.Error:
             pass    
 
     def criar_grupos_padrao(self):
