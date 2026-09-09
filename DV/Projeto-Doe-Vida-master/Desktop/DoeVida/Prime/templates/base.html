@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="icon" type="imagens/x-icon" href="{{ url_for('static', filename='imagens/blood1.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"> </script>
+</head>
+<body>
+
+    <input type="checkbox" id="menu-toggle" hidden>
+    
+
+    <div class="wrapper">
+        <nav class="navbar">
+            <div class="container">
+                <a class="logo" href="/">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-button">Funções</a>
+                    <div class="dropdown-content">
+                        
+                        {% if session.get('perfil_logado') == 'admin' %}
+                            <a href="{{ url_for('listar_usuarios') }}">Gerenciar usuários</a>
+                            <br>
+                            <a href="{{ url_for('js_dashboard')}}">Dashboards</a>
+                        {% endif %}
+                    </div>
+
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-button">Hemocentros no RS</a>
+                    <div class="dropdown-content">
+                        <a href="https://saude.rs.gov.br/hemocentro-do-estado-do-rio-grande-do-sul" target="_blank">HEMORGS - Hemocentro do Estado do Rio Grande do Sul</a>
+                        <a href="https://saude.rs.gov.br/hemopasso" target="_blank">HEMOPASSO - Hemocentro Regional de Passo Fundo</a>
+                        <a href="https://saude.rs.gov.br/hemopel" target="_blank">HEMOPEL - Hemocentro Regional de Pelotas</a>
+                        <a href="https://saude.rs.gov.br/hemosm" target="_blank">HEMOSM - Hemocentro Regional de Santa Maria</a>
+                        <a href="https://saude.rs.gov.br/hemocentro-regional-de-cruz-alta" target="_blank">HEMOCRUZ - Hemocentro Regional de Cruz Alta</a>
+                    </div>
+                <a class="logout-btn" href="/logout">Sair</a>
+            </div>
+        </nav>
+
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

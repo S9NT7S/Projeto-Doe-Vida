@@ -1,0 +1,75 @@
+.divTitle {
+    display: flex;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.botoes {
+    display: flex;
+}
+
+.botao-newuser {
+    padding: 10px;
+}
+
+.botao-excel {
+    padding: 10px;
+}
+
+.botao-pdf {
+    padding: 10px;
+}
+
+.divTable {
+    overflow-x: auto;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid red;
+    padding: 5px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+th {
+    background-color: red;
+    color: rgb(255, 255, 255);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* NAVBAR INICIA AQUI */
+li {
+    list-style: none;
+}
+
+.navbar-nav {
+    background-color: red;
+    width: 100%;
+    margin: auto;
+    padding: 30px 20px;
+    justify-content: center;
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+.navbar-nav a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+/* NAVBAR TERMINA AQUI */
+
+@media (min-width: 300px) {
+    body {
+        background-color: blue;
+    }
+}

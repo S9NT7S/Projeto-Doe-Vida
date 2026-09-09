@@ -1,0 +1,92 @@
+h1 {
+    border-bottom: 3px solid red;
+}
+
+/* Telefone */
+@media (min-width: 300px) {
+    
+    .divLabelInput {
+        display: block;
+        justify-content: center;
+    }
+
+    .botaoSalvar {
+        background-color: red;
+        display: flex;
+        justify-content: center;
+    }
+
+    .divBotao {
+        display: flex;
+        justify-content: center;   
+    }
+
+    .divCancelar {
+        text-decoration: none;
+        justify-content: center;
+        display: flex;
+    }
+
+
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    body {
+        font-size: 25px;
+    }
+
+    .divLabelInput {
+        display: flex;
+        justify-content: center;
+    }
+
+    .botaoSalvar {
+        display: flex;
+        justify-content: center;
+    }    
+
+    .divBotao {
+        display: flex;
+        justify-content: center;   
+    }
+
+    .cancelar {
+        text-decoration: none;
+        justify-content: center;
+        display: flex;
+    }
+}
+
+/* Notebook */
+@media (min-width: 1024px) {
+    body {
+        font-size: 35px;
+    }
+
+    .divLabelInput {
+        display: flex;
+        justify-content: center;
+    }
+
+    .botaoSalvar {
+        background-color: red;
+        display: flex;
+        justify-content: center;
+    }
+
+    .cancelar {
+        text-decoration: none;
+        justify-content: center;
+        display: flex;
+    }
+
+    .divBotao {
+        display: flex;
+        justify-content: center;   
+    }
+
+    input:hover {
+        background-color: black;   
+    }
+}

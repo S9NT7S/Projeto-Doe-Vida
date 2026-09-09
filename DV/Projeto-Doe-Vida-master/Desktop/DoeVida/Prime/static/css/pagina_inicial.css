@@ -1,0 +1,122 @@
+ul.lista {
+    list-style-type: none;
+}
+
+h1 {
+    text-align: center;
+    align-items: center;
+}
+
+.card {
+    position: relative;
+    width: 200px;
+    height: 90px;
+    background-color: red;
+    display:inline-flex;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.divGrafico {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.card-link {
+    position: fill-div;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container-cards {
+    display: flex;
+    gap: 16px;
+    font-display: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+body {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 15px;
+}
+
+/* NAVBAR INICIA AQUI */
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-nav {
+    background-color: red;
+    width: 100%;
+    margin: auto;
+    padding: 30px 20px;
+    justify-content: center;
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+.navbar-nav a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.icone {
+    margin: auto;
+    display: flex;
+}
+
+/* NAVBAR TERMINA AQUI */
+
+.hemogo {
+    background-color: red;
+    color: white;
+    font-size: 20px;
+}
+
+a {
+    background-color: red;
+    color: white;
+    padding: 10px;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    body {
+        font-size: 25px;
+    }
+}
+
+/* Notebook */
+@media (min-width: 1024px) {
+    body {
+        font-size: 35px;
+    }
+}
+
+/* Celular */
+@media (min-width: 300px) {
+
+}

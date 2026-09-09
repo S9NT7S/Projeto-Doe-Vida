@@ -1,0 +1,24 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.divLabel, .divInput, .title, .divBotao {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    border-radius: 10px;
+    border: solid red;
+    height: 600px;
+    width: 500px;
+}
+
+.divForm {
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    list-style: none;
+}

@@ -1,0 +1,93 @@
+.labelName, .labelCpf, .labelEmail, .labelPassword, .labelPhone, .labelCep, .labelProfile, .labelSex, .labelBlood, .labelAge {
+    background-color: red;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.inputName, .inputCpf, .inputEmail, .inputPassword, .inputPhone, .inputCep, .selectProfile, .selectSex, .selectBlood, .inputAge {
+    background-color: rgb(255, 255, 255);
+}
+
+.divH1 {
+    font-size: large;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    box-shadow: red;
+}
+
+h2 {
+    background: red;
+    margin: 0;
+}
+
+button {
+    background-color: red;
+}
+
+.divLabel {
+    justify-content: center;
+}
+
+.divInput {
+    display: flex;
+    justify-content: center;
+    background-color: red;
+}
+
+.divButton, .divSpan {
+    display: flex;
+    justify-content: center;
+}
+
+
+.spanName {
+    background-color: red;
+}
+
+
+/* Tablet */
+@media (min-width: 768px) {
+    body {
+        font-size: 25px;
+    }
+
+    .divSpanInput {
+        display: flex;
+    }
+
+    .divLabelPassword {
+        display: flex;
+    }
+
+}
+
+/* Notebook */
+@media (min-width: 1024px) {
+    body {
+        font-size: 35px;
+    }
+
+    .divSpanInput {
+        display: flex;
+    }
+}
+
+/* 
+
+Name
+Cpf
+Email
+Password
+Phone
+Cep
+Profile
+Sex
+Blood
+Age
+
+*/
