@@ -67,6 +67,18 @@ class UsuarioService:
         except Exception:
             print("usuario service")
 
+    # def excluir_usuario(self, usuario_id):
+    #     usuario = self.usuario_repository.buscar_por_id(usuario_id)
+        
+    #     if not usuario:
+    #         raise ValueError("Usuário não encontrado.")
+
+    #     try:            
+    #         self.usuario_repository.excluir(usuario_id)
+        
+    #     except Exception as e:
+    #         print("usuario_service")
+
     def excluir_usuario(self, usuario_id):
         usuario = self.usuario_repository.buscar_por_id(usuario_id)
         
@@ -77,7 +89,12 @@ class UsuarioService:
             self.usuario_repository.excluir(usuario_id)
         
         except Exception as e:
-            print("usuario_service")
+            # Mostra o erro no console para você debugar, se necessário
+            print(f"Erro no usuario_service ao excluir usuário: {e}")
+            
+            # OBRIGATÓRIO: Relança a exceção para que o controller saiba 
+            # que a operação falhou e consiga exibir o flash de erro!
+            raise ValueError("Não foi possível excluir o usuário devido a um erro no banco de dados.")
 
     def obter_todos_usuarios(self):
         return self.usuario_repository.listar_todos()

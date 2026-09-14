@@ -20,9 +20,9 @@ class UsuarioRepository:
     def check_perfil(self):
         self.banco.executar("SELECT * FROM 'usuarios' WHERE perfil = 'admin';")
 
-    def excluir(self, usuario_id):
-        sql = "DELETE FROM usuarios WHERE id=%s"
-        return self.banco.executar(sql, (usuario_id))
+    # def excluir(self, usuario_id):
+    #     sql = "DELETE FROM usuarios WHERE id=%s"
+    #     return self.banco.executar(sql, (usuario_id))
         
         # try:
         #     cursor = self.banco.conexao.cursor()
@@ -34,6 +34,24 @@ class UsuarioRepository:
             
         # except Exception as e:
         #     print("usuario_repository")
+
+    def excluir(self, usuario_id):
+        try:
+            # Se você usa uma classe de banco customizada (self.banco), 
+            # certifique-se de que ela lida com conexões/cursores e transações.
+            
+            # 1. Primeiro apaga as dependências (ex: tabela de junção com grupos)
+            sql_grupo = "DELETE FROM usuario_grupo WHERE usuario_id = %s"
+            self.banco.executar(sql_grupo, (usuario_id,))
+            
+            # 2. Depois apaga o usuário principal
+            sql_usuario = "DELETE FROM usuarios WHERE id = %s"
+            return self.banco.executar(sql_usuario, (usuario_id,))
+            
+        except Exception as e:
+            print(f"Erro no usuario_repository ao excluir: {e}")
+            # Relança o erro para o Service capturar
+            raise e
 
     def atualizar(self, usuario_id, novo_nome, nova_senha, novo_perfil, novo_sexo, novo_sangue, nova_idade): #Esta função não está sendo utilizada
 
