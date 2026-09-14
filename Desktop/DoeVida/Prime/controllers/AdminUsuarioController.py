@@ -85,26 +85,52 @@ class AdminUsuarioController(BaseController):
 
         return render_template("novo_usuario.html")
 
-    def excluir_usuario(self, usuario_id):
-        # if not self._somente_admin():
-        #     return redirect(url_for("home"))
+    # def excluir_usuario(self, usuario_id):
+    #     # if not self._somente_admin():
+    #     #     return redirect(url_for("home"))
 
+    #     if session.get("usuario_id") == usuario_id:
+    #         flash("Você não pode excluir sua própria conta.", "erro")
+    #         return redirect(url_for("listar_usuarios"))
+        
+    #     if request.method == 'POST':
+    #         try:
+    #             if self.usuario_service.excluir_usuario(usuario_id) == session.get("usuario_id") == usuario_id:
+    #                 print("Você não pode excluir o admin")
+    #                 raise ValueError
+    #             else:
+    #                 self.usuario_service.excluir_usuario(usuario_id)
+    #                 flash("Usuário excluído com sucesso.", "sucesso")
+    #         except ValueError:
+    #             flash(str(ValueError), "erro")
+    #     else:
+    #         return redirect(url_for("listar_usuarios"))
+
+    def excluir_usuario(self, usuario_id):
+        # 1. Verifica se o usuário está tentando excluir a si mesmo
         if session.get("usuario_id") == usuario_id:
             flash("Você não pode excluir sua própria conta.", "erro")
             return redirect(url_for("listar_usuarios"))
         
-        if request.method == 'POST':
-            try:
-                if self.usuario_service.excluir_usuario(usuario_id) == session.get("usuario_id") == usuario_id:
-                    print("Você não pode excluir o admin")
-                    raise ValueError
-                else:
-                    self.usuario_service.excluir_usuario(usuario_id)
-                    flash("Usuário excluído com sucesso.", "sucesso")
-            except ValueError:
-                flash(str(ValueError), "erro")
-        else:
+        # 2. Garante que a requisição seja via POST
+        if request.method != 'POST':
             return redirect(url_for("listar_usuarios"))
+
+        try:
+            # Tenta excluir através do service. 
+            # (O Service deve lançar um ValueError se tentar excluir um admin, por exemplo)
+            self.usuario_service.excluir_usuario(usuario_id)
+            flash("Usuário excluído com sucesso.", "sucesso")
+            
+        except ValueError as e:
+            # Captura o erro lançado pelo service e exibe a mensagem correta
+            flash(str(e), "erro")
+        except Exception as e:
+            # Boa prática para capturar outros erros inesperados de banco/sistema
+            flash(f"Ocorreu um erro ao excluir o usuário: {str(e)}", "erro")
+
+        # 3. Redireciona sempre para a listagem ao final do processo (sucesso ou erro)
+        return redirect(url_for("listar_usuarios"))
 
     def editar_usuario(self, usuario_id): 
         if not self._somente_admin():

@@ -51,6 +51,7 @@ class BancoMySQL:
             self.criar_tabela_defeitos()
             self.criar_tabela_horarios()
             self.criar_hemocentros()
+            self.criar_tabela_noticias()
 
         except Error as e:
             print(f"Erro ao conectar ao MySQL: {e}")
@@ -100,6 +101,17 @@ class BancoMySQL:
         """)
         self.conexao.commit()
 
+    def criar_tabela_noticias(self):
+        self.cursor.execute("""
+            CREATE TABLE IF NOT EXISTS noticias (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                titulo VARCHAR(255) NOT NULL,
+                conteudo TEXT NOT NULL,
+                data_publicacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        """)
+        self.conexao.commit()
+
     def criar_tabela_horarios(self):
         self.cursor.execute("""
             CREATE TABLE IF NOT EXISTS horarios (
@@ -111,6 +123,22 @@ class BancoMySQL:
                 FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
             );
         """)
+        self.conexao.commit()
+
+    def adciona_news(self):
+        self.cursor.execute("""
+            INSERT INTO noticias (titulo, conteudo) VALUES (%s, %s), (%s, %s), (%s, %s), (%s, %s), (%s, %s) """, 
+            ('Alerta no Estoque: Tipos O- e A- Atingem Níveis Críticos',
+            'Os estoques de sangue da nossa região registraram uma queda preocupante nos últimos dias, especialmente para os tipos O negativo e A negativo. Com o aumento da demanda nos hospitais locais, a participação dos doadores é fundamental.',
+            'Quem Tem Tatuagem Pode Doar Sangue?',
+            'Sim, quem tem tatuagem pode doar! No entanto, é necessário aguardar um período de restrição temporária de 6 a 12 meses por questões de segurança biológica e conformidade com as normas de triagem.',
+            'Vai Viajar no Feriado? Coloque a Doação no Seu Roteiro',
+            'Períodos de férias e feriados prolongados costumam registrar queda no fluxo de doadores. Antes de viajar, dedique menos de uma hora do seu dia para fazer uma doação e ajude a salvar até 4 vidas.',
+            'O Caminho de uma Doação: Para Onde Vai o Sangue?',
+            'O sangue coletado é fracionado em componentes vitais: hemácias, plaquetas, plasma e crioprecipitado. Isso significa que uma única doação atende a múltiplos pacientes em diferentes tratamentos.',
+            'Como Se Preparar para Fazer uma Doação Tranquila',
+            'Durma pelo menos 6 horas na noite anterior, evite alimentos gordurosos 4 horas antes, mantenha-se hidratado e leve um documento oficial com foto para o atendimento.'
+        ));
 
     def criar_hemocentros(self):
         hemocentros = ['Hemorgs', 'Hemopel', 'Hemopasso', 'Hemosm', 'Hemocruz']

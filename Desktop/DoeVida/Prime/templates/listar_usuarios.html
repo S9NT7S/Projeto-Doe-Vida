@@ -117,7 +117,7 @@
 
                         <!-- <button type="button" class="btn" style="background-color: red; color: white;" data-bs-toggle="modal" data-bs-target="#myModal">Excluir</button> -->
 
-                        <form id="formExcluir-{{ u.id }}" method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="display: inline; padding: 0;">
+                        <form id="formExcluir-{{ u.id }}" method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="display: inline; padding: 0;" onsubimit="return confirm('Tem certeza que deseja excluir este usuário?');">
                             <button type="submit" style="background-color: red; color: white; border-radius: 8px;" class="btn">Excluir</button>
                         </form> 
 
