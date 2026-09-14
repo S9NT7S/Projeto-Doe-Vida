@@ -92,9 +92,9 @@ class LoginController(BaseController):
         except Exception as e:
             return render_template("cadastro.html", erro=f"Erro ao cadastrar usuário: {str(e)}")
         
-    def salvar_data(self): #FIX
+    def salvar_data(self):
         hemocentro = request.form.get("hemocentro")
-        usuario_id = session.get("user_id")
+        usuario_id = session.get("usario_id")
         data = request.form.get("data")
         horario = request.form.get("horario")
 
@@ -104,8 +104,10 @@ class LoginController(BaseController):
         try:
             self.login_service.registrar_horario(hemocentro, usuario_id, data, horario)
             return render_template("agendamento.html", sucesso="Agendamento realizado com sucesso.")
+            
         except ValueError as e:
-            render_template("agendamento.html", erro=str(e))
+            # CORREÇÃO: Adicionado o 'return' aqui embaixo!
+            return render_template("agendamento.html", erro=str(e))
     
     def minha_area(self):
         # tipoSangue = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-', 'Não tenho certeza']

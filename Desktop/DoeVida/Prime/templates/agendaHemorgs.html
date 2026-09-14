@@ -107,7 +107,7 @@
             <div class="dayF">21</div>
             <div class="dayF">22</div>
             <div class="dayF">23</div>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal">24</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">{{ dia }}</button>
             <div class="day">25</div>
             <div class="day">26</div>
             <div class="day">27</div>
@@ -123,48 +123,42 @@
             <div class="dayF">06</div>
         </div>
 
-        <div class="modal" id="myModal">
+        <div class="modal fade" id="modal-{{ dia }}" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Escolha um dia e um horário: </h4>
+                        <h4 class="modal-title">Escolha um horário para o dia {{ dia }}:</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <div class="modal-body">
                         <form method="POST" action="{{ url_for('salvar_data') }}">
-                            <select id="hemocentro" name="hemocentro">
-                                <option value="hemorgs">HEMORGS</option>
-                            </select>
-
-                            <select id="data" name="data">
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                                <option value="01">01</option>
-                                <option value="02">02</option>
-                                <option value="03">03</option>
-                                <option value="04">04</option>
-                            </select>
                             
-                            <select id="horario" name="horario">
-                                <option value="8h">8h</option>
-                                <option value="9h">9h</option>
-                                <option value="10h">10h</option>
-                                <option value="11h">11h</option>
-                                <option value="12h">12h</option>
-                                <option value="13h">13h</option>
-                                <option value="14h">14h</option>
-                                <option value="15h">15h</option>
-                                <option value="16h">16h</option>
-                            </select>
                             
+                            <input type="hidden" name="dia" value="{{ dia }}">
 
-                            <button class="botaoEnviar" type="submit">Salvar</button>
+                            <div class="mb-3">
+                                <label for="hemocentro-{{ dia }}" class="form-label">Hemocentro:</label>
+                                <select id="hemocentro-{{ dia }}" name="hemocentro" class="form-select">
+                                    <option value="hemorgs">HEMORGS</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="horario-{{ dia }}" class="form-label">Horário:</label>
+                                <select id="horario-{{ dia }}" name="horario" class="form-select">
+                                    <option value="8h">08:00</option>
+                                    <option value="9h">09:00</option>
+                                    <option value="10h">10h</option>
+                                    <option value="11h">11h</option>
+                                    <option value="13h">13h</option>
+                                    <option value="14h">14h</option>
+                                    <option value="15h">15h</option>
+                                    <option value="16h">16h</option>
+                                </select>
+                            </div>
+
+                            <button class="btn btn-danger w-100 mt-2" type="submit">Confirmar Agendamento</button>
                         </form>
                     </div>
                 </div>
