@@ -1,22 +1,70 @@
-/* NAVBAR INICIA AQUI */
-li {
-    list-style: none;
+/* Shared dimensions for the Bootstrap navigation used by the templates. */
+.navbar.navbar-expand-sm {
+    min-height: 76px;
+    padding: 0;
+    background-color: red;
 }
 
-.navbar-nav {
-    background-color: red;
+.navbar.navbar-expand-sm .container-fluid {
+    min-height: 76px;
+    padding: 0 20px;
+    align-items: center;
+}
+
+.navbar.navbar-expand-sm .navbar-nav {
     width: 100%;
-    margin: auto;
-    padding: 30px 20px;
+    min-height: 76px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
     justify-content: center;
-    font-size: 24px;
+    background-color: red;
     font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
     font-weight: bolder;
 }
 
-.navbar-nav a:hover {
+.navbar.navbar-expand-sm .navbar-toggler {
+    margin: 0;
+}
+
+.navbar.navbar-expand-sm .collapse,
+.navbar.navbar-expand-sm .navbar-collapse {
+    align-items: center;
+}
+
+.navbar.navbar-expand-sm .lista,
+.navbar.navbar-expand-sm li {
+    margin: 0;
+    list-style: none;
+}
+
+.navbar.navbar-expand-sm .nav-link {
+    line-height: 1.25;
+}
+
+.navbar.navbar-expand-sm a:hover {
     color: black;
     text-decoration: underline;
 }
 
-/* NAVBAR TERMINA AQUI */
+@media (max-width: 575.98px) {
+    .navbar.navbar-expand-sm,
+    .navbar.navbar-expand-sm .container-fluid,
+    .navbar.navbar-expand-sm .navbar-nav {
+        min-height: 64px;
+    }
+
+    .navbar.navbar-expand-sm .container-fluid {
+        padding: 0 12px;
+    }
+
+    .navbar.navbar-expand-sm .navbar-nav {
+        align-items: flex-start;
+        padding: 8px 0;
+    }
+
+    .navbar.navbar-expand-sm .navbar-collapse {
+        padding-bottom: 8px;
+    }
+}
