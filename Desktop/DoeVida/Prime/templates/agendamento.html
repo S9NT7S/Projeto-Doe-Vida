@@ -29,7 +29,6 @@
                         <ul class="lista">
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="/">Home</a>
-                                <a class="nav-link text-white" href="{{ url_for('news') }}">Notícias</a>
                             </li>
                         </ul>
                         {% if session.get('perfil_logado') == 'admin' %}
@@ -44,7 +43,12 @@
                                 </li>
                             </ul>
                         {% endif %}
-                    
+                        <ul class="lista">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ url_for('news') }}">Notícias</a>
+                            </li>
+                        </ul>
+                
                         <ul class="lista">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-white" href="#"  data-bs-toggle="dropdown">Hemocentros no RS</a>

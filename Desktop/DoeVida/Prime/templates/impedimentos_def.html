@@ -24,7 +24,6 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">   
                         <li class="nav-item">
                                 <a class="nav-link text-white" href="/">Home</a>
-                                <a class="nav-link text-white" href="{{ url_for('news') }}">Notícias</a>
                         </li>
                         {% if session.get('perfil_logado') == 'admin' %}
                             <li class="nav-item">
@@ -34,6 +33,9 @@
                                 <a class="nav-link text-white" href="{{ url_for('js_dashboard')}}">Dashboards</a>
                             </li>
                         {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ url_for('news') }}">Notícias</a>
+                        </li>
                     
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white" href="#"  data-bs-toggle="dropdown">Hemocentros no RS</a>
