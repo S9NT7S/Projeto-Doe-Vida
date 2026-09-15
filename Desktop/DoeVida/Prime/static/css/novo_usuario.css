@@ -1,93 +1,162 @@
-.labelName, .labelCpf, .labelEmail, .labelPassword, .labelPhone, .labelCep, .labelProfile, .labelSex, .labelBlood, .labelAge {
-    background-color: red;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
+:root {
+    font-family: Arial, sans-serif;
+    color: #222;
+    background-color: #f5f5f5;
 }
 
-.inputName, .inputCpf, .inputEmail, .inputPassword, .inputPhone, .inputCep, .selectProfile, .selectSex, .selectBlood, .inputAge {
-    background-color: rgb(255, 255, 255);
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px 16px 40px;
+    background-color: #f5f5f5;
 }
 
 .divH1 {
-    font-size: large;
+    max-width: 720px;
+    margin: 0 auto 24px;
+    text-align: center;
 }
 
-h1 {
-    display: flex;
-    justify-content: center;
-    box-shadow: red;
-}
-
-h2 {
-    background: red;
+.divH1 h1 {
     margin: 0;
+    color: #8b0000;
+    font-size: clamp(1.7rem, 5vw, 2.4rem);
 }
 
-button {
-    background-color: red;
+body > p {
+    max-width: 720px;
+    margin: 0 auto 16px;
+}
+
+.usuario-form,
+.gerar-form {
+    width: min(100%, 720px);
+    margin: 0 auto;
+}
+
+.divSpanInput,
+.divLabel,
+.divInput {
+    margin-bottom: 8px;
+}
+
+.divSpanInput {
+    display: grid;
+    gap: 8px;
 }
 
 .divLabel {
-    justify-content: center;
+    margin-top: 16px;
 }
 
-.divInput {
-    display: flex;
-    justify-content: center;
-    background-color: red;
-}
-
-.divButton, .divSpan {
-    display: flex;
-    justify-content: center;
-}
-
-
+.labelName,
+.labelEmail,
+.labelPassword,
+.labelProfile,
+.labelSex,
+.labelBlood,
+.labelAge,
 .spanName {
-    background-color: red;
+    display: block;
+    margin-bottom: 6px;
+    color: #8b0000;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
+.divInput input,
+.divInput select {
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    padding: 9px 12px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    background-color: #fff;
+    font: inherit;
+}
 
-/* Tablet */
-@media (min-width: 768px) {
-    body {
-        font-size: 25px;
-    }
+.divInput input:focus,
+.divInput select:focus {
+    border-color: #8b0000;
+    outline: 3px solid rgba(139, 0, 0, 0.2);
+}
 
+.divButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.buttonSubmit,
+.buttonCancel,
+.gerar-form button {
+    display: inline-block;
+    min-height: 44px;
+    padding: 10px 22px;
+    border: 0;
+    border-radius: 4px;
+    font: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.buttonSubmit,
+.gerar-form button {
+    background-color: #b00000;
+    color: #fff;
+}
+
+.buttonCancel {
+    background-color: #ddd;
+    color: #222;
+}
+
+.buttonSubmit:hover,
+.gerar-form button:hover {
+    background-color: #780000;
+}
+
+.buttonCancel:hover {
+    background-color: #bbb;
+    color: #222;
+}
+
+.gerar-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.gerar-form input {
+    width: 90px;
+    min-height: 44px;
+    padding: 8px;
+}
+
+@media (min-width: 640px) {
     .divSpanInput {
-        display: flex;
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
     }
 
-    .divLabelPassword {
-        display: flex;
-    }
-
-}
-
-/* Notebook */
-@media (min-width: 1024px) {
-    body {
-        font-size: 35px;
-    }
-
-    .divSpanInput {
-        display: flex;
+    .divSpanInput .divSpan,
+    .divSpanInput .divInput {
+        margin: 0;
     }
 }
 
-/* 
+@media (max-width: 480px) {
+    .gerar-form {
+        flex-wrap: wrap;
+    }
 
-Name
-Cpf
-Email
-Password
-Phone
-Cep
-Profile
-Sex
-Blood
-Age
-
-*/
+    .gerar-form button {
+        width: 100%;
+    }
+}

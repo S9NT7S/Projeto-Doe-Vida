@@ -2,7 +2,6 @@ h1 {
     border-bottom: 3px solid red;
 }
 
-/* Telefone */
 @media (min-width: 300px) {
     
     .divLabelInput {
