@@ -115,8 +115,6 @@
 
                     
 
-                        <!-- <button type="button" class="btn" style="background-color: red; color: white;" data-bs-toggle="modal" data-bs-target="#myModal">Excluir</button> -->
-
                         <form id="formExcluir-{{ u.id }}" method="POST" action="{{ url_for('excluir_usuario', usuario_id=u.id) }}" style="display: inline; padding: 0;" onsubimit="return confirm('Tem certeza que deseja excluir este usuário?');">
                             <button type="submit" style="background-color: red; color: white; border-radius: 8px;" class="btn">Excluir</button>
                         </form> 
@@ -153,24 +151,6 @@
                 {% endfor %}
             </tbody>
         </table>
-
-        <!-- <div id="modalConfirmacao" class="modal">
-            <div class="modalContent">
-                <h2>Confirmar exclusão</h2>
-        
-                <p>Tem certeza que deseja excluir este usuário?</p>
-        
-                <div style="display:flex; gap:10px; justify-content:center; margin-top:15px;">
-                    <button onclick="confirmarExclusao()" class="botaoAbrirConfirmacao">
-                        Sim, excluir
-                    </button>
-        
-                    <button onclick="fecharModalConfirmacao()" class="botaoFecharConfirmacao">
-                        Cancelar
-                    </button>
-                </div>
-            </div>
-        </div> -->
         
         
         <script src="{{ url_for('static', filename='js/teste.js') }}"></script>

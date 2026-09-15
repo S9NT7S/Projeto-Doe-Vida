@@ -87,6 +87,22 @@ li {
     border-radius: 4px;
 }
 
+.botaoVoltar {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 8px 24px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.botaoVoltar:hover {
+    background-color: black;
+    color: white;
+}
+
 @media (min-width: 480px) {
     .calendario {
         grid-template-columns: repeat(4, 1fr);
