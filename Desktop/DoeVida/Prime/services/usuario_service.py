@@ -19,16 +19,14 @@ class UsuarioService:
         return True, "Senha válida."
 
     def cadastrar_usuario(self, nome, email, senha, perfil, sangue, sexo, idade):
-        try:
-            if not isinstance(email, str) or "@" not in email:
-                raise ValueError("Email inválido.")
-            senha_valida, mensagem = self.validar_senha(senha)
-            if not senha_valida:
-                raise ValueError(mensagem)
-            
-            self.usuario_repository.salvar(nome, email, senha, perfil, sangue, sexo, idade)
-        except Exception as e:
-            return e
+        if not isinstance(email, str) or "@" not in email:
+            raise ValueError("Email inválido.")
+
+        senha_valida, mensagem = self.validar_senha(senha)
+        if not senha_valida:
+            raise ValueError(mensagem)
+
+        self.usuario_repository.salvar(nome, email, senha, perfil, sexo, sangue, idade)
         
     def login_usuario(self, email, senha):
         return self.usuario_repository.validar_login(email, senha)

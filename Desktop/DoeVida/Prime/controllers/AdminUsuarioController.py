@@ -51,7 +51,7 @@ class AdminUsuarioController(BaseController):
 
             try:
            
-                self.usuario_service.att_user(
+                self.usuario_service.cadastrar_usuario(
                     nome=nome,
                     email=email,
                     senha=senha,
@@ -68,8 +68,12 @@ class AdminUsuarioController(BaseController):
                 erro = str(e)
                 return render_template(
                     "novo_usuario.html",
+                    nome=nome,
                     email=email,
                     perfil=perfil,
+                    sexo=sexo,
+                    sangue=sangue,
+                    idade=idade,
                     erro=erro
                 )
 
@@ -78,8 +82,12 @@ class AdminUsuarioController(BaseController):
                 erro = f"Erro ao cadastrar usuário: {str(e)}"
                 return render_template(
                     "novo_usuario.html",
+                    nome=nome,
                     email=email,
                     perfil=perfil,
+                    sexo=sexo,
+                    sangue=sangue,
+                    idade=idade,
                     erro=erro
                 )
 

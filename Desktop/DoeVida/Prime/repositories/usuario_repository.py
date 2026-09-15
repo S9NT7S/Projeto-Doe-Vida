@@ -5,9 +5,15 @@ class UsuarioRepository:
         self.banco = banco
 
     def salvar(self, nome, email, senha, perfil, sexo, sangue, idade):
-        sql = "INSERT INTO usuarios (nome, usuario, senha, perfil, sexo, sangue, idade) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-        self.banco.executar(sql, (nome, email, senha, perfil, sexo, sangue, idade))
-        usuario_id = self.banco.cursor.lastrowid
+        return self.banco.salvar_usuario(
+            nome,
+            email,
+            senha,
+            perfil,
+            sexo,
+            sangue,
+            idade,
+        )
 
     def validar_login(self, email, senha):
         sql = "SELECT * FROM usuarios WHERE usuario = %s AND senha = %s"
