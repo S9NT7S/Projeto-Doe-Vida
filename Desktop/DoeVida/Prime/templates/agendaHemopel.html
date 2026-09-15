@@ -77,6 +77,93 @@
             <div class="diaF">Sábado</div>
             <div class="diaF">Domingo</div>
         </div>
+
+        <div class="mes">
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">07 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">08 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">09 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">10 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">11 {{ dia }}</button></div>
+            <div class="dayF">12</div>
+            <div class="dayF">13</div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">14 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">15 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">16 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">17 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">18 {{ dia }}</button></div>
+            <div class="dayF">19</div>
+            <div class="dayF">20</div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">21 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">22 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">23 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">24 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">25 {{ dia }}</button></div>
+            <div class="dayF">26</div>
+            <div class="dayF">27</div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">28 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">29 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">30 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">01 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">02 {{ dia }}</button></div>
+            <div class="dayF">03</div>
+            <div class="dayF">04</div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">05 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">06 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">07 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">08 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">09 {{ dia }}</button></div>
+            <div class="dayF">10</div>
+            <div class="dayF">11</div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">12 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">13 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">14 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">15 {{ dia }}</button></div>
+            <div class="day"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ dia }}">16 {{ dia }}</button></div>
+            <div class="dayF">17</div>
+            <div class="dayF">18</div>
+        </div>
+
+        <div class="modal fade" id="modal-{{ dia }}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Escolha um horário para o dia {{ dia }}:</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form method="POST" action="{{ url_for('salvar_data') }}">
+                            
+                            
+                            <input type="hidden" name="dia" value="{{ dia }}">
+
+                            <div class="mb-3">
+                                <label for="hemocentro-{{ dia }}" class="form-label">Hemocentro:</label>
+                                <select id="hemocentro-{{ dia }}" name="hemocentro" class="form-select">
+                                    <option value="hemorgs">HEMORGS</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="horario-{{ dia }}" class="form-label">Horário:</label>
+                                <select id="horario-{{ dia }}" name="horario" class="form-select">
+                                    <option value="8h">08h</option>
+                                    <option value="9h">09h</option>
+                                    <option value="10h">10h</option>
+                                    <option value="11h">11h</option>
+                                    <option value="13h">13h</option>
+                                    <option value="14h">14h</option>
+                                    <option value="15h">15h</option>
+                                    <option value="16h">16h</option>
+                                </select>
+                            </div>
+
+                            <button class="btn btn-danger w-100 mt-2" type="submit">Confirmar Agendamento</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         
     </body>
 
