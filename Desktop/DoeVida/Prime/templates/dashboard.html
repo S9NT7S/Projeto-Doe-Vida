@@ -25,6 +25,7 @@
                         <ul class="lista">
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="/">Home</a>
+                                <a class="nav-link text-white" href="{{ url_for('news') }}">Notícias</a>
                             </li>
                         </ul>
                         {% if session.get('perfil_logado') == 'admin' %}
@@ -62,29 +63,49 @@
             </div>
         </nav>
 
-        <div class="graficos-container">
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div>
+                    <p class="dashboard-eyebrow">Visao geral</p>
+                    <h1>Dashboard administrativo</h1>
+                    <p>Acompanhe a composicao dos usuarios cadastrados no Doe Vida.</p>
+                </div>
+                <div id="dashboardStatus" class="dashboard-status" aria-live="polite">Carregando dados...</div>
+            </header>
 
-            <div class="grafico-card">
-                <div class="grafico-titulo">Usuários do Sistema</div>
-                <canvas id="graficoUsuarios"></canvas>
-            </div>
+            <section class="resumo-container" aria-label="Resumo do sistema">
+                <article class="resumo-card">
+                    <span>Total de usuarios</span>
+                    <strong id="totalUsuarios">-</strong>
+                </article>
+                <article class="resumo-card">
+                    <span>Administradores</span>
+                    <strong id="totalAdmins">-</strong>
+                </article>
+                <article class="resumo-card">
+                    <span>Doadores</span>
+                    <strong id="totalDoadores">-</strong>
+                </article>
+            </section>
 
-            <div class="grafico-card">
-                <div class="grafico-titulo">Usuários por grupo</div>
-                <canvas id="graficoGrupos"></canvas>
-            </div>
+            <section class="graficos-container" aria-label="Graficos do sistema">
 
-            <div class="grafico-card">
-                <div class="grafico-titulo">Doaçóes realizadas</div>
-                <canvas id="graficoRanking"></canvas>
-            </div>
+                <div class="grafico-card">
+                    <div class="grafico-titulo">Usuarios do sistema</div>
+                    <div class="grafico-area">
+                        <canvas id="graficoUsuarios" aria-label="Distribuicao entre administradores e doadores"></canvas>
+                    </div>
+                </div>
 
-            <div class="grafico-card">
-                <div class="grafico-titulo">Evolução do sistema</div>
-                <canvas id="graficoEvolucao"></canvas>
-            </div> 
+                <div class="grafico-card">
+                    <div class="grafico-titulo">Usuarios por perfil</div>
+                    <div class="grafico-area">
+                        <canvas id="graficoPerfis" aria-label="Distribuicao de usuarios por perfil"></canvas>
+                    </div>
+                </div>
 
-        </div>
+            </section>
+        </main>
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 

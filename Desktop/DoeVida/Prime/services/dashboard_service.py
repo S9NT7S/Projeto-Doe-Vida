@@ -10,21 +10,20 @@ class DashboardService:
         admins = len([u for u in usuarios if u["perfil"] == "admin"])
 
         doadores = total - admins
+
+        perfis = {}
+        for usuario in usuarios:
+            perfil = usuario["perfil"]
+            perfis[perfil] = perfis.get(perfil, 0) + 1
         
-        # dPrimeira = len([u for u in usuarios if u["perfil"] == "primeira"])
-
-        # regulares = len([u for u in usuarios if u["perfil"] == "regular"])
-
-        # esporadicos = len([u for u in usuarios if u["perfil"] == "esporadico"])
-
-        # voluntarios = len([u for u in usuarios if u["perfil"] == "voluntario"])
-
-        # direcionados = len([u for u in usuarios if u["perfil"] == "direcionado"])
-
         return {
             "admins": admins,
             "doadores": doadores,
-            "total_de_usuarios": total
+            "total_de_usuarios": total,
+            "usuarios_por_perfil": [
+                {"perfil": perfil, "total": quantidade}
+                for perfil, quantidade in perfis.items()
+            ]
         }
     
     # "dPrimeira": dPrimeira,
